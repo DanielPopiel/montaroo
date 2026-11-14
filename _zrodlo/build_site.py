@@ -18,7 +18,7 @@ BETA_MAIL = 'mailto:hello@montaroo.com?subject=Montaroo%20beta%20for%20Windows'
 
 T = {
  'en': dict(
-  lang='en', path='', other='pl/', other_label='PL', other_name='Polski',
+  lang='en', path='../', other='pl/', other_label='PL', other_name='Polski',
   title='Montaroo · Hop from footage to film',
   desc='Montaroo turns the hours of clips from your trip into a film with chapters, music and a story. It edits on your Windows PC, offline. Nothing is uploaded.',
   nav_how='How it works', nav_private='Offline', nav_films='Films', nav_price='Pricing', nav_cta='Download',
@@ -73,7 +73,7 @@ T = {
   skip='Skip to content', menu='Menu', mute='Video without sound', pause='Pause video', play='Play video', film_lang='Film narrated with Polish captions.',
  ),
  'pl': dict(
-  lang='pl', path='../', other='../', other_label='EN', other_name='English',
+  lang='pl', path='../../', other='../', other_label='EN', other_name='English',
   title='Montaroo · Od nagrań do filmu jednym skokiem',
   desc='Montaroo zamienia godziny nagrań z wyjazdu w film z rozdziałami, muzyką i historią. Montuje na twoim komputerze z Windows, offline. Nic nie jest wysyłane.',
   nav_how='Jak to działa', nav_private='Offline', nav_films='Filmy', nav_price='Cennik', nav_cta='Pobierz',
@@ -171,13 +171,14 @@ def page(L):
     dl_note = '' if DOWNLOAD_URL else f'<p class="small">{L["dl_beta_note"]}</p>'
     mark_s = svg_inline('montaroo-znak-mono-jasny','next-mark','')
     ears = '<svg class="ears" viewBox="38 6 34 30" aria-hidden="true"><ellipse cx="49.6" cy="22.6" rx="5.2" ry="11" transform="rotate(-14 49.6 22.6)"/><ellipse cx="63" cy="26" rx="5.2" ry="11" transform="rotate(24 63 26)"/></svg>'
-    alt_href = 'https://montaroo.com/' + ('pl/' if L['lang']=='en' else '')
-    self_href = 'https://montaroo.com/' + ('pl/' if L['lang']=='pl' else '')
+    alt_href = 'https://montaroo.com/preview/' + ('pl/' if L['lang']=='en' else '')
+    self_href = 'https://montaroo.com/preview/' + ('pl/' if L['lang']=='pl' else '')
     return f'''<!doctype html>
 <html lang="{L['lang']}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
 <title>{L['title']}</title>
 <meta name="description" content="{L['desc']}">
 <link rel="canonical" href="{self_href}">
@@ -316,7 +317,8 @@ def page(L):
 '''
 
 for k in ('en','pl'):
-    out = os.path.join(ROOT, 'index.html' if k=='en' else 'pl/index.html')
+    # pełna strona produktu leży w /preview/ (niewidoczna dla wyszukiwarek) do czasu premiery
+    out = os.path.join(ROOT, 'preview', 'index.html' if k=='en' else 'pl/index.html')
     os.makedirs(os.path.dirname(out), exist_ok=True)
     open(out,'w',encoding='utf-8').write(page(T[k]))
     print('ok', out)
