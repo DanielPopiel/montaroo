@@ -49,15 +49,15 @@ def keyframes():
         css.append(f'@keyframes tl{i}{{0%,{pct(t-0.01)}{{opacity:.28}}{pct(t)},{pct(DOWN+0.3)}{{opacity:1}}{pct(DOWN+0.45)},100%{{opacity:.28}}}}')
     return '\n'.join(css)
 
-def joey_svg():
+def joey_svg(joey_col='#10251F'):
     s = 3.1; tx = 300 - 64 * s; ty = 414 - 120 * s
     e1 = mark.ellipse_path(*mark.EAR1); e2 = mark.ellipse_path(*mark.EAR2)
     tri = mark.rtri(mark.TRI, mark.TRIR)
     hat = ('<g class="hat"><path d="M41 31 C41 17 69 15 72 30 Z" fill="#F2B544"/>'
            '<rect x="35" y="28.6" width="42" height="5" rx="2.5" fill="#F2B544"/>'
            '<path d="M55.5 17.6 C57 21 57.6 25 57.4 29" stroke="#10251F" stroke-width="2.2" fill="none" stroke-linecap="round" opacity=".55"/></g>')
-    joey = (f'<g class="joey"><g class="ears"><path d="{e1}{e2}" fill="#10251F"/></g>'
-            f'<path d="{tri}" fill="#10251F"/>{hat}</g>')
+    joey = (f'<g class="joey"><g class="ears"><path d="{e1}{e2}" fill="{joey_col}"/></g>'
+            f'<path d="{tri}" fill="{joey_col}"/>{hat}</g>')
     pouch = mark.pouch()
     dashes = ''.join(f'<rect class="st st{i}" x="{27 + i*12.6:.1f}" y="73.4" width="7.4" height="3.6" rx="1.8"/>' for i in range(N))
     back = (f'<svg class="layer back" viewBox="0 0 600 420" aria-hidden="true"><defs><clipPath id="jc"><rect x="0" y="-60" width="128" height="126"/></clipPath></defs>'
@@ -146,16 +146,18 @@ footer b{font:800 16px/1.2 Gabarito,sans-serif;color:var(--noc)}
 }
 '''
 
-def page(L):
+def page(L, V=None):
+    V = V or {}
+    L = {**L, **V.get('text', {})}
     pre = L['pre']
-    logo = open(os.path.join(ROOT, 'brand', 'logo', 'svg', 'montaroo-poziome-kolor.svg'), encoding='utf-8').read()
+    logo = open(os.path.join(ROOT, 'brand', 'logo', 'svg', f"montaroo-poziome-{V.get('logo','kolor')}.svg"), encoding='utf-8').read()
     import re
     logo = re.sub(r'<title>.*?</title>', '', logo).replace('<svg ', '<svg class="logo" role="img" aria-label="montaroo" ', 1)
-    back, front = joey_svg()
+    back, front = joey_svg(V.get('joey', '#10251F'))
     clips = ''.join(f'<div class="clip" style="background-image:url({pre}assets/img/soon/c_{c}.jpg);animation:clip{i} var(--loop) infinite"></div>' for i, c in enumerate(CLIPS))
     track = ''.join(f'<span style="animation:tl{i} var(--loop) infinite"></span>' for i in range(N))
     css = CSS_BASE.replace('PRE/', pre).replace('LOOPs', f'{LOOP}s') + keyframes()
-    css += '\n' + '\n'.join(f'.st{i}{{animation:st{i} var(--loop) infinite}}' for i in range(N))
+    css += '\n' + '\n'.join(f'.st{i}{{animation:st{i} var(--loop) infinite}}' for i in range(N)) + '\n' + V.get('css', '').replace('PRE/', pre)
     return f'''<!doctype html>
 <html lang="{L['lang']}">
 <head>
@@ -177,13 +179,13 @@ def page(L):
 <style>{css}</style>
 </head>
 <body>
-<header class="top"><a href="./" aria-label="montaroo">{logo}</a><a class="lang" href="{L['other']}" hreflang="{'pl' if L['lang']=='en' else 'en'}">{L['other_label']}</a></header>
+<header class="top"><a href="./" aria-label="montaroo">{logo}</a><a class="lang" href="{L['other']}" hreflang="{'pl' if L['lang']=='en' else 'en'}">{L['other_label']}</a></header>{V.get('after_header','')}
 <main>
  <div class="stagewrap" aria-hidden="true">
   <div class="sizer"></div>
   <div class="stage">
    <div class="pile"><span></span><span></span><span></span><b>{L['pile']}</b></div>
-   {back}{clips}{front}
+   {V.get('decor_back','')}{back}{clips}{front}{V.get('decor','')}
    <div class="bubble">{L['bubble']}</div>
   </div>
   <div class="timeline"><div class="track">{track}</div><div class="ticks"></div><div class="ph"></div></div>
@@ -217,7 +219,8 @@ def page(L):
 </html>
 '''
 
-for k in ('en', 'pl'):
+if __name__ == '__main__':
+  for k in ('en', 'pl'):
     out = os.path.join(ROOT, 'index.html' if k == 'en' else 'pl/index.html')
     os.makedirs(os.path.dirname(out), exist_ok=True)
     open(out, 'w', encoding='utf-8').write(page(T[k]))
