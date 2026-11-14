@@ -72,6 +72,7 @@ h1{font:800 clamp(44px,6vw,84px)/.93 Gabarito,"Arial Rounded MT Bold",sans-serif
 .ph::after{content:"";position:absolute;left:-7px;top:-6px;width:14px;height:10px;background:var(--noc);clip-path:polygon(0 0,100% 0,50% 100%)}
 footer{padding:20px clamp(20px,5vw,56px) 28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--cichy)}
 footer b{font:800 16px/1.2 Gabarito,sans-serif;color:var(--noc)}
+footer a{color:var(--cichy);text-underline-offset:3px}footer a:hover{color:var(--noc)}
 @media (max-width:860px){
  main{grid-template-columns:1fr;padding-top:0}
  .stagewrap{order:-1;max-width:520px}
@@ -170,7 +171,7 @@ footer b{font:800 16px/1.2 Gabarito,sans-serif;color:var(--noc)}
   </div>
  </div>
 </main>
-<footer><b>Od nagrań do filmu jednym skokiem.</b><span>© 2026 Montaroo · montaroo.com</span></footer>
+<footer><b>Od nagrań do filmu jednym skokiem.</b><span>© 2026 Montaroo · <a href="/pl/prywatnosc/">Prywatność</a> · <a href="/pl/licencja/">Licencja</a></span></footer>
 <script>
 (()=>{
  const w=document.querySelector('.stagewrap'),st=document.querySelector('.stage');

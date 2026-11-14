@@ -71,12 +71,12 @@ T = {
             desc='Montaroo, the automatic travel film editor for Windows, is launching soon. Offline, on your PC.',
             pile='1,434 clips', bubble='Almost cut!', k='Coming soon', h='Our joey is still in the edit.',
             p='Montaroo turns the clips from your trip into a film with chapters, music and a story. Offline, on your Windows PC. Launching soon.',
-            status='Rendering montaroo.com', note='The last 2% always take the longest.', tagline='Hop from footage to film.'),
+            status='Rendering montaroo.com', note='The last 2% always take the longest.', tagline='Hop from footage to film.', legal='<a href="/privacy/">Privacy</a> · <a href="/eula/">EULA</a>'),
  'pl': dict(lang='pl', pre='../', other='../', other_label='EN', title='Montaroo · już wkrótce',
             desc='Montaroo, automatyczny montaż filmów z podróży na Windows, startuje wkrótce. Offline, na twoim komputerze.',
             pile='1 434 nagrania', bubble='Prawie zmontowane!', k='Już wkrótce', h='Joey jeszcze montuje.',
             p='Montaroo zamienia nagrania z wyjazdu w film z rozdziałami, muzyką i historią. Offline, na twoim komputerze z Windows. Startujemy wkrótce.',
-            status='Montujemy montaroo.com', note='Ostatnie 2% zawsze trwa najdłużej.', tagline='Od nagrań do filmu jednym skokiem.'),
+            status='Montujemy montaroo.com', note='Ostatnie 2% zawsze trwa najdłużej.', tagline='Od nagrań do filmu jednym skokiem.', legal='<a href="/pl/prywatnosc/">Prywatność</a> · <a href="/pl/licencja/">Licencja</a>'),
 }
 
 CSS_BASE = r'''
@@ -135,6 +135,7 @@ h1{font:800 clamp(44px,6vw,84px)/.93 Gabarito,"Arial Rounded MT Bold",sans-serif
 .ph::after{content:"";position:absolute;left:-7px;top:-6px;width:14px;height:10px;background:var(--noc);clip-path:polygon(0 0,100% 0,50% 100%)}
 footer{padding:20px clamp(20px,5vw,56px) 28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--cichy)}
 footer b{font:800 16px/1.2 Gabarito,sans-serif;color:var(--noc)}
+footer a{color:var(--cichy);text-underline-offset:3px}footer a:hover{color:var(--noc)}
 @media (max-width:860px){
  main{grid-template-columns:1fr;padding-top:0}
  .stagewrap{order:-1;max-width:520px}
@@ -206,7 +207,7 @@ def page(L, V=None):
   </div>
  </div>
 </main>
-<footer><b>{L['tagline']}</b><span>© 2026 Montaroo · montaroo.com</span></footer>
+<footer><b>{L['tagline']}</b><span>© 2026 Montaroo · {L.get('legal','')}</span></footer>
 <script>
 (()=>{{
  const w=document.querySelector('.stagewrap'),st=document.querySelector('.stage');

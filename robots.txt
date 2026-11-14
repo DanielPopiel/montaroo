@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /_zrodlo/
+Disallow: /warianty/
+Disallow: /kampania/zrodlo/
+
+Sitemap: https://montaroo.com/sitemap.xml

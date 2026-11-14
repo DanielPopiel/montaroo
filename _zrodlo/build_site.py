@@ -308,7 +308,7 @@ def page(L):
  <div class="wrap foot-in">
   <a class="brand" href="#top" aria-label="montaroo">{logo_d}</a>
   <p>{L['foot']}<br><span class="muted">{L['foot_c']}</span></p>
-  <p class="foot-r"><a href="{L['other']}" hreflang="{'pl' if L['lang']=='en' else 'en'}">{L['other_name']}</a> · <a href="mailto:hello@montaroo.com">hello@montaroo.com</a></p>
+  <p class="foot-r"><a href="{L['other']}" hreflang="{'pl' if L['lang']=='en' else 'en'}">{L['other_name']}</a> · <a href="mailto:hello@montaroo.com">hello@montaroo.com</a><br>{'<a href="/privacy/">Privacy</a> · <a href="/eula/">EULA</a>' if L['lang']=='en' else '<a href="/pl/prywatnosc/">Prywatność</a> · <a href="/pl/licencja/">Licencja</a>'}</p>
  </div>
 </footer>
 <script src="{pre}assets/site.js" defer></script>
