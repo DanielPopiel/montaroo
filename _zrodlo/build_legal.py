@@ -36,10 +36,10 @@ DOCS = {
 
 <h2>4. When you write to us</h2>
 <p>If you email us, for example to join the beta or ask a question, we use your email address and what you write to reply and, for beta testers, to send the download link and beta updates. Legal basis: our legitimate interest in answering you and running the beta (Art. 6(1)(f) GDPR), or steps you ask for before a purchase (Art. 6(1)(b)). We keep these emails for up to 2 years after our last contact, unless you ask us to delete them sooner.</p>
-<p>If we start a mailing list, we will only add you with your consent, every email will have an unsubscribe link, and this policy will name the provider we use.</p>
+<p><b>Beta list.</b> If you sign up on montaroo.com, we store your email address and the date you joined, to tell you when the Windows beta opens and send occasional launch news. Legal basis: your consent (Art. 6(1)(a) GDPR), which you can withdraw at any time with the unsubscribe link in every email or by writing to us. The list is run by MailerLite (MailerLite Limited, Ireland), which processes the data on our behalf as our processor. We keep your address until you unsubscribe, or for up to 12 months after Montaroo launches if you never open our emails.</p>
 
 <h2>5. Who else sees your data</h2>
-<p>Only the providers named above (GitHub for the website, our email provider for messages, Microsoft for Store purchases, OpenStreetMap if you switch it on). We do not sell or share your data with advertisers. Some of these providers are based in the USA; transfers rely on the EU–US Data Privacy Framework or the EU standard contractual clauses.</p>
+<p>Only the providers named above (GitHub for the website, our email provider for messages, MailerLite for the beta list, Microsoft for Store purchases, OpenStreetMap if you switch it on). We do not sell or share your data with advertisers. Some of these providers are based in the USA; transfers rely on the EU–US Data Privacy Framework or the EU standard contractual clauses.</p>
 
 <h2>6. Your rights</h2>
 <p>You can ask us for access to your data, correction, deletion, restriction, a copy in a portable format, and you can object to processing based on legitimate interest. Write to {M}. You can also complain to the Polish data protection authority, the President of the Personal Data Protection Office (UODO, <a href="https://uodo.gov.pl/en">uodo.gov.pl</a>), or to the authority in your own EU country.</p>
@@ -70,10 +70,10 @@ DOCS = {
 
 <h2>4. Gdy do nas piszesz</h2>
 <p>Jeśli napiszesz do nas maila, np. żeby dołączyć do bety albo zadać pytanie, używamy twojego adresu i treści wiadomości, żeby odpowiedzieć, a testerom bety także żeby wysłać link do pobrania i informacje o becie. Podstawa prawna: nasz prawnie uzasadniony interes w odpowiedzi i prowadzeniu bety (art. 6 ust. 1 lit. f RODO) albo działania na twoje żądanie przed zakupem (art. 6 ust. 1 lit. b). Maile przechowujemy do 2 lat od ostatniego kontaktu, chyba że wcześniej poprosisz o usunięcie.</p>
-<p>Jeśli uruchomimy newsletter, dopiszemy cię do niego tylko za twoją zgodą, w każdym mailu będzie link do wypisania się, a ta polityka wskaże dostawcę, z którego korzystamy.</p>
+<p><b>Lista oczekujących na betę.</b> Jeśli zapiszesz się na montaroo.com, przechowujemy twój adres e-mail i datę zapisu, żeby dać ci znać o starcie bety na Windows i czasem wysłać informacje o premierze. Podstawa prawna: twoja zgoda (art. 6 ust. 1 lit. a RODO), którą możesz w każdej chwili wycofać linkiem do wypisania w każdym mailu albo pisząc do nas. Listę obsługuje MailerLite (MailerLite Limited, Irlandia), który przetwarza dane w naszym imieniu jako podmiot przetwarzający. Adres trzymamy do czasu wypisania się, a jeśli nie otwierasz naszych maili – najdłużej 12 miesięcy po premierze Montaroo.</p>
 
 <h2>5. Kto jeszcze widzi dane</h2>
-<p>Tylko wymienieni wyżej dostawcy (GitHub dla strony, nasz dostawca poczty dla maili, Microsoft przy zakupie w Sklepie, OpenStreetMap jeśli go włączysz). Nie sprzedajemy danych i nie przekazujemy ich reklamodawcom. Część dostawców ma siedzibę w USA; przekazanie opiera się na programie EU–US Data Privacy Framework albo standardowych klauzulach umownych UE.</p>
+<p>Tylko wymienieni wyżej dostawcy (GitHub dla strony, nasz dostawca poczty dla maili, MailerLite dla listy oczekujących, Microsoft przy zakupie w Sklepie, OpenStreetMap jeśli go włączysz). Nie sprzedajemy danych i nie przekazujemy ich reklamodawcom. Część dostawców ma siedzibę w USA; przekazanie opiera się na programie EU–US Data Privacy Framework albo standardowych klauzulach umownych UE.</p>
 
 <h2>6. Twoje prawa</h2>
 <p>Możesz żądać dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania i przeniesienia, a także wnieść sprzeciw wobec przetwarzania opartego na prawnie uzasadnionym interesie. Napisz na {M}. Możesz też złożyć skargę do Prezesa Urzędu Ochrony Danych Osobowych (<a href="https://uodo.gov.pl">uodo.gov.pl</a>).</p>

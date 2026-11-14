@@ -71,12 +71,16 @@ T = {
             desc='Montaroo, the automatic travel film editor for Windows, is launching soon. Offline, on your PC.',
             pile='1,434 clips', bubble='Almost cut!', k='Coming soon', h='Our joey is still in the edit.',
             p='Montaroo turns the clips from your trip into a film with chapters, music and a story. Offline, on your Windows PC. Launching soon.',
-            status='Rendering montaroo.com', note='The last 2% always take the longest.', tagline='Hop from footage to film.', legal='<a href="/privacy/">Privacy</a> · <a href="/eula/">EULA</a>'),
+            status='Rendering montaroo.com', note='The last 2% always take the longest.', tagline='Hop from footage to film.', legal='<a href="/privacy/">Privacy</a> · <a href="/eula/">EULA</a>',
+            f_label='Your email', f_btn='Join the beta list', f_note='One email when the Windows beta opens. No spam, unsubscribe any time. <a href="/privacy/">Privacy</a>',
+            f_ok='You’re on the list. We’ll write when the beta opens.', f_err='That didn’t go through. Check the address or write to hello@montaroo.com.', f_bad='Enter a valid email address.'),
  'pl': dict(lang='pl', pre='../', other='../', other_label='EN', title='Montaroo · już wkrótce',
             desc='Montaroo, automatyczny montaż filmów z podróży na Windows, startuje wkrótce. Offline, na twoim komputerze.',
             pile='1 434 nagrania', bubble='Prawie zmontowane!', k='Już wkrótce', h='Joey jeszcze montuje.',
             p='Montaroo zamienia nagrania z wyjazdu w film z rozdziałami, muzyką i historią. Offline, na twoim komputerze z Windows. Startujemy wkrótce.',
-            status='Montujemy montaroo.com', note='Ostatnie 2% zawsze trwa najdłużej.', tagline='Od nagrań do filmu jednym skokiem.', legal='<a href="/pl/prywatnosc/">Prywatność</a> · <a href="/pl/licencja/">Licencja</a>'),
+            status='Montujemy montaroo.com', note='Ostatnie 2% zawsze trwa najdłużej.', tagline='Od nagrań do filmu jednym skokiem.', legal='<a href="/pl/prywatnosc/">Prywatność</a> · <a href="/pl/licencja/">Licencja</a>',
+            f_label='Twój e-mail', f_btn='Zapisz mnie na betę', f_note='Jeden mail, gdy ruszy beta na Windows. Bez spamu, wypisujesz się jednym kliknięciem. <a href="/pl/prywatnosc/">Prywatność</a>',
+            f_ok='Jesteś na liście. Napiszemy, gdy ruszy beta.', f_err='Nie udało się zapisać. Sprawdź adres albo napisz na hello@montaroo.com.', f_bad='Wpisz poprawny adres e-mail.'),
 }
 
 CSS_BASE = r'''
@@ -99,6 +103,22 @@ main{flex:1;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);ali
 .k{font:600 13px/16px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--akcent);margin:0 0 18px}
 h1{font:800 clamp(44px,6vw,84px)/.93 Gabarito,"Arial Rounded MT Bold",sans-serif;letter-spacing:-.045em;margin:0 0 24px}
 .lead{font-size:clamp(17px,1.5vw,19px);line-height:1.55;max-width:31em;margin:0 0 30px}
+.wl{max-width:460px;margin:0 0 30px}
+.wl-row{display:flex;gap:8px}
+.wl input[type=email]{flex:1;min-width:0;font:400 16px/1.2 Inter,sans-serif;color:var(--noc);background:var(--karta);border:0;box-shadow:inset 0 0 0 1.5px #10251f40;border-radius:12px;padding:15px 16px}
+.wl input[type=email]::placeholder{color:#3e5a50b3}
+.wl input[type=email]:focus{outline:none;box-shadow:inset 0 0 0 2px var(--noc)}
+.wl button{font:600 16px/1 Inter,sans-serif;color:var(--noc);background:var(--ochra);border:0;border-radius:12px;padding:15px 20px;cursor:pointer;white-space:nowrap;transition:transform .2s cubic-bezier(.3,1.6,.5,1),filter .2s}
+.wl button:hover{filter:brightness(1.07);transform:translateY(-2px)}
+.wl button[disabled]{opacity:.6;cursor:wait;transform:none}
+.wl-note{font-size:13px;line-height:1.5;color:var(--cichy);margin:10px 0 0}
+.wl-note a{color:var(--cichy);text-underline-offset:3px}
+.wl-msg{font:600 15px/1.45 Inter,sans-serif;margin:10px 0 0;min-height:1em}
+.wl-msg.err{color:var(--akcent)}
+.wl.done{margin-bottom:36px}
+.wl.done .wl-row,.wl.done .wl-note{display:none}
+.wl.done .wl-msg{background:var(--noc);color:var(--piasek);padding:14px 16px;border-radius:14px 14px 14px 4px;margin:0}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .status{max-width:420px}
 .status-row{display:flex;justify-content:space-between;font:600 14px/1 Inter,sans-serif;margin-bottom:10px;gap:12px}
 .status-row .tc{font-variant-numeric:tabular-nums;color:var(--cichy);font-weight:400}
@@ -142,6 +162,9 @@ footer a{color:var(--cichy);text-underline-offset:3px}footer a:hover{color:var(-
  .text{text-align:center}
  .lead{margin-left:auto;margin-right:auto}
  .status{max-width:440px;margin:0 auto}
+ .wl{margin-left:auto;margin-right:auto}
+ .wl-row{flex-direction:column}
+ .wl-note,.wl-msg{text-align:center}
  .note{text-align:center}
  footer{flex-direction:column;align-items:center;text-align:center;gap:6px}
  .top{padding-bottom:6px}
@@ -164,6 +187,8 @@ def page(L, V=None):
     track = ''.join(f'<span style="animation:tl{i} var(--loop) infinite"></span>' for i in range(N))
     css = CSS_BASE.replace('PRE/', pre).replace('LOOPs', f'{LOOP}s') + keyframes()
     css += '\n' + '\n'.join(f'.st{i}{{animation:st{i} var(--loop) infinite}}' for i in range(N)) + '\n' + V.get('css', '').replace('PRE/', pre)
+    import json
+    ok, err, bad = (json.dumps(L[k], ensure_ascii=False) for k in ('f_ok','f_err','f_bad'))
     return f'''<!doctype html>
 <html lang="{L['lang']}">
 <head>
@@ -200,6 +225,13 @@ def page(L, V=None):
   <p class="k">{L['k']}</p>
   <h1>{L['h']}</h1>
   <p class="lead">{L['p']}</p>
+  <form class="wl" id="wl" action="https://assets.mailerlite.com/jsonp/2795574/forms/204133928705984083/subscribe" method="post" novalidate>
+   <div class="wl-row"><label class="hp" for="wl-e">{L['f_label']}</label><input id="wl-e" type="email" name="fields[email]" placeholder="{L['f_label']}" autocomplete="email" required><button type="submit">{L['f_btn']}</button></div>
+   <div class="hp" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
+   <input type="hidden" name="ml-submit" value="1"><input type="hidden" name="anticsrf" value="true">
+   <p class="wl-note">{L['f_note']}</p>
+   <p class="wl-msg" id="wl-m" role="status" aria-live="polite"></p>
+  </form>
   <div class="status" role="status">
    <div class="status-row"><span>{L['status']}…</span><span><span class="tc" id="tc">00:00:00:00</span> · <b id="pc">0%</b></span></div>
    <div class="bar"><i id="bar"></i></div>
@@ -209,9 +241,19 @@ def page(L, V=None):
 </main>
 <footer><b>{L['tagline']}</b><span>© 2026 Montaroo · {L.get('legal','')}</span></footer>
 <script>
+const MSG={{ok:{ok},err:{err},bad:{bad}}};
 (()=>{{
  const w=document.querySelector('.stagewrap'),st=document.querySelector('.stage');
  const fit=()=>st.style.setProperty('--s',w.clientWidth/600);fit();addEventListener('resize',fit);
+ const f=document.getElementById('wl'),m=document.getElementById('wl-m'),e=document.getElementById('wl-e'),b=f.querySelector('button');
+ f.addEventListener('submit',async ev=>{{ev.preventDefault();m.className='wl-msg';m.textContent='';
+  if(f.website.value)return;
+  if(!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]{{2,}}$/.test(e.value.trim())){{m.className='wl-msg err';m.textContent=MSG.bad;e.focus();return}}
+  b.disabled=true;
+  try{{const r=await fetch(f.action,{{method:'POST',body:new FormData(f),headers:{{Accept:'application/json'}}}});const j=await r.json().catch(()=>({{}}));
+   if(r.ok&&j.success!==false){{f.classList.add('done');m.textContent=MSG.ok}}else throw 0}}
+  catch(_){{m.className='wl-msg err';m.textContent=MSG.err;b.disabled=false}}
+ }});
  const t0=performance.now(),tc=document.getElementById('tc'),pc=document.getElementById('pc'),bar=document.getElementById('bar');
  const p2=n=>String(n).padStart(2,'0');
  const tick=()=>{{const s=(performance.now()-t0)/1000,f=Math.floor(s*25)%25,sec=Math.floor(s);
