@@ -60,7 +60,7 @@ def joey_svg():
             f'<path d="{tri}" fill="#10251F"/>{hat}</g>')
     pouch = mark.pouch()
     dashes = ''.join(f'<rect class="st st{i}" x="{27 + i*12.6:.1f}" y="73.4" width="7.4" height="3.6" rx="1.8"/>' for i in range(N))
-    back = (f'<svg class="layer back" viewBox="0 0 600 420" aria-hidden="true"><defs><clipPath id="jc"><rect x="0" y="-60" width="128" height="176"/></clipPath></defs>'
+    back = (f'<svg class="layer back" viewBox="0 0 600 420" aria-hidden="true"><defs><clipPath id="jc"><rect x="0" y="-60" width="128" height="126"/></clipPath></defs>'
             f'<g transform="translate({tx:.1f} {ty:.1f}) scale({s})"><g clip-path="url(#jc)">{joey}</g></g></svg>')
     front = (f'<svg class="layer front" viewBox="0 0 600 420" aria-hidden="true"><g transform="translate({tx:.1f} {ty:.1f}) scale({s})">'
              f'<g class="pouch"><path d="{pouch}" fill="#E2642A"/>{dashes}</g></g></svg>')
