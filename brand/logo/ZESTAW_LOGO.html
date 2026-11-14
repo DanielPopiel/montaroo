@@ -1,0 +1,53 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><title>montaroo · zestaw logo</title>
+<style>
+@font-face{font-family:Gabarito;font-weight:800;src:url(../fonts/gabarito-latin-800-normal.woff2)}
+@font-face{font-family:Inter;font-weight:400;src:url(../fonts/inter-latin-400-normal.woff2)}
+@font-face{font-family:Inter;font-weight:600;src:url(../fonts/inter-latin-600-normal.woff2)}
+:root{--ink:#10251F;--och:#E2642A;--gold:#F2B544;--euc:#3E7C68;--sand:#F4E9D6}
+*{box-sizing:border-box}body{margin:0;background:var(--sand);color:var(--ink);font:15px/1.5 Inter,sans-serif;padding:56px;width:1600px}
+h1{font:800 64px/1 Gabarito;letter-spacing:-.03em;margin:0 0 6px}h2{font:800 28px/1.1 Gabarito;margin:0 0 14px}
+.k{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#3E5A50}
+.g{display:grid;gap:20px}.c2{grid-template-columns:1.4fr 1fr}.c4{grid-template-columns:repeat(4,1fr)}
+.card{border-radius:20px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;gap:18px;min-height:260px}
+.w{background:#fff}.d{background:var(--ink);color:var(--sand)}.o{background:var(--och)}.s{background:#FBF6EC}
+.card img{display:block;margin:auto}.n{font-size:13px;font-weight:600}.n span{font-weight:400;opacity:.75}
+section{margin-top:48px}
+.cs{position:relative;display:inline-block;margin:auto;padding:56px;outline:1.5px dashed var(--och);outline-offset:-1px;background:repeating-linear-gradient(45deg,#E2642A14 0 6px,transparent 6px 12px)}
+.cs img{background:#fff}
+.mins{display:flex;align-items:flex-end;gap:40px}
+.mins figure{margin:0;text-align:center;font-size:12px}
+</style></head><body>
+<p class="k">Montaroo · zestaw logo v1 · 10.11.2026</p><h1>Joey z uszami + Gabarito 800</h1>
+<p style="max-width:760px">Znak zbudowany na siatce 128 × 128 (moduł 8). Najważniejsza zależność: wysokość torby = wysokość małej litery w napisie, więc „o” leżą dokładnie w pasie torby, a joey wygląda ponad linię tekstu.</p>
+
+<section class="g c2">
+ <div class="card w"><img src="svg/montaroo-poziome-kolor.svg" width="620"><p class="n">Pozioma · podstawowa <span>— strona, dokumenty, nagłówki</span></p></div>
+ <div class="card w"><img src="svg/montaroo-pionowe-kolor.svg" width="300"><p class="n">Pionowa <span>— okładki, plakaty, ekran startowy</span></p></div>
+</section>
+<section class="g c4" style="margin-top:20px">
+ <div class="card s"><img src="svg/montaroo-znak-kolor.svg" width="170"><p class="n">Sam znak</p></div>
+ <div class="card d"><img src="svg/montaroo-znak-kolor-ciemne.svg" width="170"><p class="n">Znak na ciemnym</p></div>
+ <div class="card w"><img src="svg/montaroo-znak-mono-ciemny.svg" width="170"><p class="n">Jednokolorowy ciemny <span>— druk 1 kolor, grawer</span></p></div>
+ <div class="card d"><img src="svg/montaroo-znak-mono-jasny.svg" width="170"><p class="n">Jednokolorowy jasny</p></div>
+</section>
+<section class="g c2" style="margin-top:20px">
+ <div class="card d"><img src="svg/montaroo-poziome-kolor-ciemne.svg" width="560"><p class="n">Pozioma na ciemnym</p></div>
+ <div class="card o"><img src="svg/montaroo-poziome-mono-ciemny.svg" width="460"><p class="n">Jednokolorowa na ochrze <span>— gdy tło jest w kolorze marki</span></p></div>
+</section>
+
+<section><h2>Pole ochronne</h2>
+<div class="g c2"><div class="card s"><div class="cs"><img src="svg/montaroo-poziome-kolor.svg" width="560"></div>
+<p class="n">Wokół logo zostaw co najmniej <b>wysokość torby</b> (= wysokość litery „o”). Nic nie wchodzi w zakreskowane pole.</p></div>
+<div class="card s"><img src="montaroo-konstrukcja.svg" width="440"><p class="n">Konstrukcja <span>— torba: półkole R 48 + pas 8; play: zaokrąglony trójkąt (r 6) schowany do 1/4 w torbie; uszy: elipsy 5,2 × 11 pochylone −14° i +24°</span></p></div></div>
+</section>
+
+<section><h2>Minimalne rozmiary</h2>
+<div class="card w"><div class="mins">
+<figure><img src="svg/montaroo-poziome-kolor.svg" width="110"><figcaption>pozioma: min. 110 px / 25 mm</figcaption></figure>
+<figure><img src="svg/montaroo-pionowe-kolor.svg" width="64"><figcaption>pionowa: min. 64 px / 16 mm</figcaption></figure>
+<figure><img src="svg/montaroo-znak-kolor.svg" width="32"><figcaption>znak ze szwem: min. 32 px / 8 mm</figcaption></figure>
+<figure><img src="ikony/favicon-32.png" width="32"><figcaption>poniżej 32 px: wersja bez szwu</figcaption></figure>
+<figure><img src="ikony/favicon-16.png" width="16"><figcaption>16 px: grubsze uszy</figcaption></figure>
+<figure><img src="ikony/ikona-aplikacji.svg" width="128"><figcaption>ikona programu (.ico 16–256)</figcaption></figure>
+</div></div></section>
+</body></html>
