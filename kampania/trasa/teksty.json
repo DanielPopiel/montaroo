@@ -1,0 +1,70 @@
+{
+ "tiles": {
+  "1": {
+   "k": "Sound familiar?",
+   "h": [
+    "1,434 clips.",
+    "Never watched."
+   ],
+   "s": "Every trip ends up in a folder.",
+   "size": 124
+  },
+  "2": {
+   "k": "Roo fact #4",
+   "h": [
+    "A kangaroo can",
+    "clear 8 m in",
+    "one hop."
+   ],
+   "s": "Montaroo gets footage to film in one.",
+   "size": 112
+  },
+  "3": {
+   "k": "Roo fact #3",
+   "h": [
+    "A joey stays",
+    "in the pouch",
+    "for 8 months."
+   ],
+   "s": "Your footage never leaves it. Offline.",
+   "size": 112
+  },
+  "4": {
+   "k": "Roo fact #2",
+   "h": [
+    "Kangaroos",
+    "don't hop",
+    "backwards."
+   ],
+   "s": "Neither do we. Folder in, film out.",
+   "size": 124
+  },
+  "5": {
+   "k": "Family trips",
+   "h": [
+    "5 phones.",
+    "1 film."
+   ],
+   "s": "Everyone's footage. One story.",
+   "size": 150
+  },
+  "6": {
+   "k": "Roo fact #1",
+   "h": [
+    "A group of",
+    "kangaroos is",
+    "called a mob."
+   ],
+   "s": "Join ours. Link in bio.",
+   "size": 112
+  }
+ },
+ "post_of_tile": {
+  "1": 6,
+  "2": 5,
+  "3": 4,
+  "4": 3,
+  "5": 2,
+  "6": 1
+ }
+}

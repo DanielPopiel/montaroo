@@ -1,6 +1,6 @@
 # Montaroo – spot 20 s (16:9 i 9:16). Animacja znaku: joey wyskakuje z torby na pierwszym uderzeniu.
-import sys, math, os, io, subprocess
-sys.path.insert(0, '/home/claude/mt')
+import sys, math, os, io, subprocess, json
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'brand', 'logo', 'zrodlo'))
 import numpy as np, cairosvg
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 import mark
@@ -11,9 +11,10 @@ FPS = 25; BPM = 120; BEAT = 60 / BPM; T0 = 1.0   # pierwsze uderzenie
 DUR = 20.0
 LANG = sys.argv[2] if len(sys.argv) > 2 else 'en'
 FMT = sys.argv[1] if len(sys.argv) > 1 else 'h'   # h = 1920x1080, v = 1080x1920
-W, H = (1920, 1080) if FMT == 'h' else (1080, 1920)
+W, H = {'h': (3840, 2160), 'v': (1080, 1920), 'hd': (1920, 1080)}[FMT]
+if FMT == 'hd': FMT = 'h'
 OUT = f'out_{FMT}_{LANG}'; os.makedirs(OUT, exist_ok=True)
-GAB = '/home/claude/spot/gab800.ttf'; INT6 = '/home/claude/spot/inter600.ttf'
+HERE = os.path.dirname(os.path.abspath(__file__)); GAB = HERE + '/gab800.ttf'; INT6 = HERE + '/inter600.ttf'
 TX = {
  'en': dict(c=['1,434 clips.', '10 days.', '3 phones and a drone.', 'One folder in.', 'One film out.', 'Cut to the beat.', 'Told like a story.'],
             end='Hop from footage to film.', sub='Free for Windows · montaroo.com', said='“More drone over Monument Valley.”'),
@@ -74,19 +75,30 @@ def logo_frame(t, bg=INK, word_t=None, scale=1.0, dy=0):
     lg = render_svg(inner, W, H, f'0 0 {W} {H}')
     im.paste(lg, (0, 0), lg); return im
 
-FR = sorted(os.listdir('/home/claude/spot/fr'))
-def foot(seg, off):
-    """klatka z hero.mp4: segment 0..9 (po 60 klatek), przesunięcie w klatkach."""
-    i = min(len(FR) - 1, seg * 60 + 10 + int(off))
-    im = Image.open('/home/claude/spot/fr/' + FR[i]).convert('RGB')
-    # kadrowanie do formatu
-    sw, sh = im.size; tr = W / H
-    if sw / sh > tr: nw = int(sh * tr); im = im.crop(((sw - nw) // 2, 0, (sw - nw) // 2 + nw, sh))
-    else: nh = int(sw / tr); im = im.crop((0, (sh - nh) // 2, sw, (sh - nh) // 2 + nh))
-    im = im.resize((W, H), Image.LANCZOS)
-    # lekkie przybliżenie (Ken Burns)
-    z = 1.0 + off * 0.0025; cw, ch = W / z, H / z
-    return im.crop((int((W - cw) / 2), int((H - ch) / 2), int((W + cw) / 2), int((H + ch) / 2))).resize((W, H), Image.LANCZOS)
+# Ujęcia: oryginały 4K z drona (G:\\Mój dysk\\USA\\Tata\\w poziomie). (plik, start w s, środek kadru 9:16 w 0..1)
+SRC = os.environ.get('SRC', '/mnt/user-data/uploads/USA/Tata/w poziomie')
+CLIPS = {c: f for f in os.listdir(SRC) for c in [f.split('_')[4]] if f.startswith('dji_fly') and f.endswith('.mp4')}
+SHOTS = json.load(open(os.path.join(HERE, 'ujecia.json')))
+CACHE = f'/tmp/cuts_{FMT}_{W}'
+def cut_frames(shot, L):
+    """klatki ujęcia (25 kl/s) wycięte i przeskalowane do formatu, z pamięcią podręczną."""
+    clip, t0, cx = shot
+    d = f'{CACHE}/{clip}_{t0}_{cx}'
+    if not os.path.isdir(d):
+        os.makedirs(d)
+        sw, sh = 3840, 2160; tr = W / H
+        if sw / sh > tr:
+            cw = int(sh * tr) // 2 * 2; x = int(min(sw - cw, max(0, cx * sw - cw / 2)))
+            crop = f'crop={cw}:{sh}:{x}:0'
+        else:
+            ch = int(sw / tr) // 2 * 2; crop = f'crop={sw}:{ch}:0:{(sh - ch) // 2}'
+        subprocess.run(['ffmpeg', '-v', 'error', '-ss', str(t0), '-i', f'{SRC}/{CLIPS[clip]}', '-t', str(L + 0.2),
+                        '-vf', f'fps={FPS},{crop},scale={W}:{H}:flags=lanczos', '-q:v', '1', f'{d}/%04d.jpg'], check=True)
+    return d
+def foot(shot, off, L=0.5):
+    d = cut_frames(shot, L)
+    fs = sorted(os.listdir(d)); i = min(len(fs) - 1, int(off))
+    return Image.open(f'{d}/{fs[i]}').convert('RGB')
 
 def font(p, s): return ImageFont.truetype(p, s)
 def caption(im, text, size, pos='bl', col=SAND, shadow=True, t=1.0, maxw=None):
@@ -132,8 +144,7 @@ def frame(t):
     # S2: montaż na beat 3.0 .. 9.0 (12 cięć po 0.5 s), napisy co 2 s
     if t < 9.0:
         k = int((t - 3.0) / BEAT); off = ((t - 3.0) % BEAT) * FPS
-        seq = [2, 4, 1, 6, 3, 7, 5, 8, 2, 6, 4, 9]
-        im = foot(seq[k], off + (k % 3) * 8)
+        im = foot(SHOTS['s2'][k], off)
         ci = int((t - 3.0) / 2.0); ct = (t - 3.0) % 2.0
         caption(im, TX['c'][ci], int(H * (0.11 if FMT == 'h' else 0.075)), t=ct)
         return im
@@ -154,9 +165,9 @@ def frame(t):
     # S4: montaż 13.0 .. 17.0 cięcia co pół beatu przy refrenie
     if t < 17.0:
         step = BEAT if t < 15.0 else BEAT / 2
-        k = int((t - 13.0) / step); off = ((t - 13.0) % step) * FPS
-        seq = [3, 6, 8, 4, 7, 5, 9, 2, 6, 3, 8, 4, 7, 5]
-        im = foot(seq[k % len(seq)], off + 14)
+        k = int((t - 13.0) / step) if t < 15.0 else 4 + int((t - 15.0) / step)
+        off = (((t - 13.0) if t < 15.0 else (t - 15.0)) % step) * FPS
+        im = foot(SHOTS['s4'][k], off, step)
         ci = 5 if t < 15.0 else 6; ct = (t - 13.0) % 2.0
         caption(im, TX['c'][ci], int(H * (0.11 if FMT == 'h' else 0.075)), t=ct)
         if t > 16.75: im = Image.blend(im, Image.new('RGB', (W, H), hx(INK)), ease_out((t - 16.75) / 0.25))
@@ -179,5 +190,5 @@ if __name__ == '__main__':
     N = int(DUR * FPS)
     rng = range(N) if not only else [int(float(x) * FPS) for x in only.split(',')]
     for i in rng:
-        frame(i / FPS).save(f'{OUT}/{i:04d}.jpg', quality=92)
+        frame(i / FPS).save(f'{OUT}/{i:04d}.png', compress_level=1)
     print('frames', OUT)
