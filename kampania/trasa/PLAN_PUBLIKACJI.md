@@ -115,4 +115,4 @@ TikTok nie daje klikalnego linku w profilu (dopiero od 1000 obserwujących), wi�
 | 8 60 km/h (T8) | nd 22.11, 19:00 | zaplanowany |
 | 9 group chat (T7) | pn 23.11, 19:00 | zaplanowany (bez hasztagów) |
 
-Posty z ujawnieniem treści komercyjnej da się edytować tylko w aplikacji TikTok (nie w Studio w przeglądarce).
+Posty z ujawnieniem treści komercyjnej da się edytować i usuwać tylko w aplikacji TikTok (w Studio w przeglądarce edycja i „Usuń” są zablokowane).
