@@ -1,7 +1,8 @@
 from fontTools.ttLib import TTFont
 from fontTools.pens.svgPathPen import SVGPathPen
 from fontTools.pens.transformPen import TransformPen
-F=TTFont('/home/claude/fonts/fontsource-gabarito-5.3.0/package/files/gabarito-latin-800-normal.woff2')
+import os
+F=TTFont(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'fonts', 'gabarito-latin-800-normal.woff2'))
 UPM=F['head'].unitsPerEm; gs=F.getGlyphSet(); cmap=F.getBestCmap(); hm=F['hmtx']
 os2=F['OS/2']
 XH=os2.sxHeight; CAP=os2.sCapHeight
