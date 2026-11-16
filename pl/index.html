@@ -187,7 +187,7 @@ footer a{color:var(--cichy);text-underline-offset:3px}footer a:hover{color:var(-
    <div class="wl-row"><label class="hp" for="wl-e">Twój e-mail</label><input id="wl-e" type="email" name="fields[email]" placeholder="Twój e-mail" autocomplete="email" required><button type="submit">Zapisz mnie na betę</button></div>
    <div class="hp" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
    <input type="hidden" name="ml-submit" value="1"><input type="hidden" name="anticsrf" value="true">
-   <p class="wl-note">Jeden mail, gdy ruszy beta na Windows. Bez spamu, wypisujesz się jednym kliknięciem. <a href="/pl/prywatnosc/">Prywatność</a></p>
+   <p class="wl-note">Mail powitalny teraz, potem jeden, gdy ruszy beta na Windows. Bez spamu, wypisujesz się jednym kliknięciem. <a href="/pl/prywatnosc/">Prywatność</a></p>
    <p class="wl-msg" id="wl-m" role="status" aria-live="polite"></p>
   </form>
   <div class="status" role="status">
@@ -199,7 +199,7 @@ footer a{color:var(--cichy);text-underline-offset:3px}footer a:hover{color:var(-
 </main>
 <footer><b>Od nagrań do filmu jednym skokiem.</b><span>© 2026 Montaroo · <a href="/pl/prywatnosc/">Prywatność</a> · <a href="/pl/licencja/">Licencja</a></span></footer>
 <script>
-const MSG={ok:"Jesteś na liście. Napiszemy, gdy ruszy beta.",err:"Nie udało się zapisać. Sprawdź adres albo napisz na hello@montaroo.com.",bad:"Wpisz poprawny adres e-mail."};
+const MSG={ok:"Jesteś na liście. Mail powitalny już leci (zajrzyj też do Ofert albo Spamu).",err:"Nie udało się zapisać. Sprawdź adres albo napisz na hello@montaroo.com.",bad:"Wpisz poprawny adres e-mail."};
 (()=>{
  const w=document.querySelector('.stagewrap'),st=document.querySelector('.stage');
  const fit=()=>st.style.setProperty('--s',w.clientWidth/600);fit();addEventListener('resize',fit);

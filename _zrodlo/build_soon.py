@@ -72,15 +72,15 @@ T = {
             pile='1,434 clips', bubble='Almost cut!', k='Coming soon', h='Our joey is still in the edit.',
             p='Montaroo turns the clips from your trip into a film with chapters, music and a story. Offline, on your Windows PC. Launching soon.',
             status='Rendering montaroo.com', note='The last 2% always take the longest.', tagline='Hop from footage to film.', legal='<a href="/privacy/">Privacy</a> · <a href="/eula/">EULA</a>',
-            f_label='Your email', f_btn='Join the beta list', f_note='One email when the Windows beta opens. No spam, unsubscribe any time. <a href="/privacy/">Privacy</a>',
-            f_ok='You’re on the list. We’ll write when the beta opens.', f_err='That didn’t go through. Check the address or write to hello@montaroo.com.', f_bad='Enter a valid email address.'),
+            f_label='Your email', f_btn='Join the beta list', f_note='A welcome email now, then one when the Windows beta opens. No spam, unsubscribe any time. <a href="/privacy/">Privacy</a>',
+            f_ok='You’re on the list. A welcome email is on its way (check Promotions or Spam if you don’t see it).', f_err='That didn’t go through. Check the address or write to hello@montaroo.com.', f_bad='Enter a valid email address.'),
  'pl': dict(lang='pl', pre='../', other='../', other_label='EN', title='Montaroo · już wkrótce',
             desc='Montaroo, automatyczny montaż filmów z podróży na Windows, startuje wkrótce. Offline, na twoim komputerze.',
             pile='1 434 nagrania', bubble='Prawie zmontowane!', k='Już wkrótce', h='Joey jeszcze montuje.',
             p='Montaroo zamienia nagrania z wyjazdu w film z rozdziałami, muzyką i historią. Offline, na twoim komputerze z Windows. Startujemy wkrótce.',
             status='Montujemy montaroo.com', note='Ostatnie 2% zawsze trwa najdłużej.', tagline='Od nagrań do filmu jednym skokiem.', legal='<a href="/pl/prywatnosc/">Prywatność</a> · <a href="/pl/licencja/">Licencja</a>',
-            f_label='Twój e-mail', f_btn='Zapisz mnie na betę', f_note='Jeden mail, gdy ruszy beta na Windows. Bez spamu, wypisujesz się jednym kliknięciem. <a href="/pl/prywatnosc/">Prywatność</a>',
-            f_ok='Jesteś na liście. Napiszemy, gdy ruszy beta.', f_err='Nie udało się zapisać. Sprawdź adres albo napisz na hello@montaroo.com.', f_bad='Wpisz poprawny adres e-mail.'),
+            f_label='Twój e-mail', f_btn='Zapisz mnie na betę', f_note='Mail powitalny teraz, potem jeden, gdy ruszy beta na Windows. Bez spamu, wypisujesz się jednym kliknięciem. <a href="/pl/prywatnosc/">Prywatność</a>',
+            f_ok='Jesteś na liście. Mail powitalny już leci (zajrzyj też do Ofert albo Spamu).', f_err='Nie udało się zapisać. Sprawdź adres albo napisz na hello@montaroo.com.', f_bad='Wpisz poprawny adres e-mail.'),
 }
 
 CSS_BASE = r'''
