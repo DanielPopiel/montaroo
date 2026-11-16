@@ -98,21 +98,40 @@ Waitlist: montaroo.com (link in bio)
 
 #montaroo #groupchat #familytrip #travelfilm #videoediting
 
-## TikTok @montarooapp – codziennie o 19:00 (zaplanowane w TikTok Studio 15.11.2026)
+## Rząd 4 – spoty z klipami AI (posty 10–12)
+Siatka: lewy kafel T10 = Telefon, środek T11 = Laptop, prawy T12 = The Hop. Publikujemy od prawej (jak w rzędach 1–3).
+Zawsze publikować trójkami – pojedynczy post spoza planu przesuwa całą panoramę.
+Okładka: „Wybierz z komputera” → okladka-post-N_T*.png, kadr „Oryginał”.
 
-Te same Reele EN i okładki co na IG, kolejność 1→9, po jednym dziennie. Każdy post ma oznaczenie „Twoja marka” (ujawnienie treści promocyjnej).
-TikTok nie daje klikalnego linku w profilu (dopiero od 1000 obserwujących), więc w opisach jest samo „montaroo.com” zamiast „link in bio”.
+| Post | Data | Reel | Okładka |
+|---|---|---|---|
+| 10 | 25.11, 19:00 | spot-hop_en.mp4 | okladka-post-10_T12.png |
+| 11 | 27.11, 19:00 | spot-laptop_en.mp4 | okladka-post-11_T11.png |
+| 12 | 29.11, 19:00 | spot-telefon_en.mp4 | okladka-post-12_T10.png |
 
-| Post | Data | Status |
-|---|---|---|
-| 1 mob (T6) | nd 15.11, 18:15 | opublikowany |
-| 2 5 phones (T5) | pn 16.11, 19:00 | zaplanowany (bez hasztagów) |
-| 3 backwards (T4) | wt 17.11, 19:00 | zaplanowany |
-| 4 pouch (T3) | śr 18.11, 19:00 | zaplanowany |
-| 5 8 m hop (T2) | czw 19.11, 19:00 | zaplanowany |
-| 6 1,434 clips (T1) | pt 20.11, 19:00 | zaplanowany (bez hasztagów) |
-| 7 camera roll (T9) | sob 21.11, 19:00 | zaplanowany |
-| 8 60 km/h (T8) | nd 22.11, 19:00 | zaplanowany |
-| 9 group chat (T7) | pn 23.11, 19:00 | zaplanowany (bez hasztagów) |
+### Post 10 – The Hop
+From footage to film. In one hop. 🦘
 
-Posty z ujawnieniem treści komercyjnej da się edytować i usuwać tylko w aplikacji TikTok (w Studio w przeglądarce edycja i „Usuń” są zablokowane).
+Montaroo is a video editor that turns your whole trip folder into a finished film, cut to the beat of your music.
+
+Join the waitlist: montaroo.com (link in bio)
+
+#montaroo #travelfilm #videoediting #roadtrip #kangaroo
+
+### Post 11 – Laptop
+900 clips from one trip. Editing them? Days. 😩
+
+With Montaroo it's one hop: drop in the folder, pick a song, get the film.
+
+Waitlist: montaroo.com (link in bio)
+
+#montaroo #videoediting #travelvideo #editinglife #kangaroo
+
+### Post 12 – Storage full
+47 GB from one trip. Watched: 0. 📱
+
+Your phone is full of moments nobody has seen. Montaroo turns them into a film you'll actually rewatch.
+
+Waitlist: montaroo.com (link in bio)
+
+#montaroo #storagefull #travelfilm #cameraroll #videoediting
