@@ -102,12 +102,13 @@ Waitlist: montaroo.com (link in bio)
 Siatka: lewy kafel T10 = Telefon, środek T11 = Laptop, prawy T12 = The Hop. Publikujemy od prawej (jak w rzędach 1–3).
 Zawsze publikować trójkami – pojedynczy post spoza planu przesuwa całą panoramę.
 Okładka: „Wybierz z komputera” → okladka-post-N_T*.png, kadr „Oryginał”.
+TikTok i YouTube Shorts: te same 3 spoty zaplanowane natywnie (TikTok Studio, YouTube Studio) na 24–26.11, 19:00 – pliki w trasa/tiktok/ (lżejsze, <3,8 MB).
 
 | Post | Data | Reel | Okładka |
 |---|---|---|---|
-| 10 | 25.11, 19:00 | spot-hop_en.mp4 | okladka-post-10_T12.png |
-| 11 | 27.11, 19:00 | spot-laptop_en.mp4 | okladka-post-11_T11.png |
-| 12 | 29.11, 19:00 | spot-telefon_en.mp4 | okladka-post-12_T10.png |
+| 10 | 24.11, 19:00 | spot-hop_en.mp4 | okladka-post-10_T12.png |
+| 11 | 25.11, 19:00 | spot-laptop_en.mp4 | okladka-post-11_T11.png |
+| 12 | 26.11, 19:00 | spot-telefon_en.mp4 | okladka-post-12_T10.png |
 
 ### Post 10 – The Hop
 From footage to film. In one hop. 🦘
