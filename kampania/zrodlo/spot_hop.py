@@ -37,6 +37,22 @@ if WARIANT == 'telefon':
                    (3.6, 6.1, ['Montaroo zrobi', 'z tego film.'])]}[LANG]
     OUTF = sys.argv[5] if len(sys.argv) > 5 else os.path.join(R.OUT, f'spot-telefon_{LANG}.mp4')
 
+if WARIANT == 'ognisko':
+    CUTS = [(0, 1.6, 0.0, 6.3)]
+    HOOK = {'en': [(0.1, 1.5, ['“Who’s editing', 'the trip video?”']), (1.55, 3.5, ['“Not me.”']),
+                   (3.6, 6.1, ['Montaroo will.'])],
+            'pl': [(0.1, 1.5, ['„Kto zmontuje', 'film z wyjazdu?”']), (1.55, 3.5, ['„Nie ja.”']),
+                   (3.6, 6.1, ['Montaroo.'])]}[LANG]
+    OUTF = sys.argv[5] if len(sys.argv) > 5 else os.path.join(R.OUT, f'spot-ognisko_{LANG}.mp4')
+
+if WARIANT == 'lotnisko':
+    CUTS = [(0, 0.2, 0.0, 6.3)]
+    HOOK = {'en': [(0.1, 1.5, ['200 GB', 'of memories.']), (1.55, 3.5, ['Now what?']),
+                   (3.6, 6.1, ['Montaroo turns it', 'into a film.'])],
+            'pl': [(0.1, 1.5, ['200 GB', 'wspomnień.']), (1.55, 3.5, ['I co teraz?']),
+                   (3.6, 6.1, ['Montaroo zrobi', 'z nich film.'])]}[LANG]
+    OUTF = sys.argv[5] if len(sys.argv) > 5 else os.path.join(R.OUT, f'spot-lotnisko_{LANG}.mp4')
+
 def read_clip(path):
     p = subprocess.run(['ffmpeg', '-v', 'error', '-i', path, '-vf',
                         f'scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H}',
@@ -59,7 +75,7 @@ def main():
     ff = subprocess.Popen(['ffmpeg', '-y', '-v', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}',
                            '-r', str(FPS), '-i', '-', '-i', os.environ.get('MUZYKA', os.path.join(R.OUT, 'montaroo-hop_podklad.wav')),
                            '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18', '-pix_fmt', 'yuv420p',
-                           '-c:a', 'aac', '-b:a', '256k', '-af', 'loudnorm=I=-14:TP=-1', '-shortest', '-movflags', '+faststart', OUTF],
+                           '-c:a', 'aac', '-b:a', '256k', '-af', 'loudnorm=I=-14:TP=-1,aresample=48000', '-ar', '48000', '-shortest', '-movflags', '+faststart', OUTF],
                           stdin=subprocess.PIPE)
     ink = np.array([int(INK[i:i+2], 16) for i in (1, 3, 5)], np.uint8)
     for f in range(int(DUR * FPS)):
