@@ -3,6 +3,9 @@
 Animacja 7,2 s w pętli: klipy z wyjazdu skaczą do torby (każdy = jeden szew),
 na końcu joey w kasku wyskakuje z torby. Pod sceną oś czasu z głowicą jak w programie do montażu.
 Uruchom z katalogu repozytorium:  python _zrodlo/build_soon.py
+
+UWAGA (21.11): obecną stroną główną jest scena „Historia” (python _zrodlo/build_historia.py). build_soon.py nadpisałby index.html starą wersją;
+zostaje jako źródło wspólnych elementów (teksty T, piksel Meta pixel_parts, warianty reklamowe).
 """
 import os, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -66,6 +69,9 @@ def joey_svg(joey_col='#10251F'):
              f'<g class="pouch"><path d="{pouch}" fill="#E2642A"/>{dashes}</g></g></svg>')
     return back, front
 
+# ID piksela Meta (Menedżer zdarzeń). Puste = piksel i baner zgody wyłączone. Można też: set MONTAROO_PIXEL=123... przed budowaniem.
+PIXEL_ID = os.environ.get('MONTAROO_PIXEL', '').strip()
+
 T = {
  'en': dict(lang='en', pre='', other='pl/', other_label='PL', title='Montaroo · coming soon',
             desc='Montaroo, the automatic travel film editor for Windows, is launching soon. Offline, on your PC.',
@@ -73,14 +79,16 @@ T = {
             p='Montaroo turns the clips from your trip into a film with chapters, music and a story. Offline, on your Windows PC. Launching soon.',
             status='Rendering montaroo.com', note='The last 2% always take the longest.', tagline='Hop from footage to film.', legal='<a href="/privacy/">Privacy</a> · <a href="/eula/">EULA</a>',
             f_label='Your email', f_btn='Join the beta list', f_note='A welcome email now, then one when the Windows beta opens. No spam, unsubscribe any time. <a href="/privacy/">Privacy</a>',
-            f_ok='You’re on the list. A welcome email is on its way (check Promotions or Spam if you don’t see it).', f_err='That didn’t go through. Check the address or write to hello@montaroo.com.', f_bad='Enter a valid email address.'),
+            f_ok='You’re on the list. A welcome email is on its way (check Promotions or Spam if you don’t see it).', f_err='That didn’t go through. Check the address or write to hello@montaroo.com.', f_bad='Enter a valid email address.',
+            c_txt='We’d like to use Meta’s advertising cookie to measure our ads. Optional.', c_yes='Accept', c_no='Decline', c_more='/privacy/', c_more_l='Privacy'),
  'pl': dict(lang='pl', pre='../', other='../', other_label='EN', title='Montaroo · już wkrótce',
             desc='Montaroo, automatyczny montaż filmów z podróży na Windows, startuje wkrótce. Offline, na twoim komputerze.',
             pile='1 434 nagrania', bubble='Prawie zmontowane!', k='Już wkrótce', h='Joey jeszcze montuje.',
             p='Montaroo zamienia nagrania z wyjazdu w film z rozdziałami, muzyką i historią. Offline, na twoim komputerze z Windows. Startujemy wkrótce.',
             status='Montujemy montaroo.com', note='Ostatnie 2% zawsze trwa najdłużej.', tagline='Od nagrań do filmu jednym skokiem.', legal='<a href="/pl/prywatnosc/">Prywatność</a> · <a href="/pl/licencja/">Licencja</a>',
             f_label='Twój e-mail', f_btn='Zapisz mnie na betę', f_note='Mail powitalny teraz, potem jeden, gdy ruszy beta na Windows. Bez spamu, wypisujesz się jednym kliknięciem. <a href="/pl/prywatnosc/">Prywatność</a>',
-            f_ok='Jesteś na liście. Mail powitalny już leci (zajrzyj też do Ofert albo Spamu).', f_err='Nie udało się zapisać. Sprawdź adres albo napisz na hello@montaroo.com.', f_bad='Wpisz poprawny adres e-mail.'),
+            f_ok='Jesteś na liście. Mail powitalny już leci (zajrzyj też do Ofert albo Spamu).', f_err='Nie udało się zapisać. Sprawdź adres albo napisz na hello@montaroo.com.', f_bad='Wpisz poprawny adres e-mail.',
+            c_txt='Chcemy użyć reklamowego pliku cookie Meta, żeby mierzyć skuteczność reklam. Opcjonalnie.', c_yes='Zgadzam się', c_no='Odrzucam', c_more='/pl/prywatnosc/', c_more_l='Prywatność'),
 }
 
 CSS_BASE = r'''
@@ -175,6 +183,33 @@ footer a{color:var(--cichy);text-underline-offset:3px}footer a:hover{color:var(-
 }
 '''
 
+def pixel_parts(L):
+    """(css, html banera zgody, js) piksela Meta – puste, gdy PIXEL_ID nie ustawiony. Używane też przez build_historia.py."""
+    import json
+    px_css = ''
+    cb_html = ''
+    px_js = ''
+    if PIXEL_ID:
+        px_css = '\n.cb{position:fixed;left:16px;right:16px;bottom:16px;max-width:560px;margin:0 auto;z-index:50;background:#10251F;color:#F4E9D6;border-radius:16px;padding:14px 16px;display:none;gap:12px;align-items:center;flex-wrap:wrap;font:400 14px/1.45 Inter,sans-serif;box-shadow:0 10px 30px #0004}.cb.on{display:flex}.cb p{margin:0;flex:1 1 220px}.cb a{color:#F4E9D6;text-underline-offset:3px}.cb button{font:600 14px/1 Inter,sans-serif;border:0;border-radius:10px;padding:11px 16px;cursor:pointer}.cb .y{background:#E2642A;color:#10251F}.cb .n{background:transparent;color:#F4E9D6;box-shadow:inset 0 0 0 1.5px #F4E9D680}'
+    if PIXEL_ID:
+        cb_html = f'<div class="cb" id="cb" role="dialog" aria-label="Cookies"><p>{L["c_txt"]} <a href="{L["c_more"]}">{L["c_more_l"]}</a></p><button class="n" id="cn">{L["c_no"]}</button><button class="y" id="cy">{L["c_yes"]}</button></div>'
+        px_js = """
+const PX=%s;
+(()=>{
+ const ls=(k,v)=>{try{return v===undefined?localStorage.getItem(k):localStorage.setItem(k,v)}catch(_){return null}};
+ const cb=document.getElementById('cb');
+ window.mpx=()=>{if(window.fbq)return;
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init',PX);fbq('track','PageView')};
+ window.mlead=()=>{if(window.fbq)fbq('track','Lead')};
+ const c=ls('mc');
+ if(c==='1')mpx();else if(c===null)cb.classList.add('on');
+ document.getElementById('cy').onclick=()=>{ls('mc','1');cb.classList.remove('on');mpx()};
+ document.getElementById('cn').onclick=()=>{ls('mc','0');cb.classList.remove('on')};
+})();
+""" % json.dumps(PIXEL_ID)
+    return px_css, cb_html, px_js
+
 def page(L, V=None):
     V = V or {}
     L = {**L, **V.get('text', {})}
@@ -189,6 +224,9 @@ def page(L, V=None):
     css += '\n' + '\n'.join(f'.st{i}{{animation:st{i} var(--loop) infinite}}' for i in range(N)) + '\n' + V.get('css', '').replace('PRE/', pre)
     import json
     ok, err, bad = (json.dumps(L[k], ensure_ascii=False) for k in ('f_ok','f_err','f_bad'))
+
+    px_css, cb_html, px_js = pixel_parts(L)
+    css += px_css
     return f'''<!doctype html>
 <html lang="{L['lang']}">
 <head>
@@ -239,7 +277,7 @@ def page(L, V=None):
   </div>
  </div>
 </main>
-<footer><b>{L['tagline']}</b><span>© 2026 Montaroo · {L.get('legal','')}</span></footer>
+<footer><b>{L['tagline']}</b><span>© 2026 Montaroo · {L.get('legal','')}</span></footer>{cb_html}
 <script>
 const MSG={{ok:{ok},err:{err},bad:{bad}}};
 (()=>{{
@@ -251,7 +289,7 @@ const MSG={{ok:{ok},err:{err},bad:{bad}}};
   if(!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]{{2,}}$/.test(e.value.trim())){{m.className='wl-msg err';m.textContent=MSG.bad;e.focus();return}}
   b.disabled=true;
   try{{const r=await fetch(f.action,{{method:'POST',body:new FormData(f),headers:{{Accept:'application/json'}}}});const j=await r.json().catch(()=>({{}}));
-   if(r.ok&&j.success!==false){{f.classList.add('done');m.textContent=MSG.ok}}else throw 0}}
+   if(r.ok&&j.success!==false){{f.classList.add('done');m.textContent=MSG.ok;if(window.mlead)mlead()}}else throw 0}}
   catch(_){{m.className='wl-msg err';m.textContent=MSG.err;b.disabled=false}}
  }});
  const t0=performance.now(),tc=document.getElementById('tc'),pc=document.getElementById('pc'),bar=document.getElementById('bar');
@@ -262,7 +300,7 @@ const MSG={{ok:{ok},err:{err},bad:{bad}}};
   requestAnimationFrame(tick)}};
  if(!matchMedia('(prefers-reduced-motion: reduce)').matches)tick();else{{pc.textContent='98%';bar.style.width='98%'}}
 }})();
-</script>
+{px_js}</script>
 </body>
 </html>
 '''

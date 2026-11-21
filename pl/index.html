@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Montaroo · już wkrótce</title>
-<meta name="description" content="Montaroo, automatyczny montaż filmów z podróży na Windows, startuje wkrótce. Offline, na twoim komputerze.">
+<title>Montaroo · Zamień nagrania z podróży w film</title>
+<meta name="description" content="Montaroo zamienia nagrania z GoPro, DJI i telefonu w gotowy film z podróży: najlepsze momenty, cięcia do rytmu, rozdziały, mapa trasy. Offline, na twoim komputerze z Windows. Darmowa beta.">
 <link rel="alternate" hreflang="en" href="https://montaroo.com/">
 <link rel="alternate" hreflang="pl" href="https://montaroo.com/pl/">
-<meta property="og:title" content="Montaroo · już wkrótce">
-<meta property="og:description" content="Montaroo, automatyczny montaż filmów z podróży na Windows, startuje wkrótce. Offline, na twoim komputerze.">
+<meta property="og:title" content="Montaroo · Zamień nagrania z podróży w film">
+<meta property="og:description" content="Montaroo zamienia nagrania z GoPro, DJI i telefonu w gotowy film z podróży: najlepsze momenty, cięcia do rytmu, rozdziały, mapa trasy. Offline, na twoim komputerze z Windows. Darmowa beta.">
 <meta property="og:image" content="https://montaroo.com/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#F4E9D6">
@@ -16,209 +16,71 @@
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <link rel="preload" href="../assets/fonts/gabarito-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
-<style>
-@font-face{font-family:Gabarito;font-weight:800;font-display:swap;src:url(../assets/fonts/gabarito-latin-800-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+2212}
+<link rel="preload" href="../assets/historia/kafle.jpg" as="image"><link rel="preload" href="../assets/historia/kafle-szary.jpg" as="image"><link rel="preload" href="../assets/historia/klatki.jpg" as="image">
+<style>@font-face{font-family:Gabarito;font-weight:800;font-display:swap;src:url(../assets/fonts/gabarito-latin-800-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+2212}
 @font-face{font-family:Gabarito;font-weight:800;font-display:swap;src:url(../assets/fonts/gabarito-latin-ext-800-normal.woff2) format("woff2");unicode-range:U+0100-024F}
 @font-face{font-family:Inter;font-weight:400;font-display:swap;src:url(../assets/fonts/inter-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+2212}
 @font-face{font-family:Inter;font-weight:400;font-display:swap;src:url(../assets/fonts/inter-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-024F}
 @font-face{font-family:Inter;font-weight:600;font-display:swap;src:url(../assets/fonts/inter-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+2212}
-@font-face{font-family:Inter;font-weight:600;font-display:swap;src:url(../assets/fonts/inter-latin-ext-600-normal.woff2) format("woff2");unicode-range:U+0100-024F}
-:root{--noc:#10251F;--ochra:#E2642A;--zloto:#F2B544;--euk:#3E7C68;--piasek:#F4E9D6;--karta:#FBF6EC;--cichy:#3E5A50;--akcent:#B4471A;--szew:#F4E9D6;--loop:7.2s}
-*{box-sizing:border-box}html,body{margin:0;height:100%}
-body{background:var(--piasek);color:var(--noc);font:400 16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;min-height:100vh;overflow-x:hidden}
-a{color:var(--noc)}
-:focus-visible{outline:3px solid var(--zloto);outline-offset:3px;border-radius:4px}
-.top{display:flex;justify-content:space-between;align-items:center;padding:22px clamp(20px,5vw,56px)}
-.top .logo{height:32px;width:auto;display:block}
-.lang{font:600 14px/1 Inter,sans-serif;text-decoration:none;padding:12px 14px;border-radius:8px;box-shadow:inset 0 0 0 1px #10251f24}
-.lang:hover{background:var(--karta)}
-main{flex:1;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:center;gap:clamp(24px,5vw,72px);max-width:1240px;width:100%;margin:0 auto;padding:12px clamp(20px,5vw,56px) 40px}
-.k{font:600 13px/16px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--akcent);margin:0 0 18px}
-h1{font:800 clamp(44px,6vw,84px)/.93 Gabarito,"Arial Rounded MT Bold",sans-serif;letter-spacing:-.045em;margin:0 0 24px}
-.lead{font-size:clamp(17px,1.5vw,19px);line-height:1.55;max-width:31em;margin:0 0 30px}
-.wl{max-width:460px;margin:0 0 30px}
-.wl-row{display:flex;gap:8px}
-.wl input[type=email]{flex:1;min-width:0;font:400 16px/1.2 Inter,sans-serif;color:var(--noc);background:var(--karta);border:0;box-shadow:inset 0 0 0 1.5px #10251f40;border-radius:12px;padding:15px 16px}
-.wl input[type=email]::placeholder{color:#3e5a50b3}
-.wl input[type=email]:focus{outline:none;box-shadow:inset 0 0 0 2px var(--noc)}
-.wl button{font:600 16px/1 Inter,sans-serif;color:var(--noc);background:var(--ochra);border:0;border-radius:12px;padding:15px 20px;cursor:pointer;white-space:nowrap;transition:transform .2s cubic-bezier(.3,1.6,.5,1),filter .2s}
-.wl button:hover{filter:brightness(1.07);transform:translateY(-2px)}
+@font-face{font-family:Inter;font-weight:600;font-display:swap;src:url(../assets/fonts/inter-latin-ext-600-normal.woff2) format("woff2");unicode-range:U+0100-024F}</style>
+<link rel="stylesheet" href="../assets/historia/historia.css?v=a1a6cf89">
+<style>
+.top .logo{height:30px;width:auto;display:block}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .wl button[disabled]{opacity:.6;cursor:wait;transform:none}
-.wl-note{font-size:13px;line-height:1.5;color:var(--cichy);margin:10px 0 0}
-.wl-note a{color:var(--cichy);text-underline-offset:3px}
-.wl-msg{font:600 15px/1.45 Inter,sans-serif;margin:10px 0 0;min-height:1em}
 .wl-msg.err{color:var(--akcent)}
-.wl.done{margin-bottom:36px}
+.wl-msg{color:var(--noc)}
+.wl.done{margin-bottom:8px}
 .wl.done .wl-row,.wl.done .wl-note{display:none}
 .wl.done .wl-msg{background:var(--noc);color:var(--piasek);padding:14px 16px;border-radius:14px 14px 14px 4px;margin:0}
-.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-.status{max-width:420px}
-.status-row{display:flex;justify-content:space-between;font:600 14px/1 Inter,sans-serif;margin-bottom:10px;gap:12px}
-.status-row .tc{font-variant-numeric:tabular-nums;color:var(--cichy);font-weight:400}
-.bar{height:10px;border-radius:99px;background:#10251f14;overflow:hidden}
-.bar i{display:block;height:100%;width:0;background:var(--ochra);border-radius:99px}
-.note{font-size:14px;color:var(--cichy);margin:10px 0 0}
-.stagewrap{position:relative;width:100%;max-width:600px;justify-self:center}
-.stage{position:relative;width:600px;height:420px;transform-origin:0 0;transform:scale(var(--s,1))}
-.sizer{width:100%;aspect-ratio:600/420}
-.stagewrap .stage{position:absolute;left:0;top:0}
-.layer{position:absolute;inset:0;width:600px;height:420px;overflow:visible}
-.front{z-index:3}.back{z-index:1}
-.joey{transform-box:view-box;transform-origin:64px 64px;animation:pop var(--loop) infinite}
-.hat{transform-box:fill-box;transform-origin:20% 100%;animation:hat var(--loop) infinite}
-.ears{transform-box:fill-box;transform-origin:50% 100%;animation:ears var(--loop) infinite}
-.pouch{transform-box:fill-box;transform-origin:50% 0;animation:bump var(--loop) infinite}
-.st{fill:var(--szew)}
-.pile{position:absolute;left:8px;top:118px;width:128px;height:72px;z-index:0}
-.pile span{position:absolute;inset:0;border-radius:10px;background:var(--noc);box-shadow:0 0 0 3px var(--piasek)}
-.pile span:nth-child(1){transform:translate(-8px,10px) rotate(-9deg);opacity:.35}
-.pile span:nth-child(2){transform:translate(-4px,5px) rotate(-4deg);opacity:.6}
-.pile span:nth-child(3){background:var(--noc) url(../assets/img/soon/c_mv.jpg) center/cover}
-.pile b{position:absolute;left:0;right:0;top:calc(100% + 18px);text-align:center;font:600 13px/1.2 Inter,sans-serif;color:var(--cichy)}
-.clip{position:absolute;left:0;top:0;width:128px;height:72px;border-radius:10px;background:var(--noc) center/cover;box-shadow:0 0 0 3px var(--piasek),0 10px 22px -12px #10251f99;z-index:2;
- offset-path:path("M72 154 C 150 -70, 280 -40, 300 300");offset-rotate:0deg;offset-anchor:50% 50%;opacity:0}
-.bubble{position:absolute;left:404px;top:58px;z-index:4;background:var(--noc);color:var(--piasek);font:600 15px/1 Inter,sans-serif;padding:12px 14px;border-radius:14px 14px 14px 4px;white-space:nowrap;animation:bubble var(--loop) infinite;opacity:0}
-.timeline{position:relative;margin:6px 34px 0;height:46px;z-index:5}
-.track{position:absolute;left:0;right:0;top:8px;height:26px;display:flex;gap:4px}
-.track span{flex:1;border-radius:6px;background:var(--euk);opacity:.28}
-.track span:nth-child(odd){background:var(--ochra)}
-.ticks{position:absolute;left:0;right:0;top:38px;height:6px;background:repeating-linear-gradient(90deg,#10251f55 0 2px,transparent 2px 25%)}
-.ph{position:absolute;top:0;bottom:0;left:0;width:0;z-index:2;animation:head var(--loop) linear infinite}
-.ph::before{content:"";position:absolute;left:-1px;top:0;bottom:0;width:2px;background:var(--noc)}
-.ph::after{content:"";position:absolute;left:-7px;top:-6px;width:14px;height:10px;background:var(--noc);clip-path:polygon(0 0,100% 0,50% 100%)}
-footer{padding:20px clamp(20px,5vw,56px) 28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--cichy)}
-footer b{font:800 16px/1.2 Gabarito,sans-serif;color:var(--noc)}
-footer a{color:var(--cichy);text-underline-offset:3px}footer a:hover{color:var(--noc)}
-@media (max-width:860px){
- main{grid-template-columns:1fr;padding-top:0}
- .stagewrap{order:-1;max-width:520px}
- .text{text-align:center}
- .lead{margin-left:auto;margin-right:auto}
- .status{max-width:440px;margin:0 auto}
- .wl{margin-left:auto;margin-right:auto}
- .wl-row{flex-direction:column}
- .wl-note,.wl-msg{text-align:center}
- .note{text-align:center}
- footer{flex-direction:column;align-items:center;text-align:center;gap:6px}
- .top{padding-bottom:6px}
-}
-@media (prefers-reduced-motion:reduce){
- .joey,.hat,.ears,.pouch,.clip,.bubble,.ph,.track span,.st{animation:none!important}
- .joey{transform:none}.bubble{opacity:1}.clip{display:none}.st{fill:var(--zloto)}.track span{opacity:1}
-}
-@keyframes clip0{0%,1.39%{offset-distance:0%;opacity:0;transform:scale(.9) rotate(-8deg)}
-4.17%{offset-distance:0%;opacity:1;transform:scale(1) rotate(-6deg)}
-9.17%{opacity:1;transform:scale(.92) rotate(8deg)}
-13.47%{offset-distance:100%;opacity:1;transform:scale(.62) rotate(14deg)}
-13.61%,100%{offset-distance:100%;opacity:0;transform:scale(.62)}}
-@keyframes st0{0%,13.33%{fill:var(--szew)}13.47%,96.53%{fill:var(--zloto)}98.61%,100%{fill:var(--szew)}}
-@keyframes clip1{0%,9.44%{offset-distance:0%;opacity:0;transform:scale(.9) rotate(-8deg)}
-12.22%{offset-distance:0%;opacity:1;transform:scale(1) rotate(-6deg)}
-17.22%{opacity:1;transform:scale(.92) rotate(8deg)}
-21.53%{offset-distance:100%;opacity:1;transform:scale(.62) rotate(14deg)}
-21.67%,100%{offset-distance:100%;opacity:0;transform:scale(.62)}}
-@keyframes st1{0%,21.39%{fill:var(--szew)}21.53%,96.53%{fill:var(--zloto)}98.61%,100%{fill:var(--szew)}}
-@keyframes clip2{0%,17.50%{offset-distance:0%;opacity:0;transform:scale(.9) rotate(-8deg)}
-20.28%{offset-distance:0%;opacity:1;transform:scale(1) rotate(-6deg)}
-25.28%{opacity:1;transform:scale(.92) rotate(8deg)}
-29.58%{offset-distance:100%;opacity:1;transform:scale(.62) rotate(14deg)}
-29.72%,100%{offset-distance:100%;opacity:0;transform:scale(.62)}}
-@keyframes st2{0%,29.44%{fill:var(--szew)}29.58%,96.53%{fill:var(--zloto)}98.61%,100%{fill:var(--szew)}}
-@keyframes clip3{0%,25.56%{offset-distance:0%;opacity:0;transform:scale(.9) rotate(-8deg)}
-28.33%{offset-distance:0%;opacity:1;transform:scale(1) rotate(-6deg)}
-33.33%{opacity:1;transform:scale(.92) rotate(8deg)}
-37.64%{offset-distance:100%;opacity:1;transform:scale(.62) rotate(14deg)}
-37.78%,100%{offset-distance:100%;opacity:0;transform:scale(.62)}}
-@keyframes st3{0%,37.50%{fill:var(--szew)}37.64%,96.53%{fill:var(--zloto)}98.61%,100%{fill:var(--szew)}}
-@keyframes clip4{0%,33.61%{offset-distance:0%;opacity:0;transform:scale(.9) rotate(-8deg)}
-36.39%{offset-distance:0%;opacity:1;transform:scale(1) rotate(-6deg)}
-41.39%{opacity:1;transform:scale(.92) rotate(8deg)}
-45.69%{offset-distance:100%;opacity:1;transform:scale(.62) rotate(14deg)}
-45.83%,100%{offset-distance:100%;opacity:0;transform:scale(.62)}}
-@keyframes st4{0%,45.56%{fill:var(--szew)}45.69%,96.53%{fill:var(--zloto)}98.61%,100%{fill:var(--szew)}}
-@keyframes clip5{0%,41.67%{offset-distance:0%;opacity:0;transform:scale(.9) rotate(-8deg)}
-44.44%{offset-distance:0%;opacity:1;transform:scale(1) rotate(-6deg)}
-49.44%{opacity:1;transform:scale(.92) rotate(8deg)}
-53.75%{offset-distance:100%;opacity:1;transform:scale(.62) rotate(14deg)}
-53.89%,100%{offset-distance:100%;opacity:0;transform:scale(.62)}}
-@keyframes st5{0%,53.61%{fill:var(--szew)}53.75%,96.53%{fill:var(--zloto)}98.61%,100%{fill:var(--szew)}}
-@keyframes bump{0%{transform:none}13.19%{transform:none}14.31%{transform:scaleY(.93) scaleX(1.03)}16.25%{transform:none}21.25%{transform:none}22.36%{transform:scaleY(.93) scaleX(1.03)}24.31%{transform:none}29.31%{transform:none}30.42%{transform:scaleY(.93) scaleX(1.03)}32.36%{transform:none}37.36%{transform:none}38.47%{transform:scaleY(.93) scaleX(1.03)}40.42%{transform:none}45.42%{transform:none}46.53%{transform:scaleY(.93) scaleX(1.03)}48.47%{transform:none}53.47%{transform:none}54.58%{transform:scaleY(.93) scaleX(1.03)}56.53%{transform:none}57.92%{transform:none}59.72%{transform:scaleY(.88) scaleX(1.05)}62.50%{transform:none}100%{transform:none}}
-@keyframes pop{0%,58.61%{transform:translateY(58px) scaleY(1)}
-60.83%{transform:translateY(-9px) scaleY(1.08)}
-63.06%{transform:translateY(2px) scaleY(.96)}
-65.00%,92.36%{transform:translateY(0) scaleY(1)}
-97.22%,100%{transform:translateY(58px)}}
-@keyframes hat{0%,65.56%{transform:rotate(0)}67.22%{transform:rotate(-9deg)}69.44%{transform:rotate(5deg)}71.39%,100%{transform:rotate(0)}}
-@keyframes ears{0%,75.28%{transform:rotate(0)}76.67%{transform:rotate(-12deg)}78.33%{transform:rotate(6deg)}80.14%,100%{transform:rotate(0)}}
-@keyframes bubble{0%,64.86%{opacity:0;transform:translateY(8px) scale(.8)}67.64%,90.97%{opacity:1;transform:none}93.75%,100%{opacity:0;transform:translateY(6px) scale(.9)}}
-@keyframes head{0%{left:0%}100%{left:100%}}
-@keyframes tl0{0%,13.33%{opacity:.28}13.47%,96.53%{opacity:1}98.61%,100%{opacity:.28}}
-@keyframes tl1{0%,21.39%{opacity:.28}21.53%,96.53%{opacity:1}98.61%,100%{opacity:.28}}
-@keyframes tl2{0%,29.44%{opacity:.28}29.58%,96.53%{opacity:1}98.61%,100%{opacity:.28}}
-@keyframes tl3{0%,37.50%{opacity:.28}37.64%,96.53%{opacity:1}98.61%,100%{opacity:.28}}
-@keyframes tl4{0%,45.56%{opacity:.28}45.69%,96.53%{opacity:1}98.61%,100%{opacity:.28}}
-@keyframes tl5{0%,53.61%{opacity:.28}53.75%,96.53%{opacity:1}98.61%,100%{opacity:.28}}
-.st0{animation:st0 var(--loop) infinite}
-.st1{animation:st1 var(--loop) infinite}
-.st2{animation:st2 var(--loop) infinite}
-.st3{animation:st3 var(--loop) infinite}
-.st4{animation:st4 var(--loop) infinite}
-.st5{animation:st5 var(--loop) infinite}
+.wl-note a,footer a{color:var(--cichy);text-underline-offset:3px}footer a:hover{color:var(--noc)}
+.stage .np{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 </style>
 </head>
-<body>
+<body class="ef-historia">
 <header class="top"><a href="./" aria-label="montaroo"><svg class="logo" role="img" aria-label="montaroo" xmlns="http://www.w3.org/2000/svg" viewBox="14 6 586.6740000000001 118"><g transform="translate(0 0) scale(1)"><path d="M46.94 11.93A5.2 11 -14 1 1 52.26 33.27A5.2 11 -14 1 1 46.94 11.93ZM67.47 15.95A5.2 11 24 1 1 58.53 36.05A5.2 11 24 1 1 67.47 15.95ZM44 36.26A6 6 0 0 1 52.94 31.03L82.7 47.77A6 6 0 0 1 82.7 58.23L52.94 74.97A6 6 0 0 1 44 69.74Z" fill="#10251F"/><path d="M16 67A3 3 0 0 1 19 64H109A3 3 0 0 1 112 67V72A48 48 0 0 1 16 72Z" fill="#E2642A"/><path d="M27 75H101" stroke="#F4E9D6" stroke-width="3.4" stroke-linecap="round" stroke-dasharray="5.2 6.2" fill="none"/></g><path d="M136.0 120.0V64.14H149.68L153.328 75.654L146.602 74.97Q149.452 71.77799999999999 153.15699999999998 68.985Q156.862 66.19200000000001 161.308 64.42500000000001Q165.754 62.658 170.656 62.658Q176.128 62.658 179.49099999999999 64.596Q182.85399999999998 66.53399999999999 184.678 69.78299999999999Q186.502 73.032 187.243 77.136Q187.98399999999998 81.24000000000001 187.98399999999998 85.686V120.0H169.516V87.852Q169.516 83.52 168.148 82.15199999999999Q166.78 80.78399999999999 164.61399999999998 80.78399999999999Q161.536 80.78399999999999 158.629 82.437Q155.72199999999998 84.09 152.75799999999998 87.054L148.768 77.82H154.468V120.0ZM202.80399999999997 120.0V87.852Q202.80399999999997 83.52 201.493 82.15199999999999Q200.182 80.78399999999999 198.016 80.78399999999999Q195.052 80.78399999999999 192.088 82.437Q189.124 84.09 186.16 87.054L180.118 74.97Q182.968 71.77799999999999 186.673 68.985Q190.378 66.19200000000001 194.82399999999998 64.42500000000001Q199.26999999999998 62.658 204.058 62.658Q209.53 62.658 212.95 64.596Q216.37 66.53399999999999 218.19400000000002 69.78299999999999Q220.018 73.032 220.702 77.136Q221.386 81.24000000000001 221.386 85.686V120.0ZM253.192 121.482Q244.414 121.482 237.802 117.72Q231.19 113.958 227.428 107.346Q223.666 100.734 223.666 92.184Q223.666 83.52 227.428 76.90799999999999Q231.19 70.29599999999999 237.802 66.477Q244.414 62.658 253.192 62.658Q262.084 62.658 268.75300000000004 66.477Q275.422 70.29599999999999 279.127 76.90799999999999Q282.832 83.52 282.832 92.184Q282.832 100.734 279.127 107.346Q275.422 113.958 268.75300000000004 117.72Q262.084 121.482 253.192 121.482ZM253.192 103.47Q257.98 103.47 261.058 100.33500000000001Q264.13599999999997 97.2 264.13599999999997 92.07Q264.13599999999997 86.94 261.058 83.805Q257.98 80.67 253.192 80.67Q248.518 80.67 245.44 83.805Q242.362 86.94 242.362 92.07Q242.362 97.086 245.44 100.27799999999999Q248.518 103.47 253.192 103.47ZM321.25 62.658Q326.836 62.658 330.37 64.596Q333.904 66.53399999999999 335.842 69.78299999999999Q337.78 73.032 338.52099999999996 77.136Q339.262 81.24000000000001 339.262 85.686V120.0H320.794V87.852Q320.794 83.52 319.426 82.15199999999999Q318.058 80.78399999999999 315.436 80.78399999999999Q313.498 80.78399999999999 311.332 81.52499999999999Q309.166 82.26599999999999 307.057 83.691Q304.948 85.116 302.896 87.054L298.906 77.82H304.606V120.0H286.138V64.14H299.818L303.466 75.654L296.74 74.97Q299.59 71.77799999999999 303.409 68.985Q307.228 66.19200000000001 311.731 64.42500000000001Q316.234 62.658 321.25 62.658ZM371.182 120.912Q361.264 120.912 355.621 116.238Q349.978 111.564 349.978 100.734V64.824L349.75 64.14L353.626 50.574H368.446V95.718Q368.446 99.822 370.327 101.53200000000001Q372.20799999999997 103.242 375.286 103.242Q376.996 103.242 378.53499999999997 102.9Q380.074 102.55799999999999 381.1 102.21600000000001V119.544Q378.934 120.228 376.54 120.57Q374.146 120.912 371.182 120.912ZM341.314 81.24000000000001V64.14H381.1V81.24000000000001ZM403.786 121.482Q397.858 121.482 393.298 119.145Q388.738 116.80799999999999 386.173 112.53299999999999Q383.608 108.258 383.608 102.786Q383.608 96.858 386.401 92.697Q389.194 88.536 393.81100000000004 86.313Q398.428 84.09 404.014 84.09Q412.336 84.09 417.58000000000004 87.90899999999999Q422.824 91.728 424.42 99.138L416.896 97.428V84.774Q416.896 81.924 414.84400000000005 79.872Q412.79200000000003 77.82 408.46000000000004 77.82Q405.382 77.82 401.392 78.618Q397.402 79.416 392.956 81.582L387.712 68.47200000000001Q392.728 65.964 398.77 64.311Q404.812 62.658 411.31 62.658Q419.176 62.658 424.591 65.50800000000001Q430.00600000000003 68.358 432.742 73.545Q435.478 78.732 435.478 85.8V120.0H419.974L416.44 108.94200000000001L424.42 106.434Q422.71000000000004 113.388 417.63700000000006 117.435Q412.564 121.482 403.786 121.482ZM410.056 108.94200000000001Q413.248 108.94200000000001 415.18600000000004 107.232Q417.124 105.522 417.124 102.786Q417.124 100.164 415.18600000000004 98.45400000000001Q413.248 96.744 410.056 96.744Q406.636 96.744 404.755 98.45400000000001Q402.874 100.164 402.874 102.786Q402.874 105.522 404.755 107.232Q406.636 108.94200000000001 410.056 108.94200000000001ZM454.516 64.14 459.30400000000003 79.758V120.0H440.836V64.14ZM454.97200000000004 90.588 452.00800000000004 89.334V74.74199999999999L453.148 73.488Q454.516 71.436 457.19500000000005 68.928Q459.874 66.41999999999999 463.351 64.53899999999999Q466.82800000000003 62.658 470.59000000000003 62.658Q472.41400000000004 62.658 473.8960000000001 62.943Q475.37800000000004 63.227999999999994 476.17600000000004 63.797999999999995V80.67H472.41400000000004Q465.346 80.67 460.957 83.007Q456.56800000000004 85.344 454.97200000000004 90.588ZM505.35999999999996 121.482Q496.582 121.482 489.96999999999997 117.72Q483.35799999999995 113.958 479.59599999999995 107.346Q475.83399999999995 100.734 475.83399999999995 92.184Q475.83399999999995 83.52 479.59599999999995 76.90799999999999Q483.35799999999995 70.29599999999999 489.96999999999997 66.477Q496.582 62.658 505.35999999999996 62.658Q514.252 62.658 520.9209999999999 66.477Q527.5899999999999 70.29599999999999 531.295 76.90799999999999Q535.0 83.52 535.0 92.184Q535.0 100.734 531.295 107.346Q527.5899999999999 113.958 520.9209999999999 117.72Q514.252 121.482 505.35999999999996 121.482ZM505.35999999999996 103.47Q510.14799999999997 103.47 513.226 100.33500000000001Q516.304 97.2 516.304 92.07Q516.304 86.94 513.226 83.805Q510.14799999999997 80.67 505.35999999999996 80.67Q500.686 80.67 497.60799999999995 83.805Q494.53 86.94 494.53 92.07Q494.53 97.086 497.60799999999995 100.27799999999999Q500.686 103.47 505.35999999999996 103.47ZM564.6400000000001 121.482Q555.8620000000001 121.482 549.25 117.72Q542.638 113.958 538.876 107.346Q535.114 100.734 535.114 92.184Q535.114 83.52 538.876 76.90799999999999Q542.638 70.29599999999999 549.25 66.477Q555.8620000000001 62.658 564.6400000000001 62.658Q573.532 62.658 580.201 66.477Q586.8700000000001 70.29599999999999 590.575 76.90799999999999Q594.2800000000001 83.52 594.2800000000001 92.184Q594.2800000000001 100.734 590.575 107.346Q586.8700000000001 113.958 580.201 117.72Q573.532 121.482 564.6400000000001 121.482ZM564.6400000000001 103.47Q569.4280000000001 103.47 572.5060000000001 100.33500000000001Q575.5840000000001 97.2 575.5840000000001 92.07Q575.5840000000001 86.94 572.5060000000001 83.805Q569.4280000000001 80.67 564.6400000000001 80.67Q559.966 80.67 556.888 83.805Q553.8100000000001 86.94 553.8100000000001 92.07Q553.8100000000001 97.086 556.888 100.27799999999999Q559.966 103.47 564.6400000000001 103.47Z" fill="#10251F"/></svg>
 </a><a class="lang" href="../" hreflang="en">EN</a></header>
 <main>
- <div class="stagewrap" aria-hidden="true">
-  <div class="sizer"></div>
-  <div class="stage">
-   <div class="pile"><span></span><span></span><span></span><b>1 434 nagrania</b></div>
-   <svg class="layer back" viewBox="0 0 600 420" aria-hidden="true"><defs><clipPath id="jc"><rect x="0" y="-60" width="128" height="126"/></clipPath></defs><g transform="translate(101.6 42.0) scale(3.1)"><g clip-path="url(#jc)"><g class="joey"><g class="ears"><path d="M46.94 11.93A5.2 11 -14 1 1 52.26 33.27A5.2 11 -14 1 1 46.94 11.93ZM67.47 15.95A5.2 11 24 1 1 58.53 36.05A5.2 11 24 1 1 67.47 15.95Z" fill="#10251F"/></g><path d="M44 36.26A6 6 0 0 1 52.94 31.03L82.7 47.77A6 6 0 0 1 82.7 58.23L52.94 74.97A6 6 0 0 1 44 69.74Z" fill="#10251F"/><g class="hat"><path d="M41 31 C41 17 69 15 72 30 Z" fill="#F2B544"/><rect x="35" y="28.6" width="42" height="5" rx="2.5" fill="#F2B544"/><path d="M55.5 17.6 C57 21 57.6 25 57.4 29" stroke="#10251F" stroke-width="2.2" fill="none" stroke-linecap="round" opacity=".55"/></g></g></g></g></svg><div class="clip" style="background-image:url(../assets/img/soon/c_st_489.jpg);animation:clip0 var(--loop) infinite"></div><div class="clip" style="background-image:url(../assets/img/soon/c_st_401.jpg);animation:clip1 var(--loop) infinite"></div><div class="clip" style="background-image:url(../assets/img/soon/c_st_145.jpg);animation:clip2 var(--loop) infinite"></div><div class="clip" style="background-image:url(../assets/img/soon/c_st_240.5.jpg);animation:clip3 var(--loop) infinite"></div><div class="clip" style="background-image:url(../assets/img/soon/c_st_473.jpg);animation:clip4 var(--loop) infinite"></div><div class="clip" style="background-image:url(../assets/img/soon/c_mv.jpg);animation:clip5 var(--loop) infinite"></div><svg class="layer front" viewBox="0 0 600 420" aria-hidden="true"><g transform="translate(101.6 42.0) scale(3.1)"><g class="pouch"><path d="M16 67A3 3 0 0 1 19 64H109A3 3 0 0 1 112 67V72A48 48 0 0 1 16 72Z" fill="#E2642A"/><rect class="st st0" x="27.0" y="73.4" width="7.4" height="3.6" rx="1.8"/><rect class="st st1" x="39.6" y="73.4" width="7.4" height="3.6" rx="1.8"/><rect class="st st2" x="52.2" y="73.4" width="7.4" height="3.6" rx="1.8"/><rect class="st st3" x="64.8" y="73.4" width="7.4" height="3.6" rx="1.8"/><rect class="st st4" x="77.4" y="73.4" width="7.4" height="3.6" rx="1.8"/><rect class="st st5" x="90.0" y="73.4" width="7.4" height="3.6" rx="1.8"/></g></g></svg>
-   <div class="bubble">Prawie zmontowane!</div>
-  </div>
-  <div class="timeline"><div class="track"><span style="animation:tl0 var(--loop) infinite"></span><span style="animation:tl1 var(--loop) infinite"></span><span style="animation:tl2 var(--loop) infinite"></span><span style="animation:tl3 var(--loop) infinite"></span><span style="animation:tl4 var(--loop) infinite"></span><span style="animation:tl5 var(--loop) infinite"></span></div><div class="ticks"></div><div class="ph"></div></div>
- </div>
- <div class="text">
-  <p class="k">Już wkrótce</p>
-  <h1>Joey jeszcze montuje.</h1>
-  <p class="lead">Montaroo zamienia nagrania z wyjazdu w film z rozdziałami, muzyką i historią. Offline, na twoim komputerze z Windows. Startujemy wkrótce.</p>
+ <div class="txt">
+  <p class="k">Darmowa beta · Windows</p>
+  <h1>Zamień nagrania z podróży w film. <em>Automatycznie.</em></h1>
+  <p class="lead">Wrzuć folder z nagraniami z GoPro, DJI i telefonu. Montaroo ogląda każde, wybiera najlepsze momenty i tnie je do muzyki, z rozdziałami, mapą trasy i napisami. Offline, na twoim komputerze z Windows.</p>
+  <ul class="chips"><li>Bez konta</li><li>Działa offline</li><li>Wersja darmowa</li></ul>
   <form class="wl" id="wl" action="https://assets.mailerlite.com/jsonp/2795574/forms/204133928705984083/subscribe" method="post" novalidate>
-   <div class="wl-row"><label class="hp" for="wl-e">Twój e-mail</label><input id="wl-e" type="email" name="fields[email]" placeholder="Twój e-mail" autocomplete="email" required><button type="submit">Zapisz mnie na betę</button></div>
+   <div class="wl-row"><label class="hp" for="wl-e">Twój e-mail</label><input id="wl-e" type="email" name="fields[email]" placeholder="Twój e-mail" autocomplete="email" required><button type="submit">Chcę wcześniejszy dostęp</button></div>
    <div class="hp" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
    <input type="hidden" name="ml-submit" value="1"><input type="hidden" name="anticsrf" value="true">
    <p class="wl-note">Mail powitalny teraz, potem jeden, gdy ruszy beta na Windows. Bez spamu, wypisujesz się jednym kliknięciem. <a href="/pl/prywatnosc/">Prywatność</a></p>
    <p class="wl-msg" id="wl-m" role="status" aria-live="polite"></p>
   </form>
-  <div class="status" role="status">
-   <div class="status-row"><span>Montujemy montaroo.com…</span><span><span class="tc" id="tc">00:00:00:00</span> · <b id="pc">0%</b></span></div>
-   <div class="bar"><i id="bar"></i></div>
-   <p class="note">Ostatnie 2% zawsze trwa najdłużej.</p>
+ </div>
+ <div class="scena">
+  <div class="stage" id="stage">
+   <div class="fx" id="fx" aria-hidden="true"></div>
+   <div class="player"><video id="vid" muted playsinline preload="auto"></video></div>
+   <div class="kont"><button id="again" type="button">↺ Jeszcze raz</button><button id="snd" type="button">🔊 Włącz dźwięk</button></div>
+   <noscript><img class="np" src="../assets/video/film-20s-16x9.jpg" alt="Kadr z filmu, który Montaroo zmontowało z 1 434 nagrań z wyjazdu"></noscript>
   </div>
+  <div class="rozd" id="rozd" role="group" aria-label="Przejdź do kroku"><button type="button" data-t="0">Intro</button><button type="button" data-t="2.531">Telefony</button><button type="button" data-t="6.525">Oglądanie</button><button type="button" data-t="10.519">Muzyka</button><button type="button" data-t="12.06">Montaż</button><button type="button" data-t="14.512">Film</button></div>
+  <p class="cap"><span><b>Nasz 10-dniowy road trip po USA</b> · 1 434 nagrania → jeden film 20 s</span></p>
  </div>
 </main>
 <footer><b>Od nagrań do filmu jednym skokiem.</b><span>© 2026 Montaroo · <a href="/pl/prywatnosc/">Prywatność</a> · <a href="/pl/licencja/">Licencja</a></span></footer>
+<audio id="aud" src="../assets/historia/historia-muzyka.mp3" preload="auto"></audio>
+<script>window.HB="../assets/historia/";window.HV="../assets/video/";</script>
+<script src="../assets/historia/historia.pl.js?v=130abec7" defer></script>
 <script>
 const MSG={ok:"Jesteś na liście. Mail powitalny już leci (zajrzyj też do Ofert albo Spamu).",err:"Nie udało się zapisać. Sprawdź adres albo napisz na hello@montaroo.com.",bad:"Wpisz poprawny adres e-mail."};
 (()=>{
- const w=document.querySelector('.stagewrap'),st=document.querySelector('.stage');
- const fit=()=>st.style.setProperty('--s',w.clientWidth/600);fit();addEventListener('resize',fit);
  const f=document.getElementById('wl'),m=document.getElementById('wl-m'),e=document.getElementById('wl-e'),b=f.querySelector('button');
  f.addEventListener('submit',async ev=>{ev.preventDefault();m.className='wl-msg';m.textContent='';
   if(f.website.value)return;
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e.value.trim())){m.className='wl-msg err';m.textContent=MSG.bad;e.focus();return}
   b.disabled=true;
   try{const r=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}});const j=await r.json().catch(()=>({}));
-   if(r.ok&&j.success!==false){f.classList.add('done');m.textContent=MSG.ok}else throw 0}
+   if(r.ok&&j.success!==false){f.classList.add('done');m.textContent=MSG.ok;if(window.mlead)mlead()}else throw 0}
   catch(_){m.className='wl-msg err';m.textContent=MSG.err;b.disabled=false}
  });
- const t0=performance.now(),tc=document.getElementById('tc'),pc=document.getElementById('pc'),bar=document.getElementById('bar');
- const p2=n=>String(n).padStart(2,'0');
- const tick=()=>{const s=(performance.now()-t0)/1000,f=Math.floor(s*25)%25,sec=Math.floor(s);
-  tc.textContent=p2(Math.floor(sec/3600))+':'+p2(Math.floor(sec/60)%60)+':'+p2(sec%60)+':'+p2(f);
-  const p=Math.min(98,Math.round(98*(1-Math.exp(-s/6))));pc.textContent=p+'%';bar.style.width=p+'%';
-  requestAnimationFrame(tick)};
- if(!matchMedia('(prefers-reduced-motion: reduce)').matches)tick();else{pc.textContent='98%';bar.style.width='98%'}
 })();
 </script>
 </body>
