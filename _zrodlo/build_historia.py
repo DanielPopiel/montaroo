@@ -12,6 +12,7 @@ historia-muzyka.mp3, film-20s-*). Daniel dopracowuje je dalej, więc ODŚWIEŻAN
 Co robi przy kopiowaniu: scala wspolne.css + historia.css (czcionki z strony, bez paska makiet), dopisuje do historia.js ścieżki (window.HB / HV),
 usuwa makietowy „zapis wyłączony” formularza i dla wersji PL podmienia napisy sceny (tabela PL niżej; brak napisu w nowej wersji js = głośny błąd).
 Formularz MailerLite, piksel Meta i baner zgody są wspólne z build_soon.py (pixel_parts). Piksel: MONTAROO_PIXEL=<ID> przed budowaniem.
+Bramka na starcie (haczyk.js/.css): źródło _zrodlo/haczyk, kopiowana tu przy synchronizacji; ?hak=0 wyłącza, ?hak=1 wymusza, AB_PROC w haczyk.js = % widzących.
 Plików HTML i assets/historia nie edytuj ręcznie."""
 import os, re, sys, json, shutil, hashlib
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -65,6 +66,7 @@ PL_JS = [
  ("'Every phone drops in'", "'Każdy telefon wskakuje do torby'"), ("'Watching every clip'", "'Oglądamy każde nagranie'"),
  ("'Picking the music'", "'Dobieramy muzykę'"), ("'Cutting to the beat'", "'Tniemy do rytmu'"), ("'Your film'", "'Twój film'"),
  ("'🔇 Mute' : '🔊 Sound on'", "'🔇 Wycisz' : '🔊 Włącz dźwięk'"),
+ ('<small>IN THE BAG</small>', '<small>W TORBIE</small>'),
 ]
 
 
@@ -119,6 +121,8 @@ def sync():
     pisz(os.path.join(AH, 'historia.js'), js_dla(src, 'en'))
     pisz(os.path.join(AH, 'historia.pl.js'), js_dla(src, 'pl'))
     pisz(os.path.join(AH, 'historia.css'), css_dla())
+    for f in ('haczyk.js', 'haczyk.css'):                              # bramka na starcie (źródło w repozytorium: _zrodlo/haczyk)
+        pisz(os.path.join(AH, f), czytaj(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'haczyk', f)))
     print(f'skopiowano z makiet: {n} plików binarnych + historia.js/.pl.js/.css')
 
 
@@ -147,7 +151,7 @@ def strona(lang):
     logo = open(os.path.join(ROOT, 'brand', 'logo', 'svg', 'montaroo-poziome-kolor.svg'), encoding='utf-8').read()
     logo = re.sub(r'<title>.*?</title>', '', logo).replace('<svg ', '<svg class="logo" role="img" aria-label="montaroo" ', 1)
     jsname = 'historia.js' if lang == 'en' else 'historia.pl.js'
-    v = {f: hashp(os.path.join(AH, f)) for f in ('historia.css', jsname)}
+    v = {f: hashp(os.path.join(AH, f)) for f in ('historia.css', jsname, 'haczyk.js', 'haczyk.css')}
     hb, hv = pre + 'assets/historia/', pre + 'assets/video/'
     ok, err, bad = (json.dumps(L[k], ensure_ascii=False) for k in ('f_ok', 'f_err', 'f_bad'))
     chips = ''.join(f'<li>{c}</li>' for c in P['chips'])
@@ -172,7 +176,7 @@ def strona(lang):
 <link rel="preload" href="{pre}assets/fonts/gabarito-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{hb}kafle.jpg" as="image"><link rel="preload" href="{hb}kafle-szary.jpg" as="image"><link rel="preload" href="{hb}klatki.jpg" as="image">
 <style>{fonty(pre)}</style>
-<link rel="stylesheet" href="{hb}historia.css?v={v['historia.css']}">
+<link rel="stylesheet" href="{hb}historia.css?v={v['historia.css']}"><link rel="stylesheet" href="{hb}haczyk.css?v={v['haczyk.css']}">
 <style>{EXTRA_CSS}{px_css}</style>
 </head>
 <body class="ef-historia">
@@ -206,6 +210,7 @@ def strona(lang):
 <audio id="aud" src="{hb}historia-muzyka.mp3" preload="auto"></audio>
 <script>window.HB={json.dumps(hb)};window.HV={json.dumps(hv)};</script>
 <script src="{hb}{jsname}?v={v[jsname]}" defer></script>
+<script src="{hb}haczyk.js?v={v['haczyk.js']}" defer></script>
 <script>
 const MSG={{ok:{ok},err:{err},bad:{bad}}};
 (()=>{{

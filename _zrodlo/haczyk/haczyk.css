@@ -1,0 +1,41 @@
+/* Bramka na starcie sceny „Historia” (wariant D: trzy zdania + przycisk-skoczek + odliczenie paskiem). Źródło: _zrodlo/haczyk, kopiowane przez build_historia.py. */
+.hak{position:fixed;inset:0;z-index:9999;--u:clamp(3.8px,.7vmin,6.4px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:calc(var(--u)*2.2);text-align:center;padding:calc(var(--u)*4);
+  font-family:Gabarito,Inter,system-ui,sans-serif;color:#F4E9D6;transition:opacity .35s;
+  background:rgba(9,17,14,.86);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+@media (max-width:700px){.hak{background:#0d1a16f2}}   /* telefon: pełny ekran; komputer: strona widoczna przez przyciemnienie */
+.hak.out{opacity:0;pointer-events:none}
+.hak *{box-sizing:border-box}
+.hk-btn{border:0;border-radius:999px;cursor:pointer;font:800 max(15px,calc(var(--u)*3.2))/1 Gabarito,Inter,sans-serif;padding:calc(var(--u)*2.1) calc(var(--u)*3.8);min-height:44px;
+  transition:transform .2s cubic-bezier(.3,1.6,.5,1);display:inline-flex;align-items:center;gap:.5em;position:relative}
+.hk-btn:hover{transform:translateY(-2px) scale(1.03)}
+.hk-btn:focus-visible{outline:3px solid #F2B544;outline-offset:3px}
+.hk-y{background:linear-gradient(#EC7A44,#C9531F);color:#fff;box-shadow:inset 0 0 0 calc(var(--u)*.4) #f4e9d6cc,0 calc(var(--u)*1.4) calc(var(--u)*3.2) calc(var(--u)*-1) #E2642Aaa}
+.hk-y::after{content:"";position:absolute;inset:calc(var(--u)*1);border:1.5px dashed #ffffff66;border-radius:999px;pointer-events:none}
+.hk-n{background:transparent;color:#F4E9D6;border:1.5px dashed #f4e9d680}
+.hk-rz{display:flex;gap:calc(var(--u)*1.6);flex-wrap:wrap;justify-content:center;align-items:center;margin-top:calc(var(--u)*15)}
+.hk-q{margin:0;font:800 max(19px,calc(var(--u)*5))/1.12 Gabarito,Inter,sans-serif;text-wrap:balance;max-width:20em}
+.hk-l1,.hk-l2,.hk-l3,.hk-rz{opacity:0;animation:hkIn .7s cubic-bezier(.2,.8,.3,1) forwards}
+.hk-l1{animation-delay:.3s}.hk-l2{animation-delay:2.1s;color:#F2B544;font-size:max(28px,calc(var(--u)*8.5))}.hk-l3{animation-delay:3.7s}.hk-rz{animation-delay:5s}
+@keyframes hkIn{from{opacity:0;transform:translateY(calc(var(--u)*1.6))}to{opacity:1;transform:none}}
+/* ikona (nuta) */
+.hk-ik{width:1.45em;height:1.45em;flex:none;display:inline-block}
+/* kangurek skacze na przycisku */
+.hk-bw{position:relative;display:inline-flex}
+.hk-bw .hk-jy{fill:#F4E9D6;pointer-events:none;position:absolute;left:18%;bottom:calc(100% - var(--u)*.5);width:calc(var(--u)*8);min-width:30px;z-index:2;transform-origin:50% 100%;animation:hkSkok 1.25s cubic-bezier(.3,0,.4,1) infinite}
+.hk-bw .hk-cien{position:absolute;left:calc(20% + var(--u)*.3);bottom:calc(100% - var(--u)*.8);width:calc(var(--u)*5.4);min-width:22px;height:calc(var(--u)*1.1);border-radius:50%;background:#0006;z-index:1;filter:blur(2px);animation:hkCien 1.25s cubic-bezier(.3,0,.4,1) infinite}
+@keyframes hkSkok{0%,100%{transform:translateY(0) scale(1.08,.88)}15%{transform:translateY(0) scale(.96,1.06)}50%{transform:translateY(calc(var(--u)*-5)) scale(1,1)}85%{transform:translateY(0) scale(1,1)}}
+@keyframes hkCien{0%,100%{transform:scale(1.1);opacity:.55}50%{transform:scale(.55);opacity:.25}}
+/* odliczanie: pasek na dole */
+.hk-cd{position:absolute;left:50%;bottom:calc(var(--u)*3);transform:translateX(-50%);display:grid;justify-items:center;gap:calc(var(--u)*1);opacity:0;transition:opacity .4s;width:min(92%,calc(var(--u)*70));--p:0}
+.hk-cd.on{opacity:1}
+.hk-cd p{margin:0;display:flex;gap:.7em;align-items:baseline;flex-wrap:wrap;justify-content:center;font:600 max(12px,calc(var(--u)*2.3)) Inter,system-ui,sans-serif;color:#f4e9d6cc}
+.hk-cd p b{font-weight:800;color:#F4E9D6;font-variant-numeric:tabular-nums}
+.hk-cd p small{font-size:.86em;color:#f4e9d699}
+.hk-bar{position:relative;width:100%;height:calc(var(--u)*.75);min-height:4px;border-radius:99px;background:#f4e9d626}
+.hk-bar i{position:absolute;left:0;top:0;bottom:0;border-radius:99px;width:calc((1 - var(--p))*100%);background:linear-gradient(90deg,#F2B544,#E2642A)}
+/* podpowiedź: przeglądarka nie dała dźwięku */
+.hk-hint{position:absolute;left:12px;bottom:58px;z-index:21;display:flex;align-items:center;gap:.5em;border:0;border-radius:999px;padding:10px 15px;background:#F4E9D6;color:#10251F;font:800 14px/1 Gabarito,Inter,sans-serif;cursor:pointer;box-shadow:0 8px 24px -8px #000;animation:hkHint 1.4s ease-in-out infinite}
+.hk-hint .hk-ik{width:1.4em;height:1.4em}.hk-hint:focus-visible{outline:3px solid #F2B544;outline-offset:3px}
+@keyframes hkHint{50%{box-shadow:0 0 0 6px #F2B54466,0 8px 24px -8px #000}}
+.ef-historia #snd{display:inline-flex;align-items:center;gap:.5em}.ef-historia #snd .hk-ik{width:1.35em;height:1.35em}
+@media (prefers-reduced-motion:reduce){.hak *,.hk-hint{animation:none!important}.hk-l1,.hk-l2,.hk-l3,.hk-rz{opacity:1!important}}

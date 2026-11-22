@@ -141,7 +141,7 @@ function buduj() {
       <path d="${qrPath(75.2, 34.6, 1.14)}" fill="#10251F"/><ellipse cx="72" cy="60" rx="5" ry="4" fill="#F4E9D6"/></g></g></g></g>
     <g class="t-przod"><path d="M24 118H576V128A276 190 0 0 1 24 128Z" fill="url(#hg)"/><path d="M24 128H576A276 190 0 0 1 24 128Z" fill="url(#hc)"/>
       <rect class="t-brzeg" x="20" y="106" width="560" height="22" rx="11"/><path class="t-szew" d="M70 150H530"/></g></svg>
-    <div class="h-nap"><small>IN THE BAG</small><b>0</b></div>`);
+    <div class="h-nap"><small>W TORBIE</small><b>0</b></div>`);
   E.bag.style.width = L.bw + 'px'; E.bag.style.setProperty('--bw', L.bw + 'px');
   E.bj = E.bag.querySelector('.t-j'); E.bu = E.bag.querySelector('.t-uszy'); E.bp = E.bag.querySelector('.t-przod'); E.bm = E.bag.querySelector('.t-ust');
   E.btel = E.bag.querySelector('.t-tel'); E.bnap = E.bag.querySelector('.h-nap'); E.bnum = E.bnap.querySelector('b');
@@ -475,7 +475,7 @@ function wFilm(on) {
 const graj = e => { const p = e.play(); if (p) p.catch(() => {}) };
 function petla() {
   raf = requestAnimationFrame(petla);
-  if (!czekal && !dzwiek && !CAP && teraz() >= T_CZEKA) zaproszenie();
+  if (!czekal && !dzwiek && !CAP && !document.body.hasAttribute('data-hak') && teraz() >= T_CZEKA) zaproszenie();
   if (czeka) dymekZaproszenia();
   let t = teraz();
   if (dzwiek && !aud.paused && !aud.ended) { const d = aud.currentTime - t; if (Math.abs(d) > .05) { t0 -= d * 1000; t = teraz() } }
@@ -495,7 +495,7 @@ function skocz(t) {
   if (dzwiek) { aud.currentTime = t; graj(aud) }
 }
 function ustawDzwiek(on) {
-  dzwiek = on; snd.textContent = dzwiek ? '🔇 Wycisz' : '🔊 Włącz dźwięk'; stage.classList.toggle('gra', on);
+  dzwiek = on; snd.innerHTML = window.HIKON ? window.HIKON(on) : (dzwiek ? '🔇 Wycisz' : '🔊 Włącz dźwięk'); stage.classList.toggle('gra', on);
   const t = teraz();
   if (dzwiek && t < P_KONIEC) { aud.currentTime = t; graj(aud) } else aud.pause();
 }
@@ -529,6 +529,8 @@ addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { con
 // nagrywanie klatek (spot): ?cap → window.ustaw(t) rysuje klatkę dla czasu strony t i zwraca okienko filmu
 window.ustaw = t => render(scena(t));
 window.CZASY = { P_FILM, P_VOFF };
+// haczyk na starcie (makieta hak.html): zewnętrzny skrypt zatrzymuje scenę na wybranej klatce i startuje ją po wyborze odwiedzającego
+window.HIST = { P_FILM, P_KONIEC, skocz, dzwiek: on => ustawDzwiek(on), zamroz: t => { pauza = t }, teraz: () => teraz(), stage };
 
 Promise.all([fetch(HB + 'kafle.json').then(r => r.json()).then(j => K = j), ...['kafle.jpg', 'kafle-szary.jpg', 'klatki.jpg'].map(s => new Promise(ok => { const i = new Image(); i.onload = i.onerror = ok; i.src = HB + s })), document.fonts.ready]).then(() => {
   if (CAP) document.body.classList.add('cap');
