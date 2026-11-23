@@ -70,6 +70,8 @@ PL_JS = [
 ]
 
 
+FORM_ID = {'en': '204933044841219500', 'pl': '204133928705984083'}  # MailerLite: Waitlist EN / Waitlist PL
+
 def czytaj(p): return open(p, encoding='utf-8').read()
 def pisz(p, s):
     os.makedirs(os.path.dirname(p), exist_ok=True)
@@ -187,7 +189,7 @@ def strona(lang):
   <h1>{P['h']}</h1>
   <p class="lead">{P['lead']}</p>
   <ul class="chips">{chips}</ul>
-  <form class="wl" id="wl" action="https://assets.mailerlite.com/jsonp/2795574/forms/204133928705984083/subscribe" method="post" novalidate>
+  <form class="wl" id="wl" action="https://assets.mailerlite.com/jsonp/2795574/forms/{FORM_ID[lang]}/subscribe" method="post" novalidate>
    <div class="wl-row"><label class="hp" for="wl-e">{L['f_label']}</label><input id="wl-e" type="email" name="fields[email]" placeholder="{L['f_label']}" autocomplete="email" required><button type="submit">{P['f_btn']}</button></div>
    <div class="hp" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
    <input type="hidden" name="ml-submit" value="1"><input type="hidden" name="anticsrf" value="true">
