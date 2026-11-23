@@ -7,8 +7,8 @@ Treść jest w słowniku DOCS (zwykły HTML w akapitach). Przy zmianie treści p
 """
 import os, re
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-UPDATED = {'en': '14 November 2026', 'pl': '14 listopada 2026'}
-ISO = '2026-11-14'
+UPDATED = {'en': '23 November 2026', 'pl': '23 listopada 2026'}
+ISO = '2026-11-23'
 EMAIL = 'hello@montaroo.com'
 OWNER_EN = 'Daniel Popiel, running the business <i>Daniel Popiel Airline Partner</i> in Poland'
 OWNER_PL = 'Daniel Popiel, prowadzący działalność gospodarczą <i>Daniel Popiel Airline Partner</i>'
@@ -19,7 +19,7 @@ DOCS = {
 # ------------------------------------------------------------------ PRIVACY EN
 ('privacy', 'en'): dict(
  path='privacy/', title='Privacy policy', desc='How Montaroo handles your data: the app edits on your PC and uploads nothing.',
- short='Montaroo edits your films on your own computer. Your clips, photos and music are not uploaded anywhere, there is no account to create, and the app does not send usage data. The website has no cookies and no trackers.',
+ short='Montaroo edits your films on your own computer. Your clips, photos and music are not uploaded anywhere, there is no account to create, and the app does not send usage data. The website sets no cookies until you accept them; if you do, a Meta pixel measures our ads.',
  body=f'''
 <h2>1. Who is responsible</h2>
 <p>The controller of your personal data is {OWNER_EN} (“we”). Contact: {M}.</p>
@@ -31,7 +31,8 @@ DOCS = {
 <p><b>Installation and updates through Microsoft Store.</b> If you get Montaroo from Microsoft Store, Microsoft handles the download, licence, payment and updates as a separate controller under the <a href="https://privacy.microsoft.com/privacystatement">Microsoft Privacy Statement</a>. Microsoft shares with us only aggregated reports (for example the number of installs per country) and, if you choose to write one, your public review.</p>
 
 <h2>3. This website</h2>
-<p>montaroo.com has no cookies, no analytics and no advertising trackers. Fonts and videos are served from our own site.</p>
+<p>By default montaroo.com sets no cookies and loads no trackers. There is no analytics tool. Fonts and videos are served from our own site.</p>
+<p><b>Cookie banner and Meta Pixel.</b> We advertise Montaroo on Facebook and Instagram. If you click “Accept” on the cookie banner, we load the Meta Pixel (Meta Platforms Ireland Limited). It uses cookies and sends Meta your IP address, browser details, the pages you view and the fact that you joined the beta list. It does not send the email address you type in the form. We use this to measure and improve our ads. Meta is a joint controller with us for this data; see the <a href="https://www.facebook.com/privacy/policy">Meta Privacy Policy</a>. If you click “Decline” or ignore the banner, the pixel is not loaded. Legal basis: your consent (Art. 6(1)(a) GDPR and the Polish Electronic Communications Law). To change your choice, clear this site’s data in your browser and the banner will appear again.</p>
 <p>The site is hosted by GitHub Pages (GitHub, Inc.). Like any web server, GitHub records technical data such as your IP address and browser type when you open a page, to deliver the page and protect the service. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a>.</p>
 
 <h2>4. When you write to us</h2>
@@ -39,7 +40,7 @@ DOCS = {
 <p><b>Beta list.</b> If you sign up on montaroo.com, we store your email address and the date you joined, to tell you when the Windows beta opens and send occasional launch news. Legal basis: your consent (Art. 6(1)(a) GDPR), which you can withdraw at any time with the unsubscribe link in every email or by writing to us. The list is run by MailerLite (MailerLite Limited, Ireland), which processes the data on our behalf as our processor. We keep your address until you unsubscribe, or for up to 12 months after Montaroo launches if you never open our emails.</p>
 
 <h2>5. Who else sees your data</h2>
-<p>Only the providers named above (GitHub for the website, our email provider for messages, MailerLite for the beta list, Microsoft for Store purchases, OpenStreetMap if you switch it on). We do not sell or share your data with advertisers. Some of these providers are based in the USA; transfers rely on the EU–US Data Privacy Framework or the EU standard contractual clauses.</p>
+<p>Only the providers named above (GitHub for the website, our email provider for messages, MailerLite for the beta list, Microsoft for Store purchases, OpenStreetMap if you switch it on, and Meta if you accept the advertising cookie). Meta receives data only through the pixel described in section 3, and only if you accept it. We do not sell your data. Some of these providers are based in the USA; transfers rely on the EU–US Data Privacy Framework or the EU standard contractual clauses.</p>
 
 <h2>6. Your rights</h2>
 <p>You can ask us for access to your data, correction, deletion, restriction, a copy in a portable format, and you can object to processing based on legitimate interest. Write to {M}. You can also complain to the Polish data protection authority, the President of the Personal Data Protection Office (UODO, <a href="https://uodo.gov.pl/en">uodo.gov.pl</a>), or to the authority in your own EU country.</p>
@@ -53,7 +54,7 @@ DOCS = {
 # ------------------------------------------------------------------ PRIVACY PL
 ('privacy', 'pl'): dict(
  path='pl/prywatnosc/', title='Polityka prywatności', desc='Jak Montaroo traktuje twoje dane: aplikacja montuje na twoim komputerze i niczego nie wysyła.',
- short='Montaroo montuje filmy na twoim komputerze. Twoje nagrania, zdjęcia i muzyka nigdzie nie są wysyłane, nie trzeba zakładać konta, a aplikacja nie wysyła danych o użytkowaniu. Strona nie używa cookies ani narzędzi śledzących.',
+ short='Montaroo montuje filmy na twoim komputerze. Twoje nagrania, zdjęcia i muzyka nigdzie nie są wysyłane, nie trzeba zakładać konta, a aplikacja nie wysyła danych o użytkowaniu. Strona nie ustawia cookies, dopóki ich nie zaakceptujesz; jeśli to zrobisz, piksel Meta mierzy nasze reklamy.',
  body=f'''
 <h2>1. Kto odpowiada za dane</h2>
 <p>Administratorem twoich danych osobowych jest {OWNER_PL} („my”). Kontakt: {M}.</p>
@@ -65,7 +66,8 @@ DOCS = {
 <p><b>Instalacja i aktualizacje przez Microsoft Store.</b> Jeśli pobierasz Montaroo z Microsoft Store, pobieranie, licencję, płatność i aktualizacje obsługuje Microsoft jako osobny administrator, według <a href="https://privacy.microsoft.com/pl-pl/privacystatement">Oświadczenia o ochronie prywatności firmy Microsoft</a>. Microsoft przekazuje nam tylko zbiorcze raporty (np. liczbę instalacji w danym kraju) i, jeśli ją napiszesz, twoją publiczną opinię.</p>
 
 <h2>3. Ta strona</h2>
-<p>montaroo.com nie używa plików cookies, narzędzi analitycznych ani reklamowych. Fonty i filmy ładują się z naszej strony.</p>
+<p>Domyślnie montaroo.com nie ustawia plików cookies i nie ładuje narzędzi śledzących. Nie ma narzędzia analitycznego. Fonty i filmy ładują się z naszej strony.</p>
+<p><b>Baner cookies i piksel Meta.</b> Reklamujemy Montaroo na Facebooku i Instagramie. Jeśli klikniesz „Zgadzam się” w banerze, załadujemy piksel Meta (Meta Platforms Ireland Limited). Używa on plików cookies i wysyła do Meta twój adres IP, dane przeglądarki, oglądane strony oraz informację, że zapisałeś się na listę bety. Nie wysyła adresu e-mail wpisanego w formularzu. Robimy to, żeby mierzyć i poprawiać reklamy. Meta jest z nami współadministratorem tych danych; zobacz <a href="https://www.facebook.com/privacy/policy">Politykę prywatności Meta</a>. Jeśli klikniesz „Odrzucam” albo pominiesz baner, piksel się nie załaduje. Podstawa prawna: twoja zgoda (art. 6 ust. 1 lit. a RODO i Prawo komunikacji elektronicznej). Żeby zmienić wybór, wyczyść dane tej strony w przeglądarce, a baner pojawi się ponownie.</p>
 <p>Stronę hostuje GitHub Pages (GitHub, Inc.). Jak każdy serwer, GitHub zapisuje przy otwarciu strony dane techniczne, np. adres IP i typ przeglądarki, żeby ją wyświetlić i chronić usługę. Szczegóły: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a>.</p>
 
 <h2>4. Gdy do nas piszesz</h2>
@@ -73,7 +75,7 @@ DOCS = {
 <p><b>Lista oczekujących na betę.</b> Jeśli zapiszesz się na montaroo.com, przechowujemy twój adres e-mail i datę zapisu, żeby dać ci znać o starcie bety na Windows i czasem wysłać informacje o premierze. Podstawa prawna: twoja zgoda (art. 6 ust. 1 lit. a RODO), którą możesz w każdej chwili wycofać linkiem do wypisania w każdym mailu albo pisząc do nas. Listę obsługuje MailerLite (MailerLite Limited, Irlandia), który przetwarza dane w naszym imieniu jako podmiot przetwarzający. Adres trzymamy do czasu wypisania się, a jeśli nie otwierasz naszych maili – najdłużej 12 miesięcy po premierze Montaroo.</p>
 
 <h2>5. Kto jeszcze widzi dane</h2>
-<p>Tylko wymienieni wyżej dostawcy (GitHub dla strony, nasz dostawca poczty dla maili, MailerLite dla listy oczekujących, Microsoft przy zakupie w Sklepie, OpenStreetMap jeśli go włączysz). Nie sprzedajemy danych i nie przekazujemy ich reklamodawcom. Część dostawców ma siedzibę w USA; przekazanie opiera się na programie EU–US Data Privacy Framework albo standardowych klauzulach umownych UE.</p>
+<p>Tylko wymienieni wyżej dostawcy (GitHub dla strony, nasz dostawca poczty dla maili, MailerLite dla listy oczekujących, Microsoft przy zakupie w Sklepie, OpenStreetMap jeśli go włączysz, Meta jeśli zaakceptujesz reklamowy plik cookie). Meta dostaje dane tylko przez piksel opisany w punkcie 3 i tylko jeśli go zaakceptujesz. Nie sprzedajemy danych. Część dostawców ma siedzibę w USA; przekazanie opiera się na programie EU–US Data Privacy Framework albo standardowych klauzulach umownych UE.</p>
 
 <h2>6. Twoje prawa</h2>
 <p>Możesz żądać dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania i przeniesienia, a także wnieść sprzeciw wobec przetwarzania opartego na prawnie uzasadnionym interesie. Napisz na {M}. Możesz też złożyć skargę do Prezesa Urzędu Ochrony Danych Osobowych (<a href="https://uodo.gov.pl">uodo.gov.pl</a>).</p>
