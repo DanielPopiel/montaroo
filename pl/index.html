@@ -66,7 +66,7 @@
   <p class="cap"><span><b>Nasz 10-dniowy road trip po USA</b> · 1 434 nagrania → jeden film 20 s</span></p>
  </div>
 </main>
-<footer><b>Od nagrań do filmu jednym skokiem.</b><span>© 2026 Montaroo · <a href="/pl/prywatnosc/">Prywatność</a> · <a href="/pl/licencja/">Licencja</a></span></footer><div class="cb" id="cb" role="dialog" aria-label="Cookies"><p>Chcemy użyć reklamowego pliku cookie Meta, żeby mierzyć skuteczność reklam. Opcjonalnie. <a href="/pl/prywatnosc/">Prywatność</a></p><button class="n" id="cn">Odrzucam</button><button class="y" id="cy">Zgadzam się</button></div>
+<footer><b>Od nagrań do filmu jednym skokiem.</b><span>© 2026 Montaroo · <a href="/pl/prywatnosc/">Prywatność</a> · <a href="/pl/licencja/">Licencja</a> · <a href="#" id="cs">Ustawienia cookies</a></span></footer><div class="cb" id="cb" role="dialog" aria-label="Cookies"><p>Chcemy użyć reklamowego pliku cookie Meta, żeby mierzyć skuteczność reklam. Opcjonalnie. <a href="/pl/prywatnosc/">Prywatność</a></p><button class="n" id="cn">Odrzucam</button><button class="y" id="cy">Zgadzam się</button></div>
 <audio id="aud" src="../assets/historia/historia-muzyka.mp3" preload="auto"></audio>
 <script>window.HB="../assets/historia/";window.HV="../assets/video/";</script>
 <script src="../assets/historia/historia.pl.js?v=0f48c857" defer></script>
@@ -95,6 +95,7 @@ const PX="1156790010180683";
  window.mlead=()=>{if(window.fbq)fbq('track','Lead')};
  const c=ls('mc');
  if(c==='1')mpx();else if(c===null)cb.classList.add('on');
+ const cs=document.getElementById('cs');if(cs)cs.onclick=e=>{e.preventDefault();cb.classList.add('on')};
  document.getElementById('cy').onclick=()=>{ls('mc','1');cb.classList.remove('on');mpx()};
  document.getElementById('cn').onclick=()=>{ls('mc','0');cb.classList.remove('on')};
 })();

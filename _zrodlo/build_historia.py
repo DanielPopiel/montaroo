@@ -208,7 +208,7 @@ def strona(lang):
   <p class="cap"><span>{P['cap']}</span></p>
  </div>
 </main>
-<footer><b>{L['tagline']}</b><span>© 2026 Montaroo · {L.get('legal', '')}</span></footer>{cb_html}
+<footer><b>{L['tagline']}</b><span>© 2026 Montaroo · {L.get('legal', '')}{(' · <a href="#" id="cs">' + L['c_set'] + '</a>') if cb_html else ''}</span></footer>{cb_html}
 <audio id="aud" src="{hb}historia-muzyka.mp3" preload="auto"></audio>
 <script>window.HB={json.dumps(hb)};window.HV={json.dumps(hv)};</script>
 <script src="{hb}{jsname}?v={v[jsname]}" defer></script>

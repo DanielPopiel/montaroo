@@ -80,7 +80,7 @@ T = {
             status='Rendering montaroo.com', note='The last 2% always take the longest.', tagline='Hop from footage to film.', legal='<a href="/privacy/">Privacy</a> · <a href="/eula/">EULA</a>',
             f_label='Your email', f_btn='Join the beta list', f_note='A welcome email now, then one when the Windows beta opens. No spam, unsubscribe any time. <a href="/privacy/">Privacy</a>',
             f_ok='You’re on the list. A welcome email is on its way (check Promotions or Spam if you don’t see it).', f_err='That didn’t go through. Check the address or write to hello@montaroo.com.', f_bad='Enter a valid email address.',
-            c_txt='We’d like to use Meta’s advertising cookie to measure our ads. Optional.', c_yes='Accept', c_no='Decline', c_more='/privacy/', c_more_l='Privacy'),
+            c_txt='We’d like to use Meta’s advertising cookie to measure our ads. Optional.', c_yes='Accept', c_no='Decline', c_more='/privacy/', c_more_l='Privacy', c_set='Cookie settings'),
  'pl': dict(lang='pl', pre='../', other='../', other_label='EN', title='Montaroo · już wkrótce',
             desc='Montaroo, automatyczny montaż filmów z podróży na Windows, startuje wkrótce. Offline, na twoim komputerze.',
             pile='1 434 nagrania', bubble='Prawie zmontowane!', k='Już wkrótce', h='Joey jeszcze montuje.',
@@ -88,7 +88,7 @@ T = {
             status='Montujemy montaroo.com', note='Ostatnie 2% zawsze trwa najdłużej.', tagline='Od nagrań do filmu jednym skokiem.', legal='<a href="/pl/prywatnosc/">Prywatność</a> · <a href="/pl/licencja/">Licencja</a>',
             f_label='Twój e-mail', f_btn='Zapisz mnie na betę', f_note='Mail powitalny teraz, potem jeden, gdy ruszy beta na Windows. Bez spamu, wypisujesz się jednym kliknięciem. <a href="/pl/prywatnosc/">Prywatność</a>',
             f_ok='Jesteś na liście. Mail powitalny już leci (zajrzyj też do Ofert albo Spamu).', f_err='Nie udało się zapisać. Sprawdź adres albo napisz na hello@montaroo.com.', f_bad='Wpisz poprawny adres e-mail.',
-            c_txt='Chcemy użyć reklamowego pliku cookie Meta, żeby mierzyć skuteczność reklam. Opcjonalnie.', c_yes='Zgadzam się', c_no='Odrzucam', c_more='/pl/prywatnosc/', c_more_l='Prywatność'),
+            c_txt='Chcemy użyć reklamowego pliku cookie Meta, żeby mierzyć skuteczność reklam. Opcjonalnie.', c_yes='Zgadzam się', c_no='Odrzucam', c_more='/pl/prywatnosc/', c_more_l='Prywatność', c_set='Ustawienia cookies'),
 }
 
 CSS_BASE = r'''
@@ -204,6 +204,7 @@ const PX=%s;
  window.mlead=()=>{if(window.fbq)fbq('track','Lead')};
  const c=ls('mc');
  if(c==='1')mpx();else if(c===null)cb.classList.add('on');
+ const cs=document.getElementById('cs');if(cs)cs.onclick=e=>{e.preventDefault();cb.classList.add('on')};
  document.getElementById('cy').onclick=()=>{ls('mc','1');cb.classList.remove('on');mpx()};
  document.getElementById('cn').onclick=()=>{ls('mc','0');cb.classList.remove('on')};
 })();

@@ -66,7 +66,7 @@
   <p class="cap"><span><b>Our 10-day USA road trip</b> · 1,434 clips → one 20-second film</span></p>
  </div>
 </main>
-<footer><b>Hop from footage to film.</b><span>© 2026 Montaroo · <a href="/privacy/">Privacy</a> · <a href="/eula/">EULA</a></span></footer><div class="cb" id="cb" role="dialog" aria-label="Cookies"><p>We’d like to use Meta’s advertising cookie to measure our ads. Optional. <a href="/privacy/">Privacy</a></p><button class="n" id="cn">Decline</button><button class="y" id="cy">Accept</button></div>
+<footer><b>Hop from footage to film.</b><span>© 2026 Montaroo · <a href="/privacy/">Privacy</a> · <a href="/eula/">EULA</a> · <a href="#" id="cs">Cookie settings</a></span></footer><div class="cb" id="cb" role="dialog" aria-label="Cookies"><p>We’d like to use Meta’s advertising cookie to measure our ads. Optional. <a href="/privacy/">Privacy</a></p><button class="n" id="cn">Decline</button><button class="y" id="cy">Accept</button></div>
 <audio id="aud" src="assets/historia/historia-muzyka.mp3" preload="auto"></audio>
 <script>window.HB="assets/historia/";window.HV="assets/video/";</script>
 <script src="assets/historia/historia.js?v=7f3a1b44" defer></script>
@@ -95,6 +95,7 @@ const PX="1156790010180683";
  window.mlead=()=>{if(window.fbq)fbq('track','Lead')};
  const c=ls('mc');
  if(c==='1')mpx();else if(c===null)cb.classList.add('on');
+ const cs=document.getElementById('cs');if(cs)cs.onclick=e=>{e.preventDefault();cb.classList.add('on')};
  document.getElementById('cy').onclick=()=>{ls('mc','1');cb.classList.remove('on');mpx()};
  document.getElementById('cn').onclick=()=>{ls('mc','0');cb.classList.remove('on')};
 })();
