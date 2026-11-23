@@ -70,7 +70,7 @@ PL_JS = [
 ]
 
 
-FORM_ID = {'en': '204933044841219500', 'pl': '204133928705984083'}  # MailerLite: Waitlist EN / Waitlist PL
+FORM_ID = {'en': '204933044841219500', 'pl': '204934741335475713'}  # MailerLite: Waitlist EN / Waitlist PL
 
 def czytaj(p): return open(p, encoding='utf-8').read()
 def pisz(p, s):
