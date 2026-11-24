@@ -156,6 +156,16 @@ def strona(lang):
     v = {f: hashp(os.path.join(AH, f)) for f in ('historia.css', jsname, 'haczyk.js', 'haczyk.css')}
     hb, hv = pre + 'assets/historia/', pre + 'assets/video/'
     ok, err, bad = (json.dumps(L[k], ensure_ascii=False) for k in ('f_ok', 'f_err', 'f_bad'))
+    beta_msg = json.dumps({'en': 'Code accepted. Your download is starting.', 'pl': 'Kod przyjęty. Pobieranie rusza.'}[lang], ensure_ascii=False)
+    beta_js = ''
+    bp = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'beta_dostep.json')
+    if os.path.exists(bp):   # trik „kod testera w polu e-mail” – patrz beta_kod.py; bez pliku nic nie robi
+        beta_js = ('window.BETA=' + open(bp).read().strip() + ';\n'
+            "async function betaOtworz(k){try{const B=window.BETA,u=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0)),"
+            "km=await crypto.subtle.importKey('raw',new TextEncoder().encode(k.toLowerCase().replace(/\\s+/g,'')),'PBKDF2',false,['deriveKey']),"
+            "key=await crypto.subtle.deriveKey({name:'PBKDF2',salt:u(B.s),iterations:B.n,hash:'SHA-256'},km,{name:'AES-GCM',length:256},false,['decrypt']),"
+            "url=new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:u(B.i)},key,u(B.c))),"
+            "a=document.createElement('a');a.href=url;a.download='';document.body.appendChild(a);a.click();a.remove();return true}catch(_){return false}}\n")
     chips = ''.join(f'<li>{c}</li>' for c in P['chips'])
     rozd = ''.join(f'<button type="button" data-t="{t}">{n}</button>' for t, n in zip(CZASY, P['rozd']))
     return f'''<!doctype html>
@@ -214,11 +224,12 @@ def strona(lang):
 <script src="{hb}{jsname}?v={v[jsname]}" defer></script>
 <script src="{hb}haczyk.js?v={v['haczyk.js']}" defer></script>
 <script>
-const MSG={{ok:{ok},err:{err},bad:{bad}}};
-(()=>{{
+const MSG={{ok:{ok},err:{err},bad:{bad},beta:{beta_msg}}};
+{beta_js}(()=>{{
  const f=document.getElementById('wl'),m=document.getElementById('wl-m'),e=document.getElementById('wl-e'),b=f.querySelector('button');
  f.addEventListener('submit',async ev=>{{ev.preventDefault();m.className='wl-msg';m.textContent='';
   if(f.website.value)return;
+  if(window.BETA&&e.value.trim()&&!e.value.includes('@')&&await betaOtworz(e.value)){{m.textContent=MSG.beta;e.value='';return}}
   if(!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]{{2,}}$/.test(e.value.trim())){{m.className='wl-msg err';m.textContent=MSG.bad;e.focus();return}}
   b.disabled=true;
   try{{const r=await fetch(f.action,{{method:'POST',body:new FormData(f),headers:{{Accept:'application/json'}}}});const j=await r.json().catch(()=>({{}}));

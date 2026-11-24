@@ -72,11 +72,14 @@
 <script src="assets/historia/historia.js?v=7f3a1b44" defer></script>
 <script src="assets/historia/haczyk.js?v=f3ea9d64" defer></script>
 <script>
-const MSG={ok:"You’re on the list. A welcome email is on its way (check Promotions or Spam if you don’t see it).",err:"That didn’t go through. Check the address or write to hello@montaroo.com.",bad:"Enter a valid email address."};
+const MSG={ok:"You’re on the list. A welcome email is on its way (check Promotions or Spam if you don’t see it).",err:"That didn’t go through. Check the address or write to hello@montaroo.com.",bad:"Enter a valid email address.",beta:"Code accepted. Your download is starting."};
+window.BETA={"s": "odvV2PmLMZbkslnm/4t6BA==", "i": "QaeEADCCfa4cY6Za", "c": "hi36lUplpg0PpCGyqxpuIQi/QtqTAGRPFiYzLaBTzp44Fp9KoButZ3DXJAusCH4hdHaHdbM7QdtuXYtu2SJGt2W1OCRDLaBQK7NHq4SHMK4tlxQ8BnYtXRdHMYW6lg==", "n": 150000};
+async function betaOtworz(k){try{const B=window.BETA,u=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0)),km=await crypto.subtle.importKey('raw',new TextEncoder().encode(k.toLowerCase().replace(/\s+/g,'')),'PBKDF2',false,['deriveKey']),key=await crypto.subtle.deriveKey({name:'PBKDF2',salt:u(B.s),iterations:B.n,hash:'SHA-256'},km,{name:'AES-GCM',length:256},false,['decrypt']),url=new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:u(B.i)},key,u(B.c))),a=document.createElement('a');a.href=url;a.download='';document.body.appendChild(a);a.click();a.remove();return true}catch(_){return false}}
 (()=>{
  const f=document.getElementById('wl'),m=document.getElementById('wl-m'),e=document.getElementById('wl-e'),b=f.querySelector('button');
  f.addEventListener('submit',async ev=>{ev.preventDefault();m.className='wl-msg';m.textContent='';
   if(f.website.value)return;
+  if(window.BETA&&e.value.trim()&&!e.value.includes('@')&&await betaOtworz(e.value)){m.textContent=MSG.beta;e.value='';return}
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e.value.trim())){m.className='wl-msg err';m.textContent=MSG.bad;e.focus();return}
   b.disabled=true;
   try{const r=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}});const j=await r.json().catch(()=>({}));
