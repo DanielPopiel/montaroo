@@ -1,6 +1,7 @@
 /* Bramka na starcie sceny „Historia”: na całej stronie przyciemnione tło, trzy zdania, przycisk „Show me” (z dźwiękiem) i „No sound”,
    odliczanie paskiem; po odliczeniu scena rusza sama – próbuje z dźwiękiem, a gdy przeglądarka nie pozwoli, bez dźwięku + „Tap for sound”.
    Ustawienia: AB_PROC (ile % odwiedzających widzi bramkę; reszta dostaje scenę bez bramki), ?hak=1 wymusza, ?hak=0 wyłącza.
+   Ruch z reklam Meta (fbclid / utm_source=fb,ig,meta / referrer IG,FB) pomija bramkę.
    Raz na sesję (sessionStorage), bez bramki przy prefers-reduced-motion. Zdarzenie okna „haczyk” + Meta (fbq trackCustom), gdy piksel jest włączony. */
 (() => {
   const AB_PROC = 100, ODL = 4, START_PRZYCISKOW = 5;
@@ -8,6 +9,11 @@
   const PL = document.documentElement.lang === 'pl';
   const magazyn = { get: (s, k) => { try { return s.getItem(k) } catch (e) { return null } }, set: (s, k, v) => { try { s.setItem(k, v) } catch (e) {} } };
   if (matchMedia('(prefers-reduced-motion: reduce)').matches || wym === '0') return;
+  // Ruch z reklam Meta (fbclid, utm_source=fb/ig/meta albo referrer z Instagrama/Facebooka) dostaje stronę od razu, bez bramki:
+  // bramka zasłania formularz i baner cookies (piksel nie startuje bez zgody), a ?hak=1 nadal ją wymusza.
+  let host = ''; try { host = new URL(document.referrer).hostname } catch (e) {}
+  const zReklamy = Q.has('fbclid') || /^(fb|ig|facebook|instagram|meta)/i.test(Q.get('utm_source') || '') || /(^|\.)(instagram|facebook)\.com$/i.test(host);
+  if (zReklamy && wym !== '1') return;
   if (wym !== '1') {
     if (magazyn.get(sessionStorage, 'mHak')) return;                                   // raz na sesję
     let g = magazyn.get(localStorage, 'mHakGrupa');
