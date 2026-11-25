@@ -139,6 +139,11 @@ EXTRA_CSS = '''
 .wl.done .wl-msg{background:var(--noc);color:var(--piasek);padding:14px 16px;border-radius:14px 14px 14px 4px;margin:0}
 .wl-note a,footer a{color:var(--cichy);text-underline-offset:3px}footer a:hover{color:var(--noc)}
 .stage .np{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media (max-width:900px){
+ main{grid-template-columns:minmax(0,1fr)}
+ .rozd{min-width:0}
+ .rozd button{flex:1 1 auto;min-width:0;padding:7px 4px}
+}
 '''
 
 
