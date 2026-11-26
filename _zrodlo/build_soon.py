@@ -80,7 +80,7 @@ T = {
             status='Rendering montaroo.com', note='The last 2% always take the longest.', tagline='Hop from footage to film.', legal='<a href="/privacy/">Privacy</a> · <a href="/eula/">EULA</a>',
             f_label='Your email', f_btn='Join the beta list', f_note='A welcome email now, then one when the Windows beta opens. No spam, unsubscribe any time. <a href="/privacy/">Privacy</a>',
             f_ok='You’re on the list. A welcome email is on its way (check Promotions or Spam if you don’t see it).', f_err='That didn’t go through. Check the address or write to hello@montaroo.com.', f_bad='Enter a valid email address.',
-            c_txt='We’d like to use Meta’s advertising cookie to measure our ads. Optional.', c_yes='Accept', c_no='Decline', c_more='/privacy/', c_more_l='Privacy', c_set='Cookie settings'),
+            c_txt='We’d like to use Meta’s advertising cookie to measure our ads. Optional.', c_short='Optional Meta cookie to measure our ads.', c_yes='Accept', c_no='Decline', c_more='/privacy/', c_more_l='Privacy', c_set='Cookie settings'),
  'pl': dict(lang='pl', pre='../', other='../', other_label='EN', title='Montaroo · już wkrótce',
             desc='Montaroo, automatyczny montaż filmów z podróży na Windows, startuje wkrótce. Offline, na twoim komputerze.',
             pile='1 434 nagrania', bubble='Prawie zmontowane!', k='Już wkrótce', h='Joey jeszcze montuje.',
@@ -88,7 +88,7 @@ T = {
             status='Montujemy montaroo.com', note='Ostatnie 2% zawsze trwa najdłużej.', tagline='Od nagrań do filmu jednym skokiem.', legal='<a href="/pl/prywatnosc/">Prywatność</a> · <a href="/pl/licencja/">Licencja</a>',
             f_label='Twój e-mail', f_btn='Zapisz mnie na betę', f_note='Mail powitalny teraz, potem jeden, gdy ruszy beta na Windows. Bez spamu, wypisujesz się jednym kliknięciem. <a href="/pl/prywatnosc/">Prywatność</a>',
             f_ok='Jesteś na liście. Mail powitalny już leci (zajrzyj też do Ofert albo Spamu).', f_err='Nie udało się zapisać. Sprawdź adres albo napisz na hello@montaroo.com.', f_bad='Wpisz poprawny adres e-mail.',
-            c_txt='Chcemy użyć reklamowego pliku cookie Meta, żeby mierzyć skuteczność reklam. Opcjonalnie.', c_yes='Zgadzam się', c_no='Odrzucam', c_more='/pl/prywatnosc/', c_more_l='Prywatność', c_set='Ustawienia cookies'),
+            c_txt='Chcemy użyć reklamowego pliku cookie Meta, żeby mierzyć skuteczność reklam. Opcjonalnie.', c_short='Opcjonalny cookie Meta do pomiaru reklam.', c_yes='Zgadzam się', c_no='Odrzucam', c_more='/pl/prywatnosc/', c_more_l='Prywatność', c_set='Ustawienia cookies'),
 }
 
 CSS_BASE = r'''
@@ -190,9 +190,9 @@ def pixel_parts(L):
     cb_html = ''
     px_js = ''
     if PIXEL_ID:
-        px_css = '\n.cb{position:fixed;left:16px;right:16px;bottom:16px;max-width:560px;margin:0 auto;z-index:50;background:#10251F;color:#F4E9D6;border-radius:16px;padding:14px 16px;display:none;gap:12px;align-items:center;flex-wrap:wrap;font:400 14px/1.45 Inter,sans-serif;box-shadow:0 10px 30px #0004}.cb.on{display:flex}.cb p{margin:0;flex:1 1 220px}.cb a{color:#F4E9D6;text-underline-offset:3px}.cb button{font:600 14px/1 Inter,sans-serif;border:0;border-radius:10px;padding:11px 16px;cursor:pointer}.cb .y{background:#E2642A;color:#10251F}.cb .n{background:transparent;color:#F4E9D6;box-shadow:inset 0 0 0 1.5px #F4E9D680}'
+        px_css = '\n.cb{position:fixed;left:16px;right:16px;bottom:16px;max-width:560px;margin:0 auto;z-index:50;background:#10251F;color:#F4E9D6;border-radius:16px;padding:14px 16px;display:none;gap:12px;align-items:center;flex-wrap:wrap;font:400 14px/1.45 Inter,sans-serif;box-shadow:0 10px 30px #0004}.cb.on{display:flex}.cb p{margin:0;flex:1 1 220px}.cb a{color:#F4E9D6;text-underline-offset:3px}.cb button{font:600 14px/1 Inter,sans-serif;border:0;border-radius:10px;padding:11px 16px;cursor:pointer}.cb .y{background:#E2642A;color:#10251F}.cb .n{background:transparent;color:#F4E9D6;box-shadow:inset 0 0 0 1.5px #F4E9D680}.cb .cs{display:none}@media(max-width:600px){.cb .cl{display:none}.cb .cs{display:inline}.cb{left:8px;right:8px;top:8px;bottom:auto;padding:9px 11px;gap:6px 8px;border-radius:12px;font-size:12px;line-height:1.35}.cb p{flex:1 1 100%}.cb button{flex:1;padding:8px 10px;font-size:13px;border-radius:8px}}'
     if PIXEL_ID:
-        cb_html = f'<div class="cb" id="cb" role="dialog" aria-label="Cookies"><p>{L["c_txt"]} <a href="{L["c_more"]}">{L["c_more_l"]}</a></p><button class="n" id="cn">{L["c_no"]}</button><button class="y" id="cy">{L["c_yes"]}</button></div>'
+        cb_html = f'<div class="cb" id="cb" role="dialog" aria-label="Cookies"><p><span class="cl">{L["c_txt"]}</span><span class="cs">{L["c_short"]}</span> <a href="{L["c_more"]}">{L["c_more_l"]}</a></p><button class="n" id="cn">{L["c_no"]}</button><button class="y" id="cy">{L["c_yes"]}</button></div>'
         px_js = """
 const PX=%s;
 (()=>{
