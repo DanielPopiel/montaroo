@@ -102,6 +102,21 @@ MAILS += [
   btn='Rezerwuję miejsce'),
 ]
 
+MAILS += [
+ dict(nazwa='Połączenie 9 + 7 + 4', img='m9-play.jpg', alt='Kadr z filmu Montaroo z przyciskiem odtwarzania', href='https://montaroo.com/pl/',
+  pre='20 sekund, które zmontował program. Szukam pierwszych testerów.', eyebrow='Zobacz efekt',
+  h1='Ten film złożył program. Ja tylko wrzuciłem folder.',
+  body='<p style="margin:0 0 14px;font-size:16px;line-height:26px;"><a href="https://montaroo.com/pl/" style="color:#E2642A;font-weight:700;">▶ Obejrzyj 20 sekund na montaroo.com</a></p>'
+      +P('To fragment filmu z naszego road tripu po USA. Montaroo sam:')
+      +'<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 14px;">'
+      +''.join(f'<tr><td valign="top" style="padding:0 12px 10px 0;"><span style="display:inline-block;width:26px;height:26px;border-radius:50%;background:#E2642A;color:#10251F;font:700 14px/26px Inter,Arial,sans-serif;text-align:center;">{n}</span></td><td style="padding:2px 0 10px;{F}font-size:16px;line-height:24px;color:#10251F;">{t}</td></tr>'
+               for n, t in [(1,'wybrał najlepsze ujęcia z całego folderu,'),(2,'pociął je w rytm muzyki,'),(3,'podzielił wyjazd na rozdziały i dodał plansze z nazwami miejsc.')])
+      +'</table>'
+      +'<img src="__BASE__m7-rozdzialy.jpg" width="520" alt="Rozdziały filmu: W drodze, Grand Canyon, Monument Valley" style="display:block;width:100%;max-width:520px;height:auto;border:0;border-radius:10px;margin:0 0 18px;">'
+      +P('Chcę zobaczyć, jak opowie <strong>twój</strong> wyjazd. Szukam pierwszych testerów.', 18),
+  btn='Chcę taki film ze swojego wyjazdu'),
+]
+
 def mail(m, base):
     return f'''<!DOCTYPE html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light only">
 <title>{H.escape(m["h1"])}</title><style>body{{margin:0;padding:0;background:#F4E9D6}}a{{color:#E2642A}}@media (max-width:620px){{.wrap{{width:100%!important}}.pad{{padding-left:22px!important;padding-right:22px!important}}h1{{font-size:26px!important;line-height:32px!important}}}}</style></head>
@@ -109,7 +124,7 @@ def mail(m, base):
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F4E9D6;"><tr><td align="center" style="padding:28px 10px;">
 <table role="presentation" class="wrap" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;background:#FFFBF4;border-radius:14px;overflow:hidden;">
 <tr><td style="background:#10251F;padding:24px 40px 20px;" class="pad"><a href="https://montaroo.com/pl/" style="text-decoration:none;"><img src="https://montaroo.com/brand/logo/png/montaroo-poziome-kolor-ciemne.png" width="170" alt="montaroo" style="display:block;width:170px;height:auto;border:0;"></a></td></tr>
-{'' if not m.get("img") else f'<tr><td style="background:#10251F;padding:0;"><img src="{base}{m["img"]}" width="600" alt="{H.escape(m["alt"])}" style="display:block;width:100%;max-width:600px;height:auto;border:0;"></td></tr>'}
+{'' if not m.get("img") else f'<tr><td style="background:#10251F;padding:0;">{'<a href="'+m["href"]+'">' if m.get("href") else ''}<img src="{base}{m["img"]}" width="600" alt="{H.escape(m["alt"])}" style="display:block;width:100%;max-width:600px;height:auto;border:0;">{'</a>' if m.get("href") else ''}</td></tr>'}
 <tr><td style="height:6px;background:#E2642A;line-height:6px;font-size:6px;">&nbsp;</td></tr>
 <tr><td class="pad" style="padding:34px 40px 36px;{F}color:#10251F;">
 <p style="margin:0 0 10px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#3E7C68;font-weight:700;">{m["eyebrow"]}</p>

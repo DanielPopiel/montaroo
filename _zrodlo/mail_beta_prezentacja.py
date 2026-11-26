@@ -26,6 +26,6 @@ iframe{{border:0;border-radius:18px;background:#F4E9D6;display:block}}.ph{{width
 <div class="view"><figure><figcaption>Telefon</figcaption><iframe class="ph" id="a"></iframe></figure><figure><figcaption>Komputer</figcaption><iframe class="dk" id="b"></iframe></figure></div>
 <script>const D={json.dumps([[n,p,h] for n,p,h in docs], ensure_ascii=False)};
 function show(i){{document.querySelectorAll('.t').forEach((b,j)=>b.classList.toggle('on',i==j));a.srcdoc=b.srcdoc=D[i][2];sub.textContent=D[i][1];}}
-document.querySelectorAll('.t').forEach(b=>b.onclick=()=>show(+b.dataset.i));show({len(docs)-5});</script></body></html>'''
+document.querySelectorAll('.t').forEach(b=>b.onclick=()=>show(+b.dataset.i));show({len(docs)-1});</script></body></html>'''
 open('kampania/mail-beta/PREZENTACJA_mail_beta.html', 'w', encoding='utf-8').write(page)
 print(os.path.getsize('kampania/mail-beta/PREZENTACJA_mail_beta.html')//1024, 'KB')
