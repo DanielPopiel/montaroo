@@ -12,6 +12,8 @@ rep('<title>Montaroo · Zamień nagrania z podróży w film', '<title>PODGLĄD �
 rep('<video id="vid" muted', '<video id="vid" poster="../../assets/video/film-20s-16x9-v2.jpg" muted')
 import re
 s = re.sub(r'historia\.pl\.js\?v=[0-9a-f]+', 'historia.pl.v2.js?v=1', s)
+s = re.sub(r'<link[^>]*haczyk\.css[^>]*>', '', s)
+s = re.sub(r'<script[^>]*haczyk\.js[^>]*></script>', '', s)
 rep('window.mpx=()=>{', 'window.mpx=()=>{return;')               # bez piksela w podglądzie
 rep('<p class="k">Darmowa beta · Windows</p>', '<p class="k">Nabór testerów · Windows</p>')
 rep('<h1>Zamień nagrania z podróży w film. <em>Automatycznie.</em></h1>',
@@ -42,6 +44,27 @@ EXTRA = '''
 </section>
 <dialog id="fd"><button type="button" id="fdx" aria-label="Zamknij">×</button><video controls playsinline preload="none" poster="../../assets/video/film-20s-16x9-v2.jpg" src="../../assets/video/film-20s-16x9-v2.mp4"></video></dialog>
 <div class="pod">PODGLĄD · nie wysyła zapisów</div>
+<style>
+.kh{position:absolute;inset:0;z-index:8;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;background:radial-gradient(110% 120% at 50% 40%,#14302aee 0%,#0d1a16f2 60%,#070c0af7 100%);color:#F4E9D6;border-radius:inherit;transition:opacity .45s}
+.kh.out{opacity:0;pointer-events:none}
+.kh .k1{font:600 13px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8FC3AE;margin:0 0 10px}
+.kh .k2{font:800 clamp(28px,4.4vw,46px)/1.05 Gabarito,sans-serif;margin:0 0 22px;max-width:14ch}
+.kh .k2 em{font-style:normal;color:#F2B544}
+.kh button{font:700 16px Inter,sans-serif;border:0;border-radius:999px;padding:13px 24px;cursor:pointer;background:#E2642A;color:#10251F;box-shadow:0 0 0 4px #E2642A40}
+.kh .k3{margin-top:12px;font:400 12px Inter,sans-serif;color:#F4E9D6aa;background:none;border:0;box-shadow:none;padding:4px;text-decoration:underline}
+.kh .kp{position:absolute;left:24px;right:24px;bottom:18px;height:3px;background:#ffffff1f;border-radius:3px;overflow:hidden}.kh .kp i{display:block;height:100%;width:0;background:#F2B544;transition:width 5s linear}
+</style>
+<script>
+(()=>{const st=document.getElementById('stage');if(!st)return;document.body.setAttribute('data-hak','');
+const k=document.createElement('div');k.className='kh';
+k.innerHTML='<p class="k1">10 dni w USA · 1&nbsp;434 nagrania</p><p class="k2">Co z tego zrobi <em>Montaroo?</em></p><button type="button" data-d="1">▶ Pokaż z dźwiękiem</button><button type="button" class="k3" data-d="0">bez dźwięku</button><div class="kp"><i></i></div>';
+st.appendChild(k);
+const go=d=>{if(k.dataset.x)return;k.dataset.x=1;k.classList.add('out');setTimeout(()=>k.remove(),500);const H=window.HIST;if(H){H.skocz(0);H.dzwiek(!!d)}};
+k.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>go(b.dataset.d==='1'));
+const w=setInterval(()=>{if(window.GOTOWE&&window.HIST){clearInterval(w);window.HIST.zamroz(0.2);
+ const io=new IntersectionObserver(e=>{if(e[0].isIntersecting){io.disconnect();requestAnimationFrame(()=>k.querySelector('.kp i').style.width='100%');setTimeout(()=>go(false),5000)}},{threshold:.5});io.observe(st);}},60);})();
+</script>
+
 <style>
 .player{background:#10251F url(../../assets/video/film-20s-16x9-v2.jpg) center/cover}
 .pf{display:block;margin:12px auto 0;background:none;border:0;color:var(--akcent);font:600 15px Inter,sans-serif;text-decoration:underline;cursor:pointer}
