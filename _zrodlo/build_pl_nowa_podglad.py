@@ -36,9 +36,9 @@ EXTRA = '''
 <section class="nx faq">
  <p class="k">Zanim się zapiszesz</p>
  <h2>Krótko o tym, co ważne</h2>
- <details open><summary>Ile to kosztuje?</summary><p>Beta jest darmowa. <mark>[Do decyzji: cena po premierze, np. jednorazowo 249&nbsp;zł, i czy testerzy dostają zniżkę.]</mark></p></details>
- <details><summary>Kiedy ruszy beta?</summary><p><mark>[Do decyzji: przybliżony termin, np. „na początku 2027”.]</mark> Osoby z listy dostaną zaproszenie jako pierwsze.</p></details>
- <details><summary>Jaki komputer jest potrzebny?</summary><p>Komputer z Windows. <mark>[Do uzupełnienia: minimalne wymagania – wersja Windows, RAM, karta graficzna.]</mark></p></details>
+ <details open><summary>Ile to kosztuje?</summary><p>Beta jest darmowa. Po premierze Montaroo będzie płatne <b>jednorazowo, bez abonamentu</b>. Osoby z listy dostaną cenę na start, a testerzy, którzy wypełnią krótką ankietę, <b>pełną wersję za darmo</b>.</p></details>
+ <details><summary>Kiedy ruszy beta?</summary><p>Na początku 2027 roku. Osoby z listy dostaną zaproszenie jako pierwsze.</p></details>
+ <details><summary>Jaki komputer jest potrzebny?</summary><p>Komputer z Windows 10 lub 11 (64-bit). Dokładne wymagania podamy razem z zaproszeniem do bety.</p></details>
  <details><summary>Czy moje nagrania gdzieś wysyłacie?</summary><p>Nie. Montaroo działa offline – nagrania nie opuszczają twojego komputera.</p></details>
  <a class="cta2" href="#wl-e">Zgłaszam się do testów</a>
 </section>
