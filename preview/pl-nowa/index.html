@@ -64,12 +64,12 @@
  <div class="scena">
   <div class="stage" id="stage">
    <div class="fx" id="fx" aria-hidden="true"></div>
-   <div class="player"><video id="vid" poster="../../assets/video/film-20s-16x9.jpg" muted playsinline preload="auto"></video></div>
+   <div class="player"><video id="vid" poster="../../assets/video/film-20s-16x9-v2.jpg" muted playsinline preload="auto"></video></div>
    <div class="kont"><button id="again" type="button">↺ Jeszcze raz</button><button id="snd" type="button">🔊 Włącz dźwięk</button></div>
    <noscript><img class="np" src="../../assets/video/film-20s-16x9.jpg" alt="Kadr z filmu, który Montaroo zmontowało z 1 434 nagrań z wyjazdu"></noscript>
   </div>
   <div class="rozd" id="rozd" role="group" aria-label="Przejdź do kroku"><button type="button" data-t="0">Intro</button><button type="button" data-t="2.531">Telefony</button><button type="button" data-t="6.525">Oglądanie</button><button type="button" data-t="10.519">Muzyka</button><button type="button" data-t="12.06">Montaż</button><button type="button" data-t="14.512">Film</button></div>
-  <button type="button" class="pf" id="pf">▶ Zobacz 20 s gotowego filmu z USA</button>
+  <button type="button" class="pf" id="pf">▶ Zobacz cały film z USA (20 s)</button>
   <p class="cap"><span><b>Nasz 10-dniowy road trip po USA</b> · 1 434 nagrania → jeden film 20 s</span></p>
  </div>
 </main>
@@ -89,10 +89,10 @@
  <details><summary>Czy moje nagrania gdzieś wysyłacie?</summary><p>Nie. Montaroo działa offline – nagrania nie opuszczają twojego komputera.</p></details>
  <a class="cta2" href="#wl-e">Zgłaszam się do testów</a>
 </section>
-<dialog id="fd"><button type="button" id="fdx" aria-label="Zamknij">×</button><video controls playsinline preload="none" poster="../../assets/video/probka-poster.jpg" src="../../assets/video/probka-usa.mp4"></video></dialog>
+<dialog id="fd"><button type="button" id="fdx" aria-label="Zamknij">×</button><video controls playsinline preload="none" poster="../../assets/video/film-20s-16x9-v2.jpg" src="../../assets/video/film-20s-16x9-v2.mp4"></video></dialog>
 <div class="pod">PODGLĄD · nie wysyła zapisów</div>
 <style>
-.player{background:#10251F url(../../assets/video/film-20s-16x9.jpg) center/cover}
+.player{background:#10251F url(../../assets/video/film-20s-16x9-v2.jpg) center/cover}
 .pf{display:block;margin:12px auto 0;background:none;border:0;color:var(--akcent);font:600 15px Inter,sans-serif;text-decoration:underline;cursor:pointer}
 .nx{max-width:980px;margin:0 auto;padding:44px clamp(18px,4.5vw,56px)}
 .nx h2{font-family:Gabarito,sans-serif;font-weight:800;font-size:clamp(26px,4vw,38px);line-height:1.08;color:var(--noc);margin:.2em 0 .5em}
@@ -121,7 +121,7 @@ const f=document.getElementById('wl');f.addEventListener('submit',e=>{e.preventD
 <footer><b>Od nagrań do filmu jednym skokiem.</b><span>© 2026 Montaroo · <a href="/pl/prywatnosc/">Prywatność</a> · <a href="/pl/licencja/">Licencja</a> · <a href="#" id="cs">Ustawienia cookies</a></span></footer><div class="cb" id="cb" role="dialog" aria-label="Cookies"><p><span class="cl">Chcemy użyć reklamowego pliku cookie Meta, żeby mierzyć skuteczność reklam. Opcjonalnie.</span><span class="cs">Opcjonalny cookie Meta do pomiaru reklam.</span> <a href="/pl/prywatnosc/">Prywatność</a></p><button class="n" id="cn">Odrzucam</button><button class="y" id="cy">Zgadzam się</button></div>
 <audio id="aud" src="../../assets/historia/historia-muzyka.mp3" preload="auto"></audio>
 <script>window.HB="../../assets/historia/";window.HV="../../assets/video/";</script>
-<script src="../../assets/historia/historia.pl.js?v=0f48c857" defer></script>
+<script src="../../assets/historia/historia.pl.v2.js?v=1" defer></script>
 <script src="../../assets/historia/haczyk.js?v=74f6b553" defer></script>
 <script>
 const MSG={ok:"Jesteś na liście. Mail powitalny już leci (zajrzyj też do Ofert albo Spamu).",err:"Nie udało się zapisać. Sprawdź adres albo napisz na hello@montaroo.com.",bad:"Wpisz poprawny adres e-mail.",beta:"Kod przyjęty. Pobieranie rusza."};

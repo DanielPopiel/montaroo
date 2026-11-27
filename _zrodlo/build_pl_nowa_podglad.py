@@ -9,7 +9,9 @@ def rep(a, b, n=1):
 rep('../assets/', '../../assets/', 0)
 rep('<head>', '<head>\n<meta name="robots" content="noindex,nofollow">')
 rep('<title>Montaroo · Zamień nagrania z podróży w film', '<title>PODGLĄD · Montaroo')
-rep('<video id="vid" muted', '<video id="vid" poster="../../assets/video/film-20s-16x9.jpg" muted')
+rep('<video id="vid" muted', '<video id="vid" poster="../../assets/video/film-20s-16x9-v2.jpg" muted')
+import re
+s = re.sub(r'historia\.pl\.js\?v=[0-9a-f]+', 'historia.pl.v2.js?v=1', s)
 rep('window.mpx=()=>{', 'window.mpx=()=>{return;')               # bez piksela w podglądzie
 rep('<p class="k">Darmowa beta · Windows</p>', '<p class="k">Nabór testerów · Windows</p>')
 rep('<h1>Zamień nagrania z podróży w film. <em>Automatycznie.</em></h1>',
@@ -19,7 +21,7 @@ rep('<li>Wersja darmowa</li>', '<li>Beta za darmo</li>')
 rep('<button type="submit">Chcę wcześniejszy dostęp</button>', '<button type="submit">Zgłaszam się do testów</button>')
 rep('<p class="wl-note">Mail powitalny teraz, potem jeden, gdy ruszy beta na Windows. Bez spamu, wypisujesz się jednym kliknięciem.',
     '<p class="wl-note"><b>Pierwsi testerzy dostaną program przed premierą.</b> Od razu przyjdzie mail powitalny. Bez spamu, wypisujesz się jednym kliknięciem.')
-rep('</div>\n  <p class="cap">', '</div>\n  <button type="button" class="pf" id="pf">▶ Zobacz 20 s gotowego filmu z USA</button>\n  <p class="cap">')
+rep('</div>\n  <p class="cap">', '</div>\n  <button type="button" class="pf" id="pf">▶ Zobacz cały film z USA (20 s)</button>\n  <p class="cap">')
 
 EXTRA = '''
 <section class="nx kto">
@@ -38,10 +40,10 @@ EXTRA = '''
  <details><summary>Czy moje nagrania gdzieś wysyłacie?</summary><p>Nie. Montaroo działa offline – nagrania nie opuszczają twojego komputera.</p></details>
  <a class="cta2" href="#wl-e">Zgłaszam się do testów</a>
 </section>
-<dialog id="fd"><button type="button" id="fdx" aria-label="Zamknij">×</button><video controls playsinline preload="none" poster="../../assets/video/probka-poster.jpg" src="../../assets/video/probka-usa.mp4"></video></dialog>
+<dialog id="fd"><button type="button" id="fdx" aria-label="Zamknij">×</button><video controls playsinline preload="none" poster="../../assets/video/film-20s-16x9-v2.jpg" src="../../assets/video/film-20s-16x9-v2.mp4"></video></dialog>
 <div class="pod">PODGLĄD · nie wysyła zapisów</div>
 <style>
-.player{background:#10251F url(../../assets/video/film-20s-16x9.jpg) center/cover}
+.player{background:#10251F url(../../assets/video/film-20s-16x9-v2.jpg) center/cover}
 .pf{display:block;margin:12px auto 0;background:none;border:0;color:var(--akcent);font:600 15px Inter,sans-serif;text-decoration:underline;cursor:pointer}
 .nx{max-width:980px;margin:0 auto;padding:44px clamp(18px,4.5vw,56px)}
 .nx h2{font-family:Gabarito,sans-serif;font-weight:800;font-size:clamp(26px,4vw,38px);line-height:1.08;color:var(--noc);margin:.2em 0 .5em}
