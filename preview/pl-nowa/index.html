@@ -105,10 +105,9 @@
 (()=>{const st=document.getElementById('stage');if(!st)return;document.body.setAttribute('data-hak','');
 const k=document.createElement('div');k.className='kh';
 k.innerHTML='<p class="k1">10 dni w USA · 1&nbsp;434 nagrania</p><p class="k2">Co z tego zrobi <em>Montaroo?</em></p><button type="button" data-d="1">▶ Pokaż z dźwiękiem</button><button type="button" class="k3" data-d="0">bez dźwięku</button><div class="kp"><i></i></div>';
-st.appendChild(k);
 const go=d=>{if(k.dataset.x)return;k.dataset.x=1;k.classList.add('out');setTimeout(()=>k.remove(),500);const H=window.HIST;if(H){H.skocz(0);H.dzwiek(!!d)}};
 k.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>go(b.dataset.d==='1'));
-const w=setInterval(()=>{if(window.GOTOWE&&window.HIST){clearInterval(w);window.HIST.zamroz(0.2);
+const w=setInterval(()=>{if(window.GOTOWE&&window.HIST){clearInterval(w);window.HIST.zamroz(0.2);st.appendChild(k);
  const io=new IntersectionObserver(e=>{if(e[0].isIntersecting){io.disconnect();requestAnimationFrame(()=>k.querySelector('.kp i').style.width='100%');setTimeout(()=>go(false),5000)}},{threshold:.5});io.observe(st);}},60);})();
 </script>
 
