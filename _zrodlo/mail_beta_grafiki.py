@@ -70,7 +70,7 @@ with sync_playwright() as p:
     b.close()
 
 # 3 – zdjęcie do listu (polaroidy z filmu)
-Image.open(f'{K}/p37.jpg').crop((0, 60, 1920, 1020)).resize((1200, 600)).save(f'{OUT}/m3-list.jpg', quality=84)
+(lambda im: im.crop((0, int(im.height*.06), im.width, int(im.height*.06)+im.width//2)).resize((1200, 600)))(Image.open(f'{K}/p37.jpg')).save(f'{OUT}/m3-list.jpg', quality=84)
 
 # 2 – GIF: siatka nagrań zbiega się w jeden kadr filmu
 kaf = Image.open(f'{R}/assets/historia/kafle.jpg').convert('RGB')

@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PODGLĄD · Montaroo</title>
+<meta name="description" content="Montaroo zamienia nagrania z GoPro, DJI i telefonu w gotowy film z podróży: najlepsze momenty, cięcia do rytmu, rozdziały, mapa trasy. Offline, na twoim komputerze z Windows. Darmowa beta.">
+<link rel="alternate" hreflang="en" href="https://montaroo.com/">
+<link rel="alternate" hreflang="pl" href="https://montaroo.com/pl/">
+<meta property="og:title" content="Montaroo · Zamień nagrania z podróży w film">
+<meta property="og:description" content="Montaroo zamienia nagrania z GoPro, DJI i telefonu w gotowy film z podróży: najlepsze momenty, cięcia do rytmu, rozdziały, mapa trasy. Offline, na twoim komputerze z Windows. Darmowa beta.">
+<meta property="og:image" content="https://montaroo.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F4E9D6">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preload" href="../../assets/fonts/gabarito-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/historia/kafle.jpg" as="image"><link rel="preload" href="../../assets/historia/kafle-szary.jpg" as="image"><link rel="preload" href="../../assets/historia/klatki.jpg" as="image">
+<style>@font-face{font-family:Gabarito;font-weight:800;font-display:swap;src:url(../../assets/fonts/gabarito-latin-800-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+2212}
+@font-face{font-family:Gabarito;font-weight:800;font-display:swap;src:url(../../assets/fonts/gabarito-latin-ext-800-normal.woff2) format("woff2");unicode-range:U+0100-024F}
+@font-face{font-family:Inter;font-weight:400;font-display:swap;src:url(../../assets/fonts/inter-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+2212}
+@font-face{font-family:Inter;font-weight:400;font-display:swap;src:url(../../assets/fonts/inter-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-024F}
+@font-face{font-family:Inter;font-weight:600;font-display:swap;src:url(../../assets/fonts/inter-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+2212}
+@font-face{font-family:Inter;font-weight:600;font-display:swap;src:url(../../assets/fonts/inter-latin-ext-600-normal.woff2) format("woff2");unicode-range:U+0100-024F}</style>
+<link rel="stylesheet" href="../../assets/historia/historia.css?v=a1a6cf89"><link rel="stylesheet" href="../../assets/historia/haczyk.css?v=c51038f5">
+<style>
+.top .logo{height:30px;width:auto;display:block}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.wl button[disabled]{opacity:.6;cursor:wait;transform:none}
+.wl-msg.err{color:var(--akcent)}
+.wl-msg{color:var(--noc)}
+.wl.done{margin-bottom:8px}
+.wl.done .wl-row,.wl.done .wl-note{display:none}
+.wl.done .wl-msg{background:var(--noc);color:var(--piasek);padding:14px 16px;border-radius:14px 14px 14px 4px;margin:0}
+.wl-note a,footer a{color:var(--cichy);text-underline-offset:3px}footer a:hover{color:var(--noc)}
+.stage .np{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media (max-width:900px){
+ main{grid-template-columns:minmax(0,1fr)}
+ .rozd{min-width:0}
+ .rozd button{flex:1 1 auto;min-width:0;padding:7px 4px}
+}
+
+.cb{position:fixed;left:16px;right:16px;bottom:16px;max-width:560px;margin:0 auto;z-index:50;background:#10251F;color:#F4E9D6;border-radius:16px;padding:14px 16px;display:none;gap:12px;align-items:center;flex-wrap:wrap;font:400 14px/1.45 Inter,sans-serif;box-shadow:0 10px 30px #0004}.cb.on{display:flex}.cb p{margin:0;flex:1 1 220px}.cb a{color:#F4E9D6;text-underline-offset:3px}.cb button{font:600 14px/1 Inter,sans-serif;border:0;border-radius:10px;padding:11px 16px;cursor:pointer}.cb .y{background:#E2642A;color:#10251F}.cb .n{background:transparent;color:#F4E9D6;box-shadow:inset 0 0 0 1.5px #F4E9D680}.cb .cs{display:none}@media(max-width:600px){.cb .cl{display:none}.cb .cs{display:inline}.cb{left:8px;right:8px;top:8px;bottom:auto;padding:9px 11px;gap:6px 8px;border-radius:12px;font-size:12px;line-height:1.35}.cb p{flex:1 1 100%}.cb button{flex:1;padding:8px 10px;font-size:13px;border-radius:8px}}</style>
+</head>
+<body class="ef-historia">
+<header class="top"><a href="./" aria-label="montaroo"><svg class="logo" role="img" aria-label="montaroo" xmlns="http://www.w3.org/2000/svg" viewBox="14 6 586.6740000000001 118"><g transform="translate(0 0) scale(1)"><path d="M46.94 11.93A5.2 11 -14 1 1 52.26 33.27A5.2 11 -14 1 1 46.94 11.93ZM67.47 15.95A5.2 11 24 1 1 58.53 36.05A5.2 11 24 1 1 67.47 15.95ZM44 36.26A6 6 0 0 1 52.94 31.03L82.7 47.77A6 6 0 0 1 82.7 58.23L52.94 74.97A6 6 0 0 1 44 69.74Z" fill="#10251F"/><path d="M16 67A3 3 0 0 1 19 64H109A3 3 0 0 1 112 67V72A48 48 0 0 1 16 72Z" fill="#E2642A"/><path d="M27 75H101" stroke="#F4E9D6" stroke-width="3.4" stroke-linecap="round" stroke-dasharray="5.2 6.2" fill="none"/></g><path d="M136.0 120.0V64.14H149.68L153.328 75.654L146.602 74.97Q149.452 71.77799999999999 153.15699999999998 68.985Q156.862 66.19200000000001 161.308 64.42500000000001Q165.754 62.658 170.656 62.658Q176.128 62.658 179.49099999999999 64.596Q182.85399999999998 66.53399999999999 184.678 69.78299999999999Q186.502 73.032 187.243 77.136Q187.98399999999998 81.24000000000001 187.98399999999998 85.686V120.0H169.516V87.852Q169.516 83.52 168.148 82.15199999999999Q166.78 80.78399999999999 164.61399999999998 80.78399999999999Q161.536 80.78399999999999 158.629 82.437Q155.72199999999998 84.09 152.75799999999998 87.054L148.768 77.82H154.468V120.0ZM202.80399999999997 120.0V87.852Q202.80399999999997 83.52 201.493 82.15199999999999Q200.182 80.78399999999999 198.016 80.78399999999999Q195.052 80.78399999999999 192.088 82.437Q189.124 84.09 186.16 87.054L180.118 74.97Q182.968 71.77799999999999 186.673 68.985Q190.378 66.19200000000001 194.82399999999998 64.42500000000001Q199.26999999999998 62.658 204.058 62.658Q209.53 62.658 212.95 64.596Q216.37 66.53399999999999 218.19400000000002 69.78299999999999Q220.018 73.032 220.702 77.136Q221.386 81.24000000000001 221.386 85.686V120.0ZM253.192 121.482Q244.414 121.482 237.802 117.72Q231.19 113.958 227.428 107.346Q223.666 100.734 223.666 92.184Q223.666 83.52 227.428 76.90799999999999Q231.19 70.29599999999999 237.802 66.477Q244.414 62.658 253.192 62.658Q262.084 62.658 268.75300000000004 66.477Q275.422 70.29599999999999 279.127 76.90799999999999Q282.832 83.52 282.832 92.184Q282.832 100.734 279.127 107.346Q275.422 113.958 268.75300000000004 117.72Q262.084 121.482 253.192 121.482ZM253.192 103.47Q257.98 103.47 261.058 100.33500000000001Q264.13599999999997 97.2 264.13599999999997 92.07Q264.13599999999997 86.94 261.058 83.805Q257.98 80.67 253.192 80.67Q248.518 80.67 245.44 83.805Q242.362 86.94 242.362 92.07Q242.362 97.086 245.44 100.27799999999999Q248.518 103.47 253.192 103.47ZM321.25 62.658Q326.836 62.658 330.37 64.596Q333.904 66.53399999999999 335.842 69.78299999999999Q337.78 73.032 338.52099999999996 77.136Q339.262 81.24000000000001 339.262 85.686V120.0H320.794V87.852Q320.794 83.52 319.426 82.15199999999999Q318.058 80.78399999999999 315.436 80.78399999999999Q313.498 80.78399999999999 311.332 81.52499999999999Q309.166 82.26599999999999 307.057 83.691Q304.948 85.116 302.896 87.054L298.906 77.82H304.606V120.0H286.138V64.14H299.818L303.466 75.654L296.74 74.97Q299.59 71.77799999999999 303.409 68.985Q307.228 66.19200000000001 311.731 64.42500000000001Q316.234 62.658 321.25 62.658ZM371.182 120.912Q361.264 120.912 355.621 116.238Q349.978 111.564 349.978 100.734V64.824L349.75 64.14L353.626 50.574H368.446V95.718Q368.446 99.822 370.327 101.53200000000001Q372.20799999999997 103.242 375.286 103.242Q376.996 103.242 378.53499999999997 102.9Q380.074 102.55799999999999 381.1 102.21600000000001V119.544Q378.934 120.228 376.54 120.57Q374.146 120.912 371.182 120.912ZM341.314 81.24000000000001V64.14H381.1V81.24000000000001ZM403.786 121.482Q397.858 121.482 393.298 119.145Q388.738 116.80799999999999 386.173 112.53299999999999Q383.608 108.258 383.608 102.786Q383.608 96.858 386.401 92.697Q389.194 88.536 393.81100000000004 86.313Q398.428 84.09 404.014 84.09Q412.336 84.09 417.58000000000004 87.90899999999999Q422.824 91.728 424.42 99.138L416.896 97.428V84.774Q416.896 81.924 414.84400000000005 79.872Q412.79200000000003 77.82 408.46000000000004 77.82Q405.382 77.82 401.392 78.618Q397.402 79.416 392.956 81.582L387.712 68.47200000000001Q392.728 65.964 398.77 64.311Q404.812 62.658 411.31 62.658Q419.176 62.658 424.591 65.50800000000001Q430.00600000000003 68.358 432.742 73.545Q435.478 78.732 435.478 85.8V120.0H419.974L416.44 108.94200000000001L424.42 106.434Q422.71000000000004 113.388 417.63700000000006 117.435Q412.564 121.482 403.786 121.482ZM410.056 108.94200000000001Q413.248 108.94200000000001 415.18600000000004 107.232Q417.124 105.522 417.124 102.786Q417.124 100.164 415.18600000000004 98.45400000000001Q413.248 96.744 410.056 96.744Q406.636 96.744 404.755 98.45400000000001Q402.874 100.164 402.874 102.786Q402.874 105.522 404.755 107.232Q406.636 108.94200000000001 410.056 108.94200000000001ZM454.516 64.14 459.30400000000003 79.758V120.0H440.836V64.14ZM454.97200000000004 90.588 452.00800000000004 89.334V74.74199999999999L453.148 73.488Q454.516 71.436 457.19500000000005 68.928Q459.874 66.41999999999999 463.351 64.53899999999999Q466.82800000000003 62.658 470.59000000000003 62.658Q472.41400000000004 62.658 473.8960000000001 62.943Q475.37800000000004 63.227999999999994 476.17600000000004 63.797999999999995V80.67H472.41400000000004Q465.346 80.67 460.957 83.007Q456.56800000000004 85.344 454.97200000000004 90.588ZM505.35999999999996 121.482Q496.582 121.482 489.96999999999997 117.72Q483.35799999999995 113.958 479.59599999999995 107.346Q475.83399999999995 100.734 475.83399999999995 92.184Q475.83399999999995 83.52 479.59599999999995 76.90799999999999Q483.35799999999995 70.29599999999999 489.96999999999997 66.477Q496.582 62.658 505.35999999999996 62.658Q514.252 62.658 520.9209999999999 66.477Q527.5899999999999 70.29599999999999 531.295 76.90799999999999Q535.0 83.52 535.0 92.184Q535.0 100.734 531.295 107.346Q527.5899999999999 113.958 520.9209999999999 117.72Q514.252 121.482 505.35999999999996 121.482ZM505.35999999999996 103.47Q510.14799999999997 103.47 513.226 100.33500000000001Q516.304 97.2 516.304 92.07Q516.304 86.94 513.226 83.805Q510.14799999999997 80.67 505.35999999999996 80.67Q500.686 80.67 497.60799999999995 83.805Q494.53 86.94 494.53 92.07Q494.53 97.086 497.60799999999995 100.27799999999999Q500.686 103.47 505.35999999999996 103.47ZM564.6400000000001 121.482Q555.8620000000001 121.482 549.25 117.72Q542.638 113.958 538.876 107.346Q535.114 100.734 535.114 92.184Q535.114 83.52 538.876 76.90799999999999Q542.638 70.29599999999999 549.25 66.477Q555.8620000000001 62.658 564.6400000000001 62.658Q573.532 62.658 580.201 66.477Q586.8700000000001 70.29599999999999 590.575 76.90799999999999Q594.2800000000001 83.52 594.2800000000001 92.184Q594.2800000000001 100.734 590.575 107.346Q586.8700000000001 113.958 580.201 117.72Q573.532 121.482 564.6400000000001 121.482ZM564.6400000000001 103.47Q569.4280000000001 103.47 572.5060000000001 100.33500000000001Q575.5840000000001 97.2 575.5840000000001 92.07Q575.5840000000001 86.94 572.5060000000001 83.805Q569.4280000000001 80.67 564.6400000000001 80.67Q559.966 80.67 556.888 83.805Q553.8100000000001 86.94 553.8100000000001 92.07Q553.8100000000001 97.086 556.888 100.27799999999999Q559.966 103.47 564.6400000000001 103.47Z" fill="#10251F"/></svg>
+</a><a class="lang" href="../" hreflang="en">EN</a></header>
+<main>
+ <div class="txt">
+  <p class="k">Nabór testerów · Windows</p>
+  <h1 id="h1">Setki nagrań z wyjazdu. <em>Ani jednego filmu?</em></h1>
+  <p class="lead"><b>Montaroo zmontuje go za ciebie.</b> Wrzuć folder z nagraniami z GoPro, DJI i telefonu. Montaroo ogląda każde, wybiera najlepsze momenty i tnie je do muzyki, z rozdziałami, mapą trasy i napisami. Offline, na twoim komputerze z Windows.</p>
+  <ul class="chips"><li>Bez konta</li><li>Działa offline</li><li>Beta za darmo</li></ul>
+  <form class="wl" id="wl" action="https://assets.mailerlite.com/jsonp/2795574/forms/204934741335475713/subscribe" method="post" novalidate>
+   <div class="wl-row"><label class="hp" for="wl-e">Twój e-mail</label><input id="wl-e" type="email" name="fields[email]" placeholder="Twój e-mail" autocomplete="email" required><button type="submit">Zgłaszam się do testów</button></div>
+   <div class="hp" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
+   <input type="hidden" name="ml-submit" value="1"><input type="hidden" name="anticsrf" value="true">
+   <p class="wl-note"><b>Pierwsi testerzy dostaną program przed premierą.</b> Od razu przyjdzie mail powitalny. Bez spamu, wypisujesz się jednym kliknięciem. <a href="/pl/prywatnosc/">Prywatność</a></p>
+   <p class="wl-msg" id="wl-m" role="status" aria-live="polite"></p>
+  </form>
+ </div>
+ <div class="scena">
+  <div class="stage" id="stage">
+   <div class="fx" id="fx" aria-hidden="true"></div>
+   <div class="player"><video id="vid" poster="../../assets/video/film-20s-16x9.jpg" muted playsinline preload="auto"></video></div>
+   <div class="kont"><button id="again" type="button">↺ Jeszcze raz</button><button id="snd" type="button">🔊 Włącz dźwięk</button></div>
+   <noscript><img class="np" src="../../assets/video/film-20s-16x9.jpg" alt="Kadr z filmu, który Montaroo zmontowało z 1 434 nagrań z wyjazdu"></noscript>
+  </div>
+  <div class="rozd" id="rozd" role="group" aria-label="Przejdź do kroku"><button type="button" data-t="0">Intro</button><button type="button" data-t="2.531">Telefony</button><button type="button" data-t="6.525">Oglądanie</button><button type="button" data-t="10.519">Muzyka</button><button type="button" data-t="12.06">Montaż</button><button type="button" data-t="14.512">Film</button></div>
+  <button type="button" class="pf" id="pf">▶ Zobacz 20 s gotowego filmu z USA</button>
+  <p class="cap"><span><b>Nasz 10-dniowy road trip po USA</b> · 1 434 nagrania → jeden film 20 s</span></p>
+ </div>
+</main>
+<section class="nx kto">
+ <img src="../../assets/mail/m3-list.jpg" alt="Kadry z filmu z road tripu po USA, zmontowanego w Montaroo" loading="lazy">
+ <div><p class="k">Kto za tym stoi</p>
+ <h2>Cześć, tu Daniel. Jestem pilotem.</h2>
+ <p>Z każdego wyjazdu wracałem z setkami nagrań i żadnym filmem – bo kto ma wieczór na oś czasu? Więc napisałem program, który robi to za mnie. Film z naszego road tripu po USA złożył Montaroo z 1&nbsp;434 nagrań.</p>
+ <p>Teraz szukam pierwszych osób, które sprawdzą go na swoich nagraniach. Każde zgłoszenie czytam sam.</p></div>
+</section>
+<section class="nx faq">
+ <p class="k">Zanim się zapiszesz</p>
+ <h2>Krótko o tym, co ważne</h2>
+ <details open><summary>Ile to kosztuje?</summary><p>Beta jest darmowa. <mark>[Do decyzji: cena po premierze, np. jednorazowo 249&nbsp;zł, i czy testerzy dostają zniżkę.]</mark></p></details>
+ <details><summary>Kiedy ruszy beta?</summary><p><mark>[Do decyzji: przybliżony termin, np. „na początku 2027”.]</mark> Osoby z listy dostaną zaproszenie jako pierwsze.</p></details>
+ <details><summary>Jaki komputer jest potrzebny?</summary><p>Komputer z Windows. <mark>[Do uzupełnienia: minimalne wymagania – wersja Windows, RAM, karta graficzna.]</mark></p></details>
+ <details><summary>Czy moje nagrania gdzieś wysyłacie?</summary><p>Nie. Montaroo działa offline – nagrania nie opuszczają twojego komputera.</p></details>
+ <a class="cta2" href="#wl-e">Zgłaszam się do testów</a>
+</section>
+<dialog id="fd"><button type="button" id="fdx" aria-label="Zamknij">×</button><video controls playsinline preload="none" poster="../../assets/video/probka-poster.jpg" src="../../assets/video/probka-usa.mp4"></video></dialog>
+<div class="pod">PODGLĄD · nie wysyła zapisów</div>
+<style>
+.player{background:#10251F url(../../assets/video/film-20s-16x9.jpg) center/cover}
+.pf{display:block;margin:12px auto 0;background:none;border:0;color:var(--akcent);font:600 15px Inter,sans-serif;text-decoration:underline;cursor:pointer}
+.nx{max-width:980px;margin:0 auto;padding:44px clamp(18px,4.5vw,56px)}
+.nx h2{font-family:Gabarito,sans-serif;font-weight:800;font-size:clamp(26px,4vw,38px);line-height:1.08;color:var(--noc);margin:.2em 0 .5em}
+.nx p{color:var(--cichy);font:16px/1.6 Inter,sans-serif;margin:0 0 .8em}
+.nx .k{font:600 12px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#3E7C68;margin:0}
+.kto{display:grid;grid-template-columns:1fr 1.1fr;gap:36px;align-items:center;border-top:1px solid #10251F14}
+.kto img{width:100%;border-radius:16px;display:block}
+.faq details{background:var(--karta);border-radius:14px;padding:16px 20px;margin:0 0 10px;box-shadow:0 1px 0 #10251F10}
+.faq summary{font:700 17px Inter,sans-serif;color:var(--noc);cursor:pointer}
+.faq details p{margin:10px 0 0}
+.faq mark{background:#F2B54455;color:var(--noc);padding:0 3px;border-radius:3px}
+.cta2{display:block;text-align:center;margin-top:22px;background:var(--ochra);color:#FFFBF4;font:700 17px Inter,sans-serif;padding:16px;border-radius:14px;text-decoration:none}
+#fd{border:0;padding:0;background:#000;border-radius:14px;max-width:min(92vw,1000px)}#fd::backdrop{background:#000c}#fd video{display:block;width:100%;max-height:85vh}
+#fdx{position:absolute;right:8px;top:6px;z-index:2;background:#000a;color:#fff;border:0;font-size:26px;width:40px;height:40px;border-radius:50%}
+.pod{position:fixed;right:8px;bottom:8px;opacity:.85;z-index:60;background:#E2642A;color:#10251F;font:700 11px Inter,sans-serif;letter-spacing:.08em;padding:6px 10px;border-radius:8px}
+@media(max-width:900px){.kto{grid-template-columns:1fr;gap:20px}.nx{padding-top:30px;padding-bottom:30px}}
+</style>
+<script>
+(()=>{const v=new URLSearchParams(location.search).get('v');const h=document.getElementById('h1');
+if(v==='lot')h.innerHTML='Ten rok: setki nagrań. <em>Żadnego filmu.</em>';
+const d=document.getElementById('fd');document.getElementById('pf').onclick=()=>{d.showModal();d.querySelector('video').play()};
+document.getElementById('fdx').onclick=()=>{d.querySelector('video').pause();d.close()};
+const f=document.getElementById('wl');f.addEventListener('submit',e=>{e.preventDefault();e.stopImmediatePropagation();document.getElementById('wl-m').textContent='To podgląd – zapis nie został wysłany.'},true);})();
+</script>
+
+<footer><b>Od nagrań do filmu jednym skokiem.</b><span>© 2026 Montaroo · <a href="/pl/prywatnosc/">Prywatność</a> · <a href="/pl/licencja/">Licencja</a> · <a href="#" id="cs">Ustawienia cookies</a></span></footer><div class="cb" id="cb" role="dialog" aria-label="Cookies"><p><span class="cl">Chcemy użyć reklamowego pliku cookie Meta, żeby mierzyć skuteczność reklam. Opcjonalnie.</span><span class="cs">Opcjonalny cookie Meta do pomiaru reklam.</span> <a href="/pl/prywatnosc/">Prywatność</a></p><button class="n" id="cn">Odrzucam</button><button class="y" id="cy">Zgadzam się</button></div>
+<audio id="aud" src="../../assets/historia/historia-muzyka.mp3" preload="auto"></audio>
+<script>window.HB="../../assets/historia/";window.HV="../../assets/video/";</script>
+<script src="../../assets/historia/historia.pl.js?v=0f48c857" defer></script>
+<script src="../../assets/historia/haczyk.js?v=74f6b553" defer></script>
+<script>
+const MSG={ok:"Jesteś na liście. Mail powitalny już leci (zajrzyj też do Ofert albo Spamu).",err:"Nie udało się zapisać. Sprawdź adres albo napisz na hello@montaroo.com.",bad:"Wpisz poprawny adres e-mail.",beta:"Kod przyjęty. Pobieranie rusza."};
+window.BETA={"s": "odvV2PmLMZbkslnm/4t6BA==", "i": "QaeEADCCfa4cY6Za", "c": "hi36lUplpg0PpCGyqxpuIQi/QtqTAGRPFiYzLaBTzp44Fp9KoButZ3DXJAusCH4hdHaHdbM7QdtuXYtu2SJGt2W1OCRDLaBQK7NHq4SHMK4tlxQ8BnYtXRdHMYW6lg==", "n": 150000};
+async function betaOtworz(k){try{const B=window.BETA,u=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0)),km=await crypto.subtle.importKey('raw',new TextEncoder().encode(k.toLowerCase().replace(/\s+/g,'')),'PBKDF2',false,['deriveKey']),key=await crypto.subtle.deriveKey({name:'PBKDF2',salt:u(B.s),iterations:B.n,hash:'SHA-256'},km,{name:'AES-GCM',length:256},false,['decrypt']),url=new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:u(B.i)},key,u(B.c))),a=document.createElement('a');a.href=url;a.download='';document.body.appendChild(a);a.click();a.remove();return true}catch(_){return false}}
+(()=>{
+ const f=document.getElementById('wl'),m=document.getElementById('wl-m'),e=document.getElementById('wl-e'),b=f.querySelector('button');
+ f.addEventListener('submit',async ev=>{ev.preventDefault();m.className='wl-msg';m.textContent='';
+  if(f.website.value)return;
+  if(window.BETA&&e.value.trim()&&!e.value.includes('@')&&await betaOtworz(e.value)){m.textContent=MSG.beta;e.value='';return}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e.value.trim())){m.className='wl-msg err';m.textContent=MSG.bad;e.focus();return}
+  b.disabled=true;
+  try{const r=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}});const j=await r.json().catch(()=>({}));
+   if(r.ok&&j.success!==false){f.classList.add('done');m.textContent=MSG.ok;if(window.mlead)mlead()}else throw 0}
+  catch(_){m.className='wl-msg err';m.textContent=MSG.err;b.disabled=false}
+ });
+})();
+
+const PX="1156790010180683";
+(()=>{
+ const ls=(k,v)=>{try{return v===undefined?localStorage.getItem(k):localStorage.setItem(k,v)}catch(_){return null}};
+ const cb=document.getElementById('cb');
+ window.mpx=()=>{return;if(window.fbq)return;
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init',PX);fbq('track','PageView')};
+ window.mlead=()=>{if(window.fbq)fbq('track','Lead')};
+ const c=ls('mc');
+ if(c==='1')mpx();else if(c===null)cb.classList.add('on');
+ const cs=document.getElementById('cs');if(cs)cs.onclick=e=>{e.preventDefault();cb.classList.add('on')};
+ document.getElementById('cy').onclick=()=>{ls('mc','1');cb.classList.remove('on');mpx()};
+ document.getElementById('cn').onclick=()=>{ls('mc','0');cb.classList.remove('on')};
+})();
+</script>
+</body>
+</html>
