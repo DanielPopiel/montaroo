@@ -254,10 +254,10 @@ if __name__ == '__main__':
         out = os.path.join(ROOT, 'index.html' if k == 'en' else 'pl/index.html')
         os.makedirs(os.path.dirname(out), exist_ok=True)
         html = strona(k)
-        if k == 'pl':   # nowa wersja PL (pl_nowa.py): film v2, hak-pytanie w kadrze, porównanie, FAQ
-            import pl_nowa
-            js = czytaj(os.path.join(AH, 'historia.pl.js')).replace('film-20s-${f}', 'film-20s-${f}-v2')
-            pisz(os.path.join(AH, 'historia.pl.v2.js'), js)
-            html = pl_nowa.ulepsz(html, '../', hashp(os.path.join(AH, 'historia.pl.v2.js')))
+        import nowa_wersja   # nowa wersja strony (nowa_wersja.py): film v2, hak-pytanie w kadrze, porównanie, FAQ
+        jn = 'historia.js' if k == 'en' else 'historia.pl.js'
+        js2 = os.path.join(AH, jn.replace('.js', '.v2.js'))
+        pisz(js2, czytaj(os.path.join(AH, jn)).replace('film-20s-${f}', 'film-20s-${f}-v2'))
+        html = nowa_wersja.ulepsz(html, k, '' if k == 'en' else '../', hashp(js2))
         open(out, 'w', encoding='utf-8', newline='\n').write(html)
         print('ok', out)

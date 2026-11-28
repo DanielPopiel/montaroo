@@ -23,7 +23,7 @@
 @font-face{font-family:Inter;font-weight:400;font-display:swap;src:url(assets/fonts/inter-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-024F}
 @font-face{font-family:Inter;font-weight:600;font-display:swap;src:url(assets/fonts/inter-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+2212}
 @font-face{font-family:Inter;font-weight:600;font-display:swap;src:url(assets/fonts/inter-latin-ext-600-normal.woff2) format("woff2");unicode-range:U+0100-024F}</style>
-<link rel="stylesheet" href="assets/historia/historia.css?v=a1a6cf89"><link rel="stylesheet" href="assets/historia/haczyk.css?v=c51038f5">
+<link rel="stylesheet" href="assets/historia/historia.css?v=a1a6cf89">
 <style>
 .top .logo{height:30px;width:auto;display:block}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
@@ -48,34 +48,109 @@
 </a><a class="lang" href="pl/" hreflang="pl">PL</a></header>
 <main>
  <div class="txt">
-  <p class="k">Free beta · Windows</p>
-  <h1>Turn your trip clips into a film. <em>Automatically.</em></h1>
-  <p class="lead">Drop in the folder of GoPro, DJI and phone clips. Montaroo watches every one, picks the best moments and cuts them to the music, with chapters, a route map and titles. Offline, on your Windows PC.</p>
-  <ul class="chips"><li>No account</li><li>Runs offline</li><li>Free version</li></ul>
+  <p class="k">Looking for beta testers · Windows</p>
+  <h1 id="h1">Hundreds of trip clips. <em>Not a single film?</em></h1>
+  <p class="lead"><b>Montaroo edits it for you.</b> Drop in the folder of GoPro, DJI and phone clips. Montaroo watches every one, picks the best moments and cuts them to the music, with chapters, a route map and titles. Offline, on your Windows PC.</p>
+  <ul class="chips"><li>No account</li><li>Runs offline</li><li>Free beta</li></ul>
   <form class="wl" id="wl" action="https://assets.mailerlite.com/jsonp/2795574/forms/204933044841219500/subscribe" method="post" novalidate>
-   <div class="wl-row"><label class="hp" for="wl-e">Your email</label><input id="wl-e" type="email" name="fields[email]" placeholder="Your email" autocomplete="email" required><button type="submit">Get early access</button></div>
+   <div class="wl-row"><label class="hp" for="wl-e">Your email</label><input id="wl-e" type="email" name="fields[email]" placeholder="Your email" autocomplete="email" required><button type="submit">I want to test it</button></div>
    <div class="hp" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
    <input type="hidden" name="ml-submit" value="1"><input type="hidden" name="anticsrf" value="true">
-   <p class="wl-note">A welcome email now, then one when the Windows beta opens. No spam, unsubscribe any time. <a href="/privacy/">Privacy</a></p>
+   <p class="wl-note"><b>The first testers get the app before launch.</b> A welcome email arrives right away. No spam, unsubscribe any time. <a href="/privacy/">Privacy</a></p>
    <p class="wl-msg" id="wl-m" role="status" aria-live="polite"></p>
   </form>
  </div>
  <div class="scena">
   <div class="stage" id="stage">
    <div class="fx" id="fx" aria-hidden="true"></div>
-   <div class="player"><video id="vid" muted playsinline preload="auto"></video></div>
+   <div class="player"><video id="vid" poster="assets/video/film-20s-16x9-v2.jpg" muted playsinline preload="auto"></video></div>
    <div class="kont"><button id="again" type="button">↺ Replay</button><button id="snd" type="button">🔊 Sound on</button></div>
    <noscript><img class="np" src="assets/video/film-20s-16x9.jpg" alt="Frame from the film Montaroo made from 1,434 road-trip clips"></noscript>
   </div>
   <div class="rozd" id="rozd" role="group" aria-label="Jump to a step"><button type="button" data-t="0">Intro</button><button type="button" data-t="2.531">Phones</button><button type="button" data-t="6.525">Watching</button><button type="button" data-t="10.519">Music</button><button type="button" data-t="12.06">Editing</button><button type="button" data-t="14.512">Film</button></div>
+  <button type="button" class="pf" id="pf">▶ Watch the full USA film (20 s)</button>
   <p class="cap"><span><b>Our 10-day USA road trip</b> · 1,434 clips → one 20-second film</span></p>
  </div>
 </main>
+<section class="nx kto">
+ <img src="assets/mail/m3-list.jpg" alt="Frames from a USA road trip film edited by Montaroo" loading="lazy">
+ <div><p class="k">Who is behind it</p>
+ <h2>Hi, I’m Daniel. I’m an airline pilot.</h2>
+ <p>I came back from every trip with hundreds of clips and no film, because who has an evening for a timeline? So I wrote an app that does it for me. Montaroo put together our USA road trip film from 1,434 clips.</p>
+ <p>Now I’m looking for the first people to try it on their own footage. I read every sign-up myself.</p></div>
+</section>
+<section class="nx por">
+ <p class="k">Know other tools?</p>
+ <h2>How Montaroo differs from PowerDirector and Clipchamp</h2>
+ <div class="ct" role="table" aria-label="Comparison of Montaroo, PowerDirector Auto Edit and Clipchamp auto compose"><div class="cr gl"><span></span><span>Montaroo</span><span>PowerDirector · Auto Edit</span><span>Clipchamp · auto compose</span></div><div class="cr"><span class="cl">What you get</span><span data-m="Montaroo">A full film of the whole trip</span><span data-m="PowerDirector · Auto Edit">A 15 s or 90 s highlight, or a longer cut</span><span data-m="Clipchamp · auto compose">A video from selected shots</span></div><div class="cr"><span class="cl">Chapters by day and a route map</span><span data-m="Montaroo"><span class="cmk">✓</span> Yes</span><span data-m="PowerDirector · Auto Edit"><span class="cmn">–</span> No</span><span data-m="Clipchamp · auto compose"><span class="cmn">–</span> No</span></div><div class="cr"><span class="cl">Order of the trip</span><span data-m="Montaroo"><span class="cmk">✓</span> Always chronological</span><span data-m="PowerDirector · Auto Edit">The app picks the shots</span><span data-m="Clipchamp · auto compose">May change the clip order</span></div><div class="cr"><span class="cl">Where it runs</span><span data-m="Montaroo">On your PC, no internet needed</span><span data-m="PowerDirector · Auto Edit">Desktop app</span><span data-m="Clipchamp · auto compose">App, Microsoft account required</span></div><div class="cr"><span class="cl">Price</span><span data-m="Montaroo">One-time, no subscription (free beta)</span><span data-m="PowerDirector · Auto Edit">Free with a watermark, full version by subscription</span><span data-m="Clipchamp · auto compose">Free, export up to 1080p</span></div></div>
+ <p class="pz"><b>Need a 15-second clip for Instagram?</b> Clipchamp will do. <b>Want a film of the whole trip you’ll still watch years from now?</b> That’s what Montaroo is for.</p>
+ <p class="pzm">Based on information from the makers, as of November 2026.</p>
+</section>
+<section class="nx faq">
+ <p class="k">Before you sign up</p>
+ <h2>The short version</h2>
+ <details open><summary>How much does it cost?</summary><p>The beta is free. After launch Montaroo will be a <b>one-time purchase, no subscription</b>. People on the list get a launch price, and testers who fill in a short survey get <b>50% off</b> the full version.</p></details>
+ <details><summary>When does the beta start?</summary><p>Early 2027. People on the list get the invitation first.</p></details>
+ <details><summary>What computer do I need?</summary><p>A Windows PC. We’ll share the exact requirements with the beta invitation.</p></details>
+ <details><summary>Do you upload my clips anywhere?</summary><p>No. Montaroo works offline, your clips never leave your computer.</p></details>
+ <a class="cta2" href="#wl-e">I want to test it</a>
+</section>
+<dialog id="fd"><button type="button" id="fdx" aria-label="Close">×</button><video controls playsinline preload="none" poster="assets/video/film-20s-16x9-v2.jpg" src="assets/video/film-20s-16x9-v2.mp4"></video></dialog>
+<style>
+.kh{position:absolute;inset:0;z-index:8;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;background:radial-gradient(110% 120% at 50% 40%,#14302aee 0%,#0d1a16f2 60%,#070c0af7 100%);color:#F4E9D6;border-radius:inherit;transition:opacity .45s}
+.kh.out{opacity:0;pointer-events:none}
+.kh .k1{font:600 13px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8FC3AE;margin:0 0 10px}
+.kh .k2{font:800 clamp(28px,4.4vw,46px)/1.05 Gabarito,sans-serif;margin:0 0 22px;max-width:14ch}
+.kh .k2 em{font-style:normal;color:#F2B544}
+.kh button{font:700 16px Inter,sans-serif;border:0;border-radius:999px;padding:13px 24px;cursor:pointer;background:#E2642A;color:#10251F;box-shadow:0 0 0 4px #E2642A40}
+.kh .k3{margin-top:12px;font:400 12px Inter,sans-serif;color:#F4E9D6aa;background:none;border:0;box-shadow:none;padding:4px;text-decoration:underline}
+.kh .kp{position:absolute;left:24px;right:24px;bottom:18px;height:3px;background:#ffffff1f;border-radius:3px;overflow:hidden}.kh .kp i{display:block;height:100%;width:0;background:#F2B544;transition:width 5s linear}
+.player{background:#10251F url(assets/video/film-20s-16x9-v2.jpg) center/cover}
+.pf{display:block;margin:12px auto 0;background:none;border:0;color:var(--akcent);font:600 15px Inter,sans-serif;text-decoration:underline;cursor:pointer}
+.nx{max-width:980px;margin:0 auto;padding:44px clamp(18px,4.5vw,56px)}
+.nx h2{font-family:Gabarito,sans-serif;font-weight:800;font-size:clamp(26px,4vw,38px);line-height:1.08;color:var(--noc);margin:.2em 0 .5em}
+.nx p{color:var(--cichy);font:16px/1.6 Inter,sans-serif;margin:0 0 .8em}
+.nx .k{font:600 12px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#3E7C68;margin:0}
+.kto{display:grid;grid-template-columns:1fr 1.1fr;gap:36px;align-items:center;border-top:1px solid #10251F14}
+.kto img{width:100%;border-radius:16px;display:block}
+.ct{border-radius:16px;overflow:hidden;background:var(--karta);box-shadow:0 1px 0 #10251F10;margin:6px 0 18px}
+.cr{display:grid;grid-template-columns:1.05fr 1.15fr 1fr 1fr;border-top:1px solid #10251F12}
+.cr>span{padding:13px 16px;font:15px/1.45 Inter,sans-serif;color:var(--cichy)}
+.cr>span:nth-child(2){background:#10251F;color:#F4E9D6;font-weight:600}
+.cr .cl{font-weight:700;color:var(--noc)}
+.cr.gl{border-top:0}.cr.gl>span{font:700 13px Inter,sans-serif;letter-spacing:.04em;color:var(--noc)}.cr.gl>span:nth-child(2){color:#F2B544;font-size:15px}
+.ct .cmk{color:#3E7C68;font-weight:800}.cr>span:nth-child(2) .cmk{color:#F2B544}.ct .cmn{color:#10251F55;font-weight:800}
+.pz{font-size:17px!important}.pz b{color:var(--noc)}.pzm{font-size:12px!important;opacity:.75}
+.faq details{background:var(--karta);border-radius:14px;padding:16px 20px;margin:0 0 10px;box-shadow:0 1px 0 #10251F10}
+.faq summary{font:700 17px Inter,sans-serif;color:var(--noc);cursor:pointer}
+.faq details p{margin:10px 0 0}
+.cta2{display:block;text-align:center;margin-top:22px;background:var(--ochra);color:#FFFBF4;font:700 17px Inter,sans-serif;padding:16px;border-radius:14px;text-decoration:none}
+#fd{border:0;padding:0;background:#000;border-radius:14px;max-width:min(92vw,1000px)}#fd::backdrop{background:#000c}#fd video{display:block;width:100%;max-height:85vh}
+#fdx{position:absolute;right:8px;top:6px;z-index:2;background:#000a;color:#fff;border:0;font-size:26px;width:40px;height:40px;border-radius:50%}
+@media(max-width:900px){.kto{grid-template-columns:1fr;gap:20px}.nx{padding-top:30px;padding-bottom:30px}}
+@media(max-width:700px){.cr.gl{display:none}.cr{grid-template-columns:1fr;padding:12px 0 6px}.cr>span{padding:3px 16px;font-size:14px}
+ .cr .cl{font-size:15px;padding-bottom:6px}.cr>span[data-m]::before{content:attr(data-m);display:block;font:700 11px Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase;opacity:.65;margin-bottom:1px}
+ .cr>span:nth-child(2){margin:0 10px 6px;border-radius:10px;padding:8px 12px}.cr>span:nth-child(n+3){padding-bottom:6px}}
+</style>
+<script>
+(()=>{const st=document.getElementById('stage');if(!st)return;document.body.setAttribute('data-hak','');
+const k=document.createElement('div');k.className='kh';
+k.innerHTML='<p class="k1">10 days in the USA · 1,434 clips</p><p class="k2">What will <em>Montaroo</em> make of it?</p><button type="button" data-d="1">▶ Play with sound</button><button type="button" class="k3" data-d="0">without sound</button><div class="kp"><i></i></div>';
+const go=(d,a)=>{if(k.dataset.x)return;k.dataset.x=1;k.classList.add('out');setTimeout(()=>k.remove(),500);const H=window.HIST;if(H){H.skocz(0);H.dzwiek(!!d)}
+ try{if(window.fbq)fbq('trackCustom','HaczykStart',{wariant:'pytanie',dzwiek:d?1:0,auto:a?1:0})}catch(_){}};
+k.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>go(b.dataset.d==='1'));
+const w=setInterval(()=>{if(window.GOTOWE&&window.HIST){clearInterval(w);window.HIST.zamroz(0.2);st.appendChild(k);
+ const io=new IntersectionObserver(e=>{if(e[0].isIntersecting){io.disconnect();requestAnimationFrame(()=>k.querySelector('.kp i').style.width='100%');setTimeout(()=>go(false,1),5000)}},{threshold:.5});io.observe(st);}},60);})();
+(()=>{const v=new URLSearchParams(location.search).get('v');const h=document.getElementById('h1');
+if(v==='lot')h.innerHTML='This year: hundreds of clips. <em>No film.</em>';
+const d=document.getElementById('fd');document.getElementById('pf').onclick=()=>{d.showModal();d.querySelector('video').play()};
+document.getElementById('fdx').onclick=()=>{d.querySelector('video').pause();d.close()};})();
+</script>
+
 <footer><b>Hop from footage to film.</b><span>© 2026 Montaroo · <a href="/privacy/">Privacy</a> · <a href="/eula/">EULA</a> · <a href="#" id="cs">Cookie settings</a></span></footer><div class="cb" id="cb" role="dialog" aria-label="Cookies"><p><span class="cl">We’d like to use Meta’s advertising cookie to measure our ads. Optional.</span><span class="cs">Optional Meta cookie to measure our ads.</span> <a href="/privacy/">Privacy</a></p><button class="n" id="cn">Decline</button><button class="y" id="cy">Accept</button></div>
 <audio id="aud" src="assets/historia/historia-muzyka.mp3" preload="auto"></audio>
 <script>window.HB="assets/historia/";window.HV="assets/video/";</script>
-<script src="assets/historia/historia.js?v=7f3a1b44" defer></script>
-<script src="assets/historia/haczyk.js?v=74f6b553" defer></script>
+<script src="assets/historia/historia.v2.js?v=9daa7675" defer></script>
 <script>
 const MSG={ok:"You’re on the list. A welcome email is on its way (check Promotions or Spam if you don’t see it).",err:"That didn’t go through. Check the address or write to hello@montaroo.com.",bad:"Enter a valid email address.",beta:"Code accepted. Your download is starting."};
 window.BETA={"s": "odvV2PmLMZbkslnm/4t6BA==", "i": "QaeEADCCfa4cY6Za", "c": "hi36lUplpg0PpCGyqxpuIQi/QtqTAGRPFiYzLaBTzp44Fp9KoButZ3DXJAusCH4hdHaHdbM7QdtuXYtu2SJGt2W1OCRDLaBQK7NHq4SHMK4tlxQ8BnYtXRdHMYW6lg==", "n": 150000};
